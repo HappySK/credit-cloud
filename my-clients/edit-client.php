@@ -912,15 +912,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Home</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Edit Client</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="clients-list" class="text-muted">My Clients</a>
+                      <a href="my-clients/clients-list" class="text-muted">My Clients</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="edit-client" class="text-muted">Edit Client</a>
+                      <a href="my-clients/edit-client" class="text-muted">Edit Client</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
