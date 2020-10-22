@@ -3,9 +3,9 @@
 <!--begin::Head-->
 
 <head>
-  <base href="../">
+  <base href="../../">
   <meta charset="utf-8" />
-  <?php require '../config/constants.php'?>
+  <?php require '../../config/constants.php'?>
   <title><?= TITLE ?> | Preview Credit Report</title>
   <meta name="decription" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -83,7 +83,7 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include '../config/aside.php'?>
+      <?php include '../../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <!--begin::Header-->
@@ -390,22 +390,7 @@
                   <!--begin::Notice-->
                   <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
                     <div class="alert-icon">
-                      <span class="svg-icon svg-icon-primary svg-icon-xl">
-                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
-                              fill="#000000" opacity="0.3" />
-                            <path
-                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                      </span>
+                      <img src="assets/img/numbers/one.png" alt="Number One Icon" height="50" width="50">
                     </div>
                     <div class="alert-text">
                       Instructions: The first time you import a credit report for a client, all items are flagged as
@@ -1090,6 +1075,8 @@
                         <td>05/27/2020</td>
                         <td>06/09/2020</td>
                       </tr>
+                    </tbody>
+                    <tbody class="collapse multi-collapse">
                       <tr class="collapse multi-collapse">
                         <td>Date Of Last Activity</td>
                         <td>10/05/2020</td>
@@ -1234,16 +1221,39 @@
 
                         </td>
                       </tr>
+                    </tbody>
+                    <tfoot>
                       <tr>
                         <td colspan="4" class="text-left">
                           <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                            data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse">Show
-                            more details</button>
+                            data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse"
+                            id="show-details-button">Show more details</button>
                         </td>
                       </tr>
-                    </tbody>
+                    </tfoot>
                   </table>
                   <!-- end :: Penny Mac Table -->
+                  <!--begin::Notice-->
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                    <div class="alert-icon">
+                      <img src="assets/img/numbers/two.png" alt="Number One Icon" height="50" width="50">
+                    </div>
+                    <div class="alert-text">
+                      Finished? All "Negative" items that you've tagged with "Reason and Instruction" will be saved as
+                      "Dispute Items" to be merged into letters in the Wizard. Click either blue button to save and
+                      continue.
+                    </div>
+                  </div>
+                  <!--end::Notice-->
+                  <div class="d-flex justify-content-center">
+                    <button href="#" class="btn btn-sm btn-outline-primary mr-2" id="save-work-dispute-wizard">
+                      Save My Work and Continue to my wizard <i class="ml-2 fa fa-2x fa-forward align-self-center"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-primary" id="save-work-dispute-items">
+                      Save My Work and show all my dispute items <i
+                        class="ml-2 fa fa-2x fa-forward align-self-center"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

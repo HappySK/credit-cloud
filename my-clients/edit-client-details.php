@@ -1020,13 +1020,15 @@
                 <div class="card-body">
                   <ul class="nav nav-pills row" id="my-clients-navtabs" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="client-dashboard-tab" data-toggle="tab" href="#client-dashboard"
-                        role="tab" aria-controls="client-dashboard" aria-selected="true">
+                      <a class="nav-link <?php if(!isset($_GET['tab'])) {echo "active";}?>" id="client-dashboard-tab"
+                        data-toggle="tab" href="#client-dashboard" role="tab" aria-controls="client-dashboard"
+                        aria-selected="true">
                         Client Dashboard
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="import-audit-tab" data-toggle="tab" href="#import-audit" role="tab"
+                      <a class="nav-link <?php if($_GET['tab'] === 'import-audit') {echo "active";}?>"
+                        id="import-audit-tab" data-toggle="tab" href="#import-audit" role="tab"
                         aria-controls="import-audit" aria-selected="false">
                         Import / Audit
                       </a>
@@ -1038,13 +1040,15 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="dispute-wizard-tab" data-toggle="tab" href="#dispute-wizard" role="tab"
+                      <a class="nav-link <?php if($_GET['tab'] === 'dispute-wizard') {echo "active";}?>"
+                        id="dispute-wizard-tab" data-toggle="tab" href="#dispute-wizard" role="tab"
                         aria-controls="dispute-wizard" aria-selected="false">
                         Dispute Wizard
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="dispute-items-tab" data-toggle="tab" href="#dispute-items" role="tab"
+                      <a class="nav-link <?php if($_GET['tab'] === 'dispute-items') {echo "active";}?>"
+                        id="dispute-items-tab" data-toggle="tab" href="#dispute-items" role="tab"
                         aria-controls="dispute-item" aria-selected="false">
                         Dispute Items
                       </a>
@@ -1081,23 +1085,26 @@
                     </li>
                   </ul>
                   <div class="tab-content" id="my-clients-nav-content">
-                    <div class="tab-pane fade show active" id="client-dashboard" role="tabpanel"
-                      aria-labelledby="client-dashboard-tab">
+                    <div class="tab-pane fade <?php if(!isset($_GET['tab'])) {echo "show active";}?>"
+                      id="client-dashboard" role="tabpanel" aria-labelledby="client-dashboard-tab">
                       <?php include '../my-clients/client-dashboard.php'?>
                     </div>
-                    <div class="tab-pane fade" id="import-audit" role="tabpanel" aria-labelledby="import-audit-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'import-audit') {echo 'show active';}?>"
+                      id="import-audit" role="tabpanel" aria-labelledby="import-audit-tab">
                       <?php include '../my-clients/import-audit.php' ?>
                     </div>
                     <div class="tab-pane fade" id="pending-report" role="tabpanel" aria-labelledby="pending-report-tab">
                       <?php include '../my-clients/pending-report.php'?>
                     </div>
-                    <div class="tab-pane fade" id="dispute-wizard" role="tabpanel" aria-labelledby="dispute-wizard-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'dispute-wizard') {echo 'show active';}?>"
+                      id="dispute-wizard" role="tabpanel" aria-labelledby="dispute-wizard-tab">
                       <?php include '../my-clients/dispute-wizard.php'?>
                     </div>
-                    <div class="tab-pane fade" id="dispute-items" role="tabpanel" aria-labelledby="dispute-items-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'dispute-items') {echo 'show active';}?>"
+                      id="dispute-items" role="tabpanel" aria-labelledby="dispute-items-tab">
                       <?php include '../my-clients/dispute-items.php'?>
                     </div>
-                    <div class="tab-pane fade" id="educate" role="tabpanel" aria-labelledby="educate-tab">
+                    <div class=" tab-pane fade" id="educate" role="tabpanel" aria-labelledby="educate-tab">
                       <?php include '../my-clients/educate.php'?>
                     </div>
                     <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
@@ -2577,7 +2584,7 @@
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
   <script src="assets/dist/assets/js/pages/custom/chat/chat.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/edit-client.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"

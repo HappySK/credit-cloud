@@ -9,7 +9,7 @@ $details = array('id'=>1,
 'end-date' => '19 OCT 2020',
 'last-login'=> '23 OCT 2020 12:43:00 am',
  'status' => 'Done',
- 'action' => '<a href="#">View</a> | <a href="my-clients/edit-client?client-id=1234">Edit</a> | <a href="#">Delete</a>'
+ 'action' => '<a href="#">View</a> | <a href="my-clients/edit-client-details?client-id=1234">Edit</a> | <a href="#">Delete</a>'
 );
 array_push($data,$details);
 $whole_data = array('data' => $data);
