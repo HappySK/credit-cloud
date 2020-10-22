@@ -504,8 +504,8 @@
                         </div>
                         <div class="col-lg-8"> METHOD 2: Import a credit report from one of these 5 report providers.
                           Your client signs up for a $1 free trial of credit monitoring for instant access to the credit
-                          reports. Next, you login to that account and copy and paste the frame source. <a
-                            href="#">Watch a
+                          reports. Next, you login to that account and copy and paste the frame source.
+                          <a href="#">Watch a
                             QuickVideo.
                           </a>
                         </div>
