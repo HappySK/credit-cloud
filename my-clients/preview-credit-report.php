@@ -1237,8 +1237,8 @@
                       <tr>
                         <td colspan="4" class="text-left">
                           <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                            data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse">Show
-                            more details</button>
+                            data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse"
+                            id="show-details-button">Show more details</button>
                         </td>
                       </tr>
                     </tbody>
