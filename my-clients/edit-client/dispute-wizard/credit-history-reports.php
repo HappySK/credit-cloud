@@ -3,11 +3,11 @@
 <!--begin::Head-->
 
 <head>
-  <base href="../">
+  <base href="../../../">
   <meta charset="utf-8" />
-  <?php require '../config/constants.php'?>
-  <title><?= TITLE ?> | Preview Credit Report</title>
-  <meta name="decription" content="Page with empty content" />
+  <?php require '../../../config/constants.php'?>
+  <title><?= TITLE ?> | Credit History Report</title>
+  <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
@@ -21,7 +21,6 @@
   <link href="assets/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Theme Styles-->
   <!--begin::Layout Themes(used by all pages)-->
   <link href="assets/dist/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
@@ -83,7 +82,7 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include '../config/aside.php'?>
+      <?php include '../../../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <!--begin::Header-->
@@ -244,15 +243,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Preview Credit Report</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Credit History Reports</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="my-clients/clients-list" class="text-muted">My Client</a>
+                      <a href="my-clients/edit-client-details?tab=dispute-wizard" class="text-muted">Dispute Wizard</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client" class="text-muted">Edit Client</a>
+                      <a href="" class="text-muted">Credit History Report</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -350,902 +349,193 @@
             <div class="container">
               <div class="card">
                 <div class="card-header pb-0">
-                  <div class="card-title d-flex justify-content-between">
-                    <h5>Preview Credit Report (Kenneth Johnson)</h5>
-                    <!-- Button trigger modal-->
-                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                      data-target="#quick-video-modal">
-                      <i class="fa fa-play"></i>
-                      Watch Quick Video
-                    </button>
-                    <!-- Modal-->
-                    <div class="modal fade" id="quick-video-modal" tabindex="-1" role="dialog"
-                      aria-labelledby="watch-quick-video-button" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title">Watch Quick Video</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <i aria-hidden="true" class="ki ki-close"></i>
-                            </button>
+                  <div class="card-title">
+                    <h5>Credit Wizard (Kenneth Johnson)</h5>
+                    <h4 class="mt-5">
+                      Step
+                      <img src="assets/img/numbers/one.png" class="ml-1 mr-1" alt="Number One Icon" height="50"
+                        width="50">
+                      ORDER YOUR CREDIT HISTORY REPORTS
+                    </h4>
+                    <!--begin::Notice-->
+                    <div class="bg-light alert alert-custom alert-white alert-shadow gutter-b m-3" role="alert">
+                      <div class="alert-icon">
+                        <span class="svg-icon svg-icon-primary svg-icon-xl">
+                          <i class="fa fa-3x fa-lightbulb-o" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                      <div class="alert-text">
+                        Your first step is to obtain new current copies of your client's credit reports from Equifax,
+                        Experian and Transunion. Your client is entitled to one free copy of each per year from "Annual
+                        Credit Report Service" (A). For credit reports that can be imported from Privacy Guard or other
+                        compatible providers, choose (D). If you want to import online credit reports , learn first with
+                        your Sample Client and Sample Report and never with a live client. Show Overview.
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                  </div>
+                </div>
+                <div class="card-body align-self-center">
+                  <ul class="list-unstyled">
+                    <li class="media">
+                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                        <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/a_blue_big.png"
+                          alt="Generic placeholder image">
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1">ORDER FREE ANNUAL REPORTS BY MAIL</h5>
+                          Generate letter (to send my mail) to "Annual Credit Report Service" (no scores / credit to
+                          import)
+                        </div>
+                      </a>
+                    </li>
+                    <li class="media my-4">
+                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                        <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/b_blue_big.png"
+                          alt="Generic placeholder image">
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1">ORDER FREE ANNUAL REPORTS ONLINE</h5>
+                          Connect to the "Annual Credit Report Service website (no scores / not recommended)"
+                        </div>
+                      </a>
+                    </li>
+                    <li class="media my-4">
+                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                        <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/c_blue_big.png"
+                          alt="Generic placeholder image">
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1">REQUEST CREDIT REPORTS BY MAIL</h5>
+                          Generate all other requests (by mail) directly to the credit bureau (not recommended)
+                        </div>
+                      </a>
+                    </li>
+                    <li class="media">
+                      <button class=" btn btn-light d-flex w-100" id="fav-provider">
+                        <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/d_blue_big.png"
+                          alt="Generic placeholder image">
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1">ORDER REPORT FROM MY FAVOURITE PROVIDER</h5>
+                          <div class="d-flex align-items-center justify-content-around">
+                            Add a provider for importing online credit reports
+                            <a type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                              href="#modify-modal">
+                              Modify
+                            </a>
                           </div>
-                          <div class="modal-body">
-                            <div class="embed-responsive embed-responsive-16by9">
-                              <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                            </div>
+                        </div>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                  <a href="my-clients/edit-client-details?tab=dispute-wizard" class="btn btn-sm btn-outline-primary">
+                    <i class="fa fa-backward"></i>
+                    Back
+                  </a>
+                  <p>To import credit reports and scores we recommend PrivacyGuard.com.
+                    <a href="my-clients/edit-client-details?tab=import-audit">Click here for details.</a>
+                  </p>
+                  <a href="my-clients/edit-client/dispute-wizard/review-credit-reports"
+                    class="btn btn-sm btn-outline-primary">
+                    Step 2
+                    <i class="fa fa-forward"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- begin :: modify modal -->
+              <div class="modal fade" id="modify-modal" tabindex="-1" role="dialog"
+                aria-labelledby="modify-modal-button" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modify-modal-button">Favourite Provider</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Add link of provider for importing online credit reports
+                      <input type="url" class="form-control mt-2" name="link-provider" id="link-provider">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light-primary font-weight-bold"
+                        data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary font-weight-bold" data-dismiss="modal">Save
+                        changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end :: modify modal -->
+              <!-- begin :: instructions Modal -->
+              <div class="modal hide" id="instructions-modal" aria-labelledby="staticBackdrop" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="instructions-modal-label">Credit Report Overview</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close dismiss"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>The first step is to have your client order new credit reports from all 3 bureaus. Here are the
+                        2 methods.</p>
+                      <h5>Watch these two videos</h5>
+                      <div class="row align-items-center">
+                        <div class="col-lg-4">
+                          <div class="card">
+                            <a class="btn btn-light">
+                              <i class="fa fa-3x fa-play text-primary"></i>
+                            </a>
                           </div>
+                        </div>
+                        <div class="col-lg-8">
+                          METHOD 1: You can use free annual reports, a pdf or any fresh new 3 bureau report provided by
+                          your client. Next, enter the dispute items manually into Wizard 3. <a href="#">Watch a Quick
+                            Video.</a>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col-lg-4">
+                          <div class="card">
+                            <a class="btn btn-light">
+                              <i class="fa fa-3x fa-play text-primary text-center"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-lg-8"> METHOD 2: Import a credit report from one of these 5 report providers.
+                          Your client signs up for a $1 free trial of credit monitoring for instant access to the credit
+                          reports. Next, you login to that account and copy and paste the frame source. <a
+                            href="#">Watch a
+                            QuickVideo.
+                          </a>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col-lg-4">
+                          <div class="card">
+                            <a class="btn btn-light">
+                              <i class="fa fa-3x fa-play text-primary"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-lg-8">As you can see, both methods are fast. Importing is a bit faster, but it's
+                          a technical skill to learn and it requires <a href="www.google.com">Google Chrome</a> and <a
+                            Add Right-Click Extension href="#"></a> for
+                          Chrome. Learn first with your <a href="#">Sample Client</a> and <a href="#">Sample Report</a>
+                          instead of a
+                          live client.
                         </div>
                       </div>
                     </div>
-                    <!-- end-modal -->
-                  </div>
-                  <div class="d-flex justify-content-end m-1">
-                    <a href="#" class="btn btn-sm btn-outline-primary mr-2">Delete the Pending Credit Report</a>
-                    <a href="#" class="btn btn-sm btn-outline-primary">Save this report as pending and finish
-                      later</a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
-                    <div class="alert-icon">
-                      <span class="svg-icon svg-icon-primary svg-icon-xl">
-                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
-                              fill="#000000" opacity="0.3" />
-                            <path
-                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                      </span>
-                    </div>
-                    <div class="alert-text">
-                      Instructions: The first time you import a credit report for a client, all items are flagged as
-                      "negative" or "positive." For a new client, there's no reason to change any item's status (unless
-                      it is incorrect). Your goal here is to create "dispute items" for the wizard. To do this, scroll
-                      down this page, look for "Negative" items highlighted red and choose a "Reason and Instructions"
-                      for each. When you get to the bottom, click to save and continue. <a href="#">Click here for
-                        a
-                        video demo.</a>
-                      **If the report below has no data, that means you have not imported the correct credit report
-                      source code. <a href="#">Click here for help with this task.</a>
+                    <div class="modal-footer d-flex justify-content-between">
+                      <button type="button" class="btn btn-light-primary font-weight-bold dismiss"
+                        data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary font-weight-bold dismiss">Next</button>
                     </div>
                   </div>
-                  <!--end::Notice-->
-                  <div class="d-flex justify-content-end">
-                    <p class="mr-2"><strong>Saved on </strong>: 12/12/2020</p>
-                    <p><strong>Provider</strong> : Smart Credit</p>
-                  </div>
-                  <!-- begin :: table-Personal Profile -->
-                  <table class="table table-bordered border-rounded table-responsive-sm table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Transunion</th>
-                        <th>Experian</th>
-                        <th>Equifax</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Personal Profile</th>
-                        <td colspan="3">
-                          Personal information as it appears on the credit file. Check carefully, as inaccuracies can
-                          mean identity theft. if any personal information is incorrect, click the record to save it as
-                          a saved dispute item for the wizard
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Score</td>
-                        <td>
-                          558
-                        </td>
-                        <td>
-                          556
-                        </td>
-                        <td>
-                          547
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Credit Repair Date</td>
-                        <td>
-                          12/12/2020
-                        </td>
-                        <td>
-                          30/03/2020
-                        </td>
-                        <td>
-                          21/05/2020
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Name</td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Also Known as</td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Date Of Birth</td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Current Address</td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                        <td>
-                          Kenneth Johnson
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Employers</td>
-                        <td>
-                          <li>MillerCoors</li>
-                          <li>CooperTiresCoors</li>
-                        </td>
-                        <td>
-                          <li>MillerCoors</li>
-                          <li>CooperTiresCoors</li>
-                        </td>
-                        <td>
-                          <li>MillerCoors</li>
-                          <li>CooperTiresCoors</li>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Previous Address</td>
-                        <td>
-                          Mexico, New York
-                        </td>
-                        <td>
-                          Mexico, New York
-                        </td>
-                        <td>
-                          Mexico, New York
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- end :: table-Personal Profile -->
-                  <!-- begin :: table Credit Summary -->
-                  <table class="table table-bordered border-rounded table-responsive-sm table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Transunion</th>
-                        <th>Experian</th>
-                        <th>Equifax</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Credit Summary</th>
-                        <td colspan="3">
-                          An overview of present and past credit status including open and closed accounts and balance
-                          information
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Total Accounts</td>
-                        <td>
-                          16
-                        </td>
-                        <td>
-                          16
-                        </td>
-                        <td>
-                          22
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Open Accounts</td>
-                        <td>
-                          5
-                        </td>
-                        <td>
-                          4
-                        </td>
-                        <td>
-                          11
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Closed Accounts</td>
-                        <td>
-                          11
-                        </td>
-                        <td>
-                          9
-                        </td>
-                        <td>
-                          11
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Delinquent</td>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          3
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Derogatory</td>
-                        <td>
-                          9
-                        </td>
-                        <td>
-                          7
-                        </td>
-                        <td>
-                          --
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Balances</td>
-                        <td>
-                          $371,895
-                        </td>
-                        <td>
-                          $317,456
-                        </td>
-                        <td>
-                          $317,896
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Payments</td>
-                        <td>
-                          $3,132
-                        </td>
-                        <td>
-                          $3,321
-                        </td>
-                        <td>
-                          $3,432
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Public Records</td>
-                        <td>
-                          0
-                        </td>
-                        <td>
-                          0
-                        </td>
-                        <td>
-                          0
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">Inquiries (2 Years)</td>
-                        <td>
-                          6
-                        </td>
-                        <td>
-                          3
-                        </td>
-                        <td>
-                          9
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- end :: table Credit Summary -->
-                  <!-- begin :: table Credit Inquiries -->
-                  <table class="table table-bordered border-rounded table-responsive-sm table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Transunion</th>
-                        <th>Experian</th>
-                        <th>Equifax</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Credit Inquiries</th>
-                        <td colspan="3">
-                          Organizations who have obtained a copy of your Credit Report. Inquiries can remain on a credit
-                          file for up to two years.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>EXETER FIN</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>SANTANDER CONSUMER USA</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>CAPITAL CONN</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>REGIONAL ACC</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>COAF</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>FLAGSHIP CRE</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>CAPITAL ONE AUTO FIN</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>LENDMARK</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>C & F</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>FLAGSHIPCR</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>AMERICREDI</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>CAP ONE AF</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>ALLYFINANC</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>GLOBALLEND</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>WSTLAKENCM</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>CUDL/LSFCU</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>FIVE STAR NI</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>FIVE STAR NISSAN OF AL</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>FIVESTARAL</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                      <tr>
-                        <td scope="row">
-                          <p>ELANFINANC</p>
-                          <p>10/29/2020</p>
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <input type="checkbox">
-                          Click to dispute this query
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- end :: table Credit Inquiries -->
-                  <!-- begin :: table public records -->
-                  <table class="table table-bordered border-rounded table-responsive-sm table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Transunion</th>
-                        <th>Experian</th>
-                        <th>Equifax</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>Public Records</th>
-                        <td colspan="3">
-                          Public records include bankruptcy filings, court records, tax liens and monetary judgments.
-                          remain for 7 -10 years.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="4">
-                          No Records Found
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- end :: table public records -->
-                  <!-- begin ::table account History -->
-                  <table class="table table-bordered table-hover text-center">
-                    <thead>
-                      <tr>
-                        <th>Account History</th>
-                        <td colspan="3">
-                          Accounts "paid as agreed" can remain on a report for 10 years from last activity. Negatives
-                          should be removed after 7 years or 10 years for bankruptcies.
-                        </td>
-                      </tr>
-                    </thead>
-                  </table>
-                  <!-- end table account history -->
-                  <!-- begin :: Penny Mac table -->
-                  <table class="table table-hover table-bordered text-center" id="penny-mac-table">
-                    <thead>
-                      <tr>
-                        <th>
-                        <td colspan="3">
-                          Penny Mac
-                        </td>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Account Name</td>
-                        <td>Penny Mac</td>
-                        <td>Penny Mac</td>
-                        <td>Penny Mac</td>
-                      </tr>
-                      <tr>
-                        <td>Account Number</td>
-                        <td>SSE001800763****</td>
-                        <td>SSE001800763****</td>
-                        <td>SSE001800763****</td>
-                      </tr>
-                      <tr>
-                        <td>High Balance</td>
-                        <td>$276,450</td>
-                        <td>$345,321</td>
-                        <td>$234,453</td>
-                      </tr>
-                      <tr>
-                        <td>Last Verified</td>
-                        <td>05/21/2020</td>
-                        <td>05/27/2020</td>
-                        <td>06/09/2020</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Date Of Last Activity</td>
-                        <td>10/05/2020</td>
-                        <td>11/11/2020</td>
-                        <td>12/01/2020</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Date Reported</td>
-                        <td>01/21/2020</td>
-                        <td>05/30/2020</td>
-                        <td>06/09/2020</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Date Opened</td>
-                        <td>11/11/2020</td>
-                        <td>16/08/2020</td>
-                        <td>24/02/2020</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Balance Owed</td>
-                        <td>$214,453</td>
-                        <td>$324,654</td>
-                        <td>$653,532</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Close Date</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Account Rating</td>
-                        <td>Open</td>
-                        <td>Open</td>
-                        <td>Open</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Account Description</td>
-                        <td>Individual</td>
-                        <td>Individual</td>
-                        <td>Individual</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Dispute Status</td>
-                        <td>Account Not Disputed</td>
-                        <td>Account Not Disputed</td>
-                        <td>Account Not Disputed</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Creditor Type</td>
-                        <td>Finance / Personal</td>
-                        <td>Mortgage Companies</td>
-                        <td>Mortgage Companies</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Account Status</td>
-                        <td>Open</td>
-                        <td>Open</td>
-                        <td>Open</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Payment Status</td>
-                        <td>Current</td>
-                        <td>Current</td>
-                        <td>Current</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Credit Remarks</td>
-                        <td></td>
-                        <td></td>
-                        <td>Real Estate Mortgage FHA Mortgage</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Payment Amount</td>
-                        <td>$1,871</td>
-                        <td>$1,871</td>
-                        <td>$1,871</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Last Payment</td>
-                        <td>10/01/2020</td>
-                        <td>10/01/2020</td>
-                        <td>10/01/2020</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Term Length</td>
-                        <td>360 Months</td>
-                        <td>360 Months</td>
-                        <td>360 Months</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Past Due Amount</td>
-                        <td>$0</td>
-                        <td>$0</td>
-                        <td>$0</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Account Type</td>
-                        <td>FHA Real Estate Mortgage</td>
-                        <td>FHA Real Estate Mortgage</td>
-                        <td>Real Estate Mortgage</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Payment Frequency</td>
-                        <td>Monthly (Every Month)</td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Credit Limit</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Last Payment Status</td>
-                        <td>Was 30 days late 15 time(s). Was 60 days late 2 time(s). Was 90 days late 1 time(s).</td>
-                        <td>Was 30 days late 15 time(s). Was 60 days late 2 time(s). Was 90 days late 1 time(s).</td>
-                        <td>Was 30 days late 15 time(s). Was 60 days late 2 time(s). Was 90 days late 1 time(s).</td>
-                      </tr>
-                      <tr class="collapse multi-collapse">
-                        <td>Status</td>
-                        <td>
-                          <select name="status-1" id="status-1" class="custom-select status">
-
-                          </select>
-                        </td>
-                        <td>
-                          <select name="status-2" id="status-2" class="custom-select status">
-
-                          </select>
-                        </td>
-                        <td>
-                          <select name="status-2" id="status-3" class="custom-select status">
-
-                          </select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Add Reason </td>
-                        <td colspan="2">
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="4" class="text-left">
-                          <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                            data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse"
-                            id="show-details-button">Show more details</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- end :: Penny Mac Table -->
                 </div>
               </div>
+              <!-- end :: instructions modal -->
             </div>
             <!--end::Container-->
           </div>
@@ -1253,13 +543,13 @@
         </div>
         <!--end::Content-->
         <!--begin::Footer-->
-        <div class=" footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
+        <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
           <!--begin::Container-->
           <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
             <!--begin::Copyright-->
             <div class="text-dark order-2 order-md-1">
               <span class="text-muted font-weight-bold mr-2">2020©</span>
-              <a href="#" class="text-dark-75 text-hover-primary"><?php TITLE ?></a>
+              <a href="#" class="text-dark-75 text-hover-primary"><?= TITLE ?></a>
             </div>
             <!--end::Copyright-->
             <!--begin::Nav-->
@@ -1268,7 +558,7 @@
                   aria-hidden="true"></i></a>
               <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-instagram-logo icon-2x text-danger"
                   aria-hidden="true"></i></a>
-              <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-twitter-logo-button icon-2x text-info"
+              <a href="#" class="nav-link pl-0 pr-0"><i class="flaticon-twitter-logo-button icon-2x text-info"
                   aria-hidden="true"></i></a>
             </div>
             <!--end::Nav-->
@@ -1299,8 +589,7 @@
       <!--begin::Header-->
       <div class="d-flex align-items-center mt-5">
         <div class="symbol symbol-100 mr-5">
-          <div class="symbol-label" style="background-image:url('assets/dist/assets/media/users/300_21.jpg')">
-          </div>
+          <div class="symbol-label" style="background-image:url('assets/dist/assets/media/users/300_21.jpg')"></div>
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
@@ -1489,8 +778,7 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
-              purpose
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1547,8 +835,7 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
-              would be to
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1795,8 +1082,7 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top
-                  Authors</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">+82$</span>
@@ -1825,8 +1111,7 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
-                  Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1889,8 +1174,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
-                  purpose
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
                   persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1919,8 +1203,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
-                  be to
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
                   people</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1948,8 +1231,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
-                  would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1987,8 +1269,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
-                  best
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
                   product</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -2458,8 +1739,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -2481,8 +1761,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on
-                    GitHub.
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.
                   </div>
                 </div>
                 <!--end::Message Out-->
@@ -2493,8 +1772,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2526,8 +1804,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2551,8 +1828,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed
-                  </div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -2562,8 +1838,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2585,8 +1860,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided
-                  </div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -2709,8 +1983,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -2724,12 +1997,7 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
-  <!-- begin :: datatable scripts -->
-  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-  <!-- end :: datatable scripts -->
-  <!-- begin :: ajax for datatable -->
-  <script src="assets/js/preview-credit-report.js"></script>
-  <!-- end :: ajax for datatable -->
+  <script src="assets/js/credit-history-reports.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
