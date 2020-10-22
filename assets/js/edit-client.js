@@ -11,9 +11,16 @@ $(document).ready(function () {
 		sweet_alert();
 	});
 
+<<<<<<< HEAD
 	$("#dispute-wizard-tab,#dispute-items-tab,#educate-tab").click(function () {
 		setTimeout(sweet_alert, 5000);
 	});
+=======
+	$('#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
+		setTimeout(sweet_alert,5000)
+	})
+
+>>>>>>> 9537315890a295dc87f7ecbb6a36f0cef925c43a
 });
 
 function sweet_alert() {
