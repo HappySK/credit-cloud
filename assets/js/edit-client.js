@@ -11,10 +11,9 @@ $(document).ready(function () {
 		sweet_alert();
 	});
 
-	$('#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
-		setTimeout(sweet_alert,5000)
-	})
-
+	$("#dispute-wizard-tab,#dispute-items-tab,#educate-tab").click(function () {
+		setTimeout(sweet_alert, 5000);
+	});
 });
 
 function sweet_alert() {

@@ -5,13 +5,11 @@ $(document).ready(function () {
 		} else if ($(this).text() == "Hide Details") {
 			$(this).text("Show more details");
 		}
-  });
-  $("#save-work-dispute-wizard").click(function () {
-    window.location.href="my-clients/edit-client-details?tab=dispute-wizard"
-  });
-  $("#save-work-dispute-items").click(function () {
-    window.location.href="my-clients/edit-client-details?tab=dispute-items"
-  });
+	});
+	$("#save-work-dispute-wizard").click(function () {
+		window.location.href = "my-clients/edit-client-details?tab=dispute-wizard";
+	});
+	$("#save-work-dispute-items").click(function () {
+		window.location.href = "my-clients/edit-client-details?tab=dispute-items";
+	});
 });
-
-
