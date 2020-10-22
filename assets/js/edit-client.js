@@ -6,27 +6,9 @@ $(document).ready(function () {
 			$(this).text("Advanced Search");
 		}
 	});
-
-	$("#reimport-credit-report-btn").click(function (e) {
-		sweet_alert();
-	});
-
-<<<<<<< HEAD
-	$("#dispute-wizard-tab,#dispute-items-tab,#educate-tab").click(function () {
-		setTimeout(sweet_alert, 5000);
-	});
-=======
-<<<<<<< HEAD
-	$("#dispute-wizard-tab,#dispute-items-tab,#educate-tab").click(function () {
-		setTimeout(sweet_alert, 5000);
-	});
-=======
 	$('#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
 		setTimeout(sweet_alert,5000)
 	})
-
->>>>>>> 9537315890a295dc87f7ecbb6a36f0cef925c43a
->>>>>>> 99d5c3f5c0a4b16e40beab4d18edea132ae5e27c
 });
 
 function sweet_alert() {
