@@ -378,7 +378,8 @@
                 <div class="card-body align-self-center">
                   <ul class="list-unstyled">
                     <li class="media">
-                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                      <a href="my-clients/edit-client/dispute-wizard/step1a"
+                        class="btn btn-light d-flex align-items-center w-100">
                         <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/a_blue_big.png"
                           alt="Generic placeholder image">
                         <div class="media-body">
@@ -399,7 +400,8 @@
                       </a>
                     </li>
                     <li class="media my-4">
-                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                      <a href="my-clients/edit-client/dispute-wizard/step1c"
+                        class="btn btn-light d-flex align-items-center w-100">
                         <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/c_blue_big.png"
                           alt="Generic placeholder image">
                         <div class="media-body">
@@ -426,19 +428,21 @@
                     </li>
                   </ul>
                 </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <a href="my-clients/edit-client-details?tab=dispute-wizard" class="btn btn-sm btn-outline-primary">
-                    <i class="fa fa-backward"></i>
-                    Back
-                  </a>
-                  <p>To import credit reports and scores we recommend PrivacyGuard.com.
-                    <a href="my-clients/edit-client-details?tab=import-audit">Click here for details.</a>
-                  </p>
-                  <a href="my-clients/edit-client/dispute-wizard/review-credit-reports"
-                    class="btn btn-sm btn-outline-primary">
-                    Step 2
-                    <i class="fa fa-forward"></i>
-                  </a>
+                <div class="card-footer">
+                  <div class="d-flex justify-content-between">
+                    <a href="my-clients/edit-client-details?tab=dispute-wizard" class="btn btn-sm btn-outline-primary">
+                      <i class="fa fa-backward"></i>
+                      Back
+                    </a>
+                    <p class="m-3">To import credit reports and scores we recommend PrivacyGuard.com.
+                      <a href="my-clients/edit-client-details?tab=import-audit">Click here for details.</a>
+                    </p>
+                    <a href="my-clients/edit-client/dispute-wizard/review-credit-reports"
+                      class="btn btn-sm btn-outline-primary">
+                      Step 2
+                      <i class="fa fa-forward"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
               <!-- begin :: modify modal -->
@@ -542,30 +546,7 @@
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <!--begin::Footer-->
-        <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
-          <!--begin::Container-->
-          <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-            <!--begin::Copyright-->
-            <div class="text-dark order-2 order-md-1">
-              <span class="text-muted font-weight-bold mr-2">2020©</span>
-              <a href="#" class="text-dark-75 text-hover-primary"><?= TITLE ?></a>
-            </div>
-            <!--end::Copyright-->
-            <!--begin::Nav-->
-            <div class="nav nav-dark">
-              <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-facebook-logo-button icon-2x text-success"
-                  aria-hidden="true"></i></a>
-              <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-instagram-logo icon-2x text-danger"
-                  aria-hidden="true"></i></a>
-              <a href="#" class="nav-link pl-0 pr-0"><i class="flaticon-twitter-logo-button icon-2x text-info"
-                  aria-hidden="true"></i></a>
-            </div>
-            <!--end::Nav-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::Footer-->
+        <?php include '../../../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>
