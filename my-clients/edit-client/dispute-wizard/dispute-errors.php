@@ -385,12 +385,12 @@
                   <div class="d-flex justify-content-start m-3 align-items-center">
                     <img src="https://app.creditrepaircloud.com/application/images/a_blue_big.png" alt="Image A"
                       class="m-2">
-                    <div>
-                      <input type="radio" name="rounds" id="round-1" class="align-middle">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="rounds" id="round-1" class="align-middle form-check-input">
                       <label for="round-1">Round 1: Basic Dispute (Credit Bureaus) </label>
                     </div>
-                    <div class="m-2">
-                      <input type="radio" name="rounds" id="round-2" class="align-middle m-2">
+                    <div class="m-2 form-check form-check-inline">
+                      <input type="radio" name="rounds" id="round-2" class="align-middle m-2 form-check-input">
                       <label for=" round-2">
                         Round 2 (or higher): All other letters (Credit Bureaus, Creditor/Furnishers
                         or Collections)
@@ -409,14 +409,14 @@
                   <div class="d-flex justify-content-start m-3 align-items-center">
                     <img src="https://app.creditrepaircloud.com/application/images/c_blue_big.png" alt="Image B"
                       class="m-2">
-                    <strong>Choose a letter :</strong>
+                    <strong>Choose a letter </strong>
                     <div class="button-group ml-5">
-                      <div class=" form-inline">
-                        <input type="radio" name="modes" class="m-2" id="guided-mode">
+                      <div class="form-check form-check-inline">
+                        <input type="radio" name="modes" class="m-2 form-check-input" id="guided-mode">
                         <label for="guided-mode">Use New Letter Finder Tool (Guided Mode)</label>
                       </div>
-                      <div class="form-inline">
-                        <input type="radio" name="modes" class="m-2" id="expert-mode">
+                      <div class="form-check form-check-inline">
+                        <input type="radio" name="modes" class="m-2 form-check-input" id="expert-mode">
                         <label for="expert-mode">Choose a letter from library (Expert Mode)</label>
                       </div>
                     </div>
@@ -427,7 +427,7 @@
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary">
+                    <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
                       It is important to have your clients order their own credit reports. Click Here
                     </a>
                     <a href="my-clients/edit-client/dispute-wizard/step1a-letter"
@@ -443,7 +443,7 @@
                     give credit or legal advice.
                   </p>
                   <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light w-100" role="alert">
                     <div class="alert-icon">
                       <i class="fa fa-2x fa-lightbulb text-warning"></i>
                     </div>
@@ -471,30 +471,7 @@
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <!--begin::Footer-->
-        <div class=" footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
-          <!--begin::Container-->
-          <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-            <!--begin::Copyright-->
-            <div class="text-dark order-2 order-md-1">
-              <span class="text-muted font-weight-bold mr-2">2020©</span>
-              <a href="#" class="text-dark-75 text-hover-primary"><?= TITLE ?></a>
-            </div>
-            <!--end::Copyright-->
-            <!--begin::Nav-->
-            <div class="nav nav-dark">
-              <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-facebook-logo-button icon-2x text-success"
-                  aria-hidden="true"></i></a>
-              <a href="#" class="nav-link pl-0 pr-5"><i class="flaticon-instagram-logo icon-2x text-danger"
-                  aria-hidden="true"></i></a>
-              <a href="#" class="nav-link pl-0 pr-0"><i class="flaticon-twitter-logo-button icon-2x text-info"
-                  aria-hidden="true"></i></a>
-            </div>
-            <!--end::Nav-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::Footer-->
+        <?php include '../../../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>

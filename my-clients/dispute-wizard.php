@@ -43,7 +43,7 @@
         </div>
       </div>
     </a>
-    <a href="my-clients/edit-client/dispute-wizard/step3" class="m-2 btn btn-light w-100">
+    <a href="my-clients/edit-client/dispute-wizard/dispute-errors" class="m-2 btn btn-light w-100">
       <div class="media">
         <img src="assets/img/numbers/three.png" class="align-self-center mr-2" alt="Number Three Icon" height="50"
           width="50">
