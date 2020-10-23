@@ -6,7 +6,7 @@ $(document).ready(function () {
 			$(this).text("Advanced Search");
 		}
 	});
-	$('#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
+	$('#import-audit-tab,#pending-report-tab,#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
 		setTimeout(sweet_alert,5000)
 	})
 });
