@@ -428,19 +428,21 @@
                     </li>
                   </ul>
                 </div>
-                <div class="card-footer d-flex justify-content-between">
-                  <a href="my-clients/edit-client-details?tab=dispute-wizard" class="btn btn-sm btn-outline-primary">
-                    <i class="fa fa-backward"></i>
-                    Back
-                  </a>
-                  <p>To import credit reports and scores we recommend PrivacyGuard.com.
-                    <a href="my-clients/edit-client-details?tab=import-audit">Click here for details.</a>
-                  </p>
-                  <a href="my-clients/edit-client/dispute-wizard/review-credit-reports"
-                    class="btn btn-sm btn-outline-primary">
-                    Step 2
-                    <i class="fa fa-forward"></i>
-                  </a>
+                <div class="card-footer">
+                  <div class="d-flex justify-content-between">
+                    <a href="my-clients/edit-client-details?tab=dispute-wizard" class="btn btn-sm btn-outline-primary">
+                      <i class="fa fa-backward"></i>
+                      Back
+                    </a>
+                    <p class="m-3">To import credit reports and scores we recommend PrivacyGuard.com.
+                      <a href="my-clients/edit-client-details?tab=import-audit">Click here for details.</a>
+                    </p>
+                    <a href="my-clients/edit-client/dispute-wizard/review-credit-reports"
+                      class="btn btn-sm btn-outline-primary">
+                      Step 2
+                      <i class="fa fa-forward"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
               <!-- begin :: modify modal -->

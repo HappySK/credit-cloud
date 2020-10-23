@@ -362,27 +362,27 @@
                     annualcreditreport.com, call (877) 322-8228, or complete the Annual Credit Report Request below
                     and mail it to: Annual Credit Report Request Service, P.O. Box 105281, Atlanta, GA 30348-5281.
                   </p>
-                  <div class="d-flex justify-content-around my-4">
+                  <div class="d-flex justify-content-around flex-wrap m-4">
                     <h6>I Want a free annual credit report from (Check all that apply) </h6>
-                    <div>
-                      <input type="checkbox" class="align-middle" name="equifax" id="equifax">
+                    <div class="form-inline m-3">
+                      <input type="checkbox" class="align-middle m-1" name="equifax" id="equifax">
                       <label for="equifax">Equifax</label>
                     </div>
-                    <div>
-                      <input type="checkbox" class="align-middle" name="experian" id="experian">
+                    <div class="form-inline m-3">
+                      <input type="checkbox" class="align-middle m-1" name="experian" id="experian">
                       <label for="experian">Experian</label>
                     </div>
-                    <div>
-                      <input type="checkbox" class="align-middle" name="transunion" id="transunion">
+                    <div class="form-inline m-3">
+                      <input type="checkbox" class="align-middle m-1" name="transunion" id="transunion">
                       <label for="transunion">Transunion</label>
                     </div>
                   </div>
-                  <div class="d-flex">
+                  <div class="d-flex flex-wrap">
                     <h6 class="mr-3">Reason :</h6>
                     I am requesting my annual complimentary credit report
                   </div>
                   <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light w-100" role="alert">
                     <div class="alert-icon">
                       <i class="fa fa-2x fa-lightbulb text-warning"></i>
                     </div>
@@ -399,7 +399,7 @@
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary">
+                    <a href="#" class="btn btn-sm btn-outline-primary ml-4 mr-4">
                       It is important to have your clients order their own credit reports. Click Here
                     </a>
                     <a href="my-clients/edit-client/dispute-wizard/step1a-letter"

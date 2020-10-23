@@ -227,27 +227,27 @@
                     also include a photocopy of the credit history report with the disputed items circled.
                   </p>
                   <div class="button-group d-flex justify-content-around">
-                    <a href="my-clients/edit-client/dispute-wizard/step1a" class="btn btn-sm btn-outline-primary">
+                    <a href="my-clients/edit-client/dispute-wizard/step1a" class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <button class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-file-pdf"></i>
                       Export as PDF
                     </button>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <button class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-file-word"></i>
                       Export as Word
                     </button>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <button class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-envelope"></i>
                       My Saved Letters
                     </button>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <button class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-pencil"></i>
                       Save Letters
                     </button>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <button class="btn btn-sm btn-outline-primary m-1">
                       <i class="fa fa-print"></i>
                       Print Preview
                     </button>

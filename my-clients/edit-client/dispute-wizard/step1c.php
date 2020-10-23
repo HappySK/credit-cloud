@@ -382,8 +382,8 @@
                       <label for="transunion">Transunion</label>
                     </div>
                   </div>
-                  <div>
-                    <div class="form-inline">
+                  <div class="flex-wrap">
+                    <div class="form-check form-check-inline">
                       <input type="radio" name="credit-bureaus" id="1">
                       <label for="1" class="m-3">
                         I was denied on
@@ -394,28 +394,28 @@
                         letter
                       </label>
                     </div>
-                    <div class="form-inline">
+                    <div class="form-check form-check-inline">
                       <input type="radio" name="credit-bureaus" id="2">
                       <label for="2" class="m-3">
                         I have not been denied credit within the past 60 days. Enclosed is my payment of $
                         <input type="text" name="credit-bureaus" class="m-3 form-control">
                       </label>
                     </div>
-                    <div class="form-inline">
-                      <input type="radio" name="credit-bureaus" id="2">
-                      <label for="2" class="m-3">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="credit-bureaus" id="3">
+                      <label for="3" class="m-3">
                         I hereby certify that I am unemployed and intend to apply for a job within the next 60 days.
                       </label>
                     </div>
-                    <div class="form-inline">
-                      <input type="radio" name="credit-bureaus" id="2">
-                      <label for="2" class="m-3">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="credit-bureaus" id="4">
+                      <label for="4" class="m-3">
                         I hereby certify that I receive public assistance/welfare.
                       </label>
                     </div>
-                    <div class="form-inline">
-                      <input type="radio" name="credit-bureaus" id="2">
-                      <label for="2" class="m-3">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="credit-bureaus" id="5">
+                      <label for="5" class="m-3">
                         I certify that I believe there is erroneous information in my file due to fraud.
                       </label>
                     </div>
@@ -426,7 +426,7 @@
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary">
+                    <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
                       It is important to have your clients order their own credit reports. Click Here
                     </a>
                     <a href="my-clients/edit-client/dispute-wizard/step1a-letter"

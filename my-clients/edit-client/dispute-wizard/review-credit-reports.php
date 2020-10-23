@@ -243,7 +243,7 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Order Your Credit History Reports</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Review Your Credit History Reports</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -251,7 +251,9 @@
                       <a href="my-clients/edit-client-details?tab=dispute-wizard" class="text-muted">Dispute Wizard</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client/dispute-wizard/step1a" class="text-muted">Step 1 A</a>
+                      <a href="my-clients/edit-client/dispute-wizard/review-credit-reports" class="text-muted">Review
+                        Credit
+                        Reports</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -545,7 +547,7 @@
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary">
+                    <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
                       It is important to have your clients order their own credit reports. Click Here
                     </a>
                     <a href="my-clients/edit-client/dispute-wizard/dispute-errors"
