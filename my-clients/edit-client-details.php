@@ -5,10 +5,11 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <title>Credit Repair Cloud | My Clients</title>
+  <?php require '../config/constants.php'?>
+  <title><?= TITLE ?> | Edit Client</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="canonical" href="sravan.sowlab.com/credit" />
+  <link rel="canonical" href="<?= LINK ?>" />
   <!--begin::Fonts-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
   <!--end::Fonts-->
@@ -17,7 +18,6 @@
     type="text/css" />
   <!--end::Page Vendors Styles-->
   <!--begin::Global Theme Styles(used by all pages)-->
-  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -28,7 +28,7 @@
   <link href="assets/dist/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
   <!--end::Layout Themes-->
-  <link rel="shortcut icon" href="../assets/dist/assets/media/logos/favicon.ico" />
+  <link rel="shortcut icon" href="assets/dist/assets/media/logos/favicon.ico" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -58,7 +58,7 @@
       <!--begin::Topbar Mobile Toggle-->
       <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
         <span class="svg-icon svg-icon-xl">
-          <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+          <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/General/User.svg-->
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
             viewBox="0 0 24 24" version="1.1">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -95,7 +95,7 @@
           <!--begin::Toggle-->
           <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
             <span class="svg-icon svg-icon svg-icon-xl">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Angle-double-left.svg-->
+              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Navigation/Angle-double-left.svg-->
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -123,7 +123,7 @@
             data-menu-dropdown-timeout="500">
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
-              <li class="menu-item " aria-haspopup="true">
+              <li class="menu-item" aria-haspopup="true">
                 <a href="index" class="menu-link">
                   <span class="svg-icon menu-icon">
                     <!--begin::Svg Icon-->
@@ -142,7 +142,7 @@
                 </a>
               </li>
               <li class="menu-item menu-item-active" aria-haspopup="true">
-                <a href="my-clients/clients-list" class="menu-link">
+                <a href="clients-list" class="menu-link">
                   <span class="svg-icon menu-icon">
                     <!--begin::Svg Icon.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -213,7 +213,7 @@
                     <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                       <a href="#" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
-                          <!--begin::Svg Icon-->
+                          <!--begin::Svg Iconsvg-->
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -726,7 +726,7 @@
               <li class="menu-item" aria-haspopup="true">
                 <a href="#" class="menu-link">
                   <span class="svg-icon menu-icon">
-                    <!--begin::Svg Icon.svg-->
+                    <!--begin::Svg Icon-->
                     <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
                       version="1.1">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -912,7 +912,7 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Home</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Edit Client</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -920,7 +920,7 @@
                       <a href="my-clients/clients-list" class="text-muted">My Clients</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-clients/clients-list" class="text-muted">Clients List</a>
+                      <a href="my-clients/edit-client" class="text-muted">Edit Client</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -1016,311 +1016,112 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <!--begin::Entry-->
-              <div class="d-flex flex-column-fluid">
-                <!--begin::Container-->
-                <div class="container">
-                  <div class="card card-custom mt-5">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <h5>Search My Clients</h5>
-                        <div class="d-flex">
-                          <a href="#" class="btn btn-sm btn-outline-primary mr-2">
-                            <i class="fa fa-play" aria-hidden="true"></i>
-                            Watch Quick Video
-                          </a>
-                          <a href="my-clients/add-client" class="btn btn-sm btn-outline-success">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            Add Client
-                          </a>
-                        </div>
-                      </div>
-                      <div class="row no-gutters">
-                        <div class="col-lg-10">
-                          <div class="collapse multi-collapse show" id="basicSearch">
-                            <form>
-                              <div class="d-flex justify-content-around align-items-center m-4">
-                                <label>Search By Name or Email </label>
-                                <input type="text" class="form-control datatable-input w-50 mr-2"
-                                  placeholder="E.g: Jessica Davis" data-col-index="1" />
-                                <button class="btn btn-sm btn-primary btn-primary--icon" id="kt_search">
-                                  <span>
-                                    <i class="la la-search"></i>
-                                    <span>Search</span>
-                                  </span>
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                          <div class="collapse multi-collapse" id="advancedSearch">
-                            <div class="card card-body m-3">
-                              <!--begin: Search Form-->
-                              <form class="mb-15">
-                                <div class="row mb-6">
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Search By Name or Email:</label>
-                                    <input type="text" class="form-control datatable-input"
-                                      placeholder="E.g: Jessica Davis" data-col-index="1" />
-                                  </div>
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Start Date:</label>
-                                    <input type="date" class="form-control datatable-input"
-                                      placeholder="E.g: MM/DD/YYYY" data-col-index="5" />
-                                  </div>
-                                  <div class="col-lg-6 mb-lg-0 mb-6">
-                                    <label>Added From:</label>
-                                    <div class="input-daterange input-group" id="kt_datepicker">
-                                      <input type="date" class="form-control datatable-input" name="start"
-                                        placeholder="From" data-col-index="4" />
-                                      <div class="input-group-append">
-                                        <span class="input-group-text">
-                                          <i class="la la-ellipsis-h"></i>
-                                        </span>
-                                      </div>
-                                      <input type="date" class="form-control datatable-input" name="end"
-                                        placeholder="To" data-col-index="4" />
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row mb-8">
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Status:</label>
-                                    <select class="form-control datatable-input" data-col-index="7">
-                                      <option value="All">Select Status</option>
-                                      <option value="All">All</option>
-                                      <option value="Lead">Lead</option>
-                                      <option value="Prospect">Prospect</option>
-                                      <option value="Lead / Inactive">Lead / Inactive</option>
-                                      <option value="Client">Client</option>
-                                      <option value="Inactive">Inactive</option>
-                                      <option value="Suspended">Suspended</option>
-                                    </select>
-                                  </div>
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Reffered By:</label>
-                                    <select class="form-control datatable-input" data-col-index="3">
-                                      <option value="All">Refferred By</option>
-                                      <option value="All">Walter White</option>
-                                      <option value="Lead">Veronica Lodge</option>
-                                      <option value="Prospect">Hank</option>
-                                      <option value="Lead / Inactive">Marie</option>
-                                      <option value="Client">Alfred Solomons</option>
-                                      <option value="Inactive">Thomas Shelby</option>
-                                      <option value="Suspended">Hannah Baker</option>
-                                    </select>
-                                  </div>
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Assigned To:</label>
-                                    <select class="form-control datatable-input" data-col-index="2">
-                                      <option value="All">Assigned To</option>
-                                      <option value="All">Walter White</option>
-                                      <option value="Lead">Veronica Lodge</option>
-                                      <option value="Prospect">Hank</option>
-                                      <option value="Lead / Inactive">Marie</option>
-                                      <option value="Client">Alfred Solomons</option>
-                                      <option value="Inactive">Thomas Shelby</option>
-                                      <option value="Suspended">Hannah Baker</option>
-                                    </select>
-                                  </div>
-                                  <div class="col-lg-3 mb-lg-0 mb-6">
-                                    <label>Chargebee Status:</label>
-                                    <select class="form-control datatable-input" data-col-index="2">
-                                      <option value="All">Select Chargebee Status</option>
-                                      <option value="Lead">Active</option>
-                                      <option value="Prospect">Waiting For First Letter Created</option>
-                                      <option value="Prospect">Cancelled</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="row mt-8">
-                                  <div class="col-lg-12">
-                                    <button class="btn btn-primary btn-primary--icon" id="kt_search">
-                                      <span>
-                                        <i class="la la-search"></i>
-                                        <span>Search</span>
-                                      </span>
-                                    </button>&#160;&#160;
-                                    <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                      <span>
-                                        <i class="la la-close"></i>
-                                        <span>Reset</span>
-                                      </span>
-                                    </button>
-                                  </div>
-                                </div>
-                              </form>
-                              <!-- end : search form -->
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-2">
-                          <div class="m-4">
-                            <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse"
-                              data-target=".multi-collapse" aria-expanded="false"
-                              aria-controls="basicSearch advancedSearch" id="search-toggle">
-                              Advanced Search
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+              <div class="card m-3">
+                <div class="card-body">
+                  <ul class="nav nav-pills row" id="my-clients-navtabs" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link <?php if(!isset($_GET['tab'])) {echo "active";}?>" id="client-dashboard-tab"
+                        data-toggle="tab" href="#client-dashboard" role="tab" aria-controls="client-dashboard"
+                        aria-selected="true">
+                        Client Dashboard
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link <?php if($_GET['tab'] === 'import-audit') {echo "active";}?>"
+                        id="import-audit-tab" data-toggle="tab" href="#import-audit" role="tab"
+                        aria-controls="import-audit" aria-selected="false">
+                        Import / Audit
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pending-report-tab" data-toggle="tab" href="#pending-report" role="tab"
+                        aria-controls="pending-report" aria-selected="false">
+                        Pending Report
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link <?php if($_GET['tab'] === 'dispute-wizard') {echo "active";}?>"
+                        id="dispute-wizard-tab" data-toggle="tab" href="#dispute-wizard" role="tab"
+                        aria-controls="dispute-wizard" aria-selected="false">
+                        Dispute Wizard
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link <?php if($_GET['tab'] === 'dispute-items') {echo "active";}?>"
+                        id="dispute-items-tab" data-toggle="tab" href="#dispute-items" role="tab"
+                        aria-controls="dispute-item" aria-selected="false">
+                        Dispute Items
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="educate-tab" data-toggle="tab" href="#educate" role="tab"
+                        aria-controls="educate" aria-selected="false">
+                        Educate
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
+                        aria-controls="messages" aria-selected="false">
+                        Messages
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="internal-notes-tab" data-toggle="tab" href="#internal-notes" role="tab"
+                        aria-controls="internal-notes" aria-selected="false">
+                        Internal Notes
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="invoices-tab" data-toggle="tab" href="#invoices" role="tab"
+                        aria-controls="invoices" aria-selected="false">
+                        Invoices
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab"
+                        aria-controls="activity" aria-selected="false">
+                        Activity
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="my-clients-nav-content">
+                    <div class="tab-pane fade <?php if(!isset($_GET['tab'])) {echo "show active";}?>"
+                      id="client-dashboard" role="tabpanel" aria-labelledby="client-dashboard-tab">
+                      <?php include '../my-clients/client-dashboard.php'?>
+                    </div>
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'import-audit') {echo 'show active';}?>"
+                      id="import-audit" role="tabpanel" aria-labelledby="import-audit-tab">
+                      <?php include '../my-clients/import-audit.php' ?>
+                    </div>
+                    <div class="tab-pane fade" id="pending-report" role="tabpanel" aria-labelledby="pending-report-tab">
+                      <?php include '../my-clients/pending-report.php'?>
+                    </div>
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'dispute-wizard') {echo 'show active';}?>"
+                      id="dispute-wizard" role="tabpanel" aria-labelledby="dispute-wizard-tab">
+                      <?php include '../my-clients/dispute-wizard.php'?>
+                    </div>
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'dispute-items') {echo 'show active';}?>"
+                      id="dispute-items" role="tabpanel" aria-labelledby="dispute-items-tab">
+                      <?php include '../my-clients/dispute-items.php'?>
+                    </div>
+                    <div class=" tab-pane fade" id="educate" role="tabpanel" aria-labelledby="educate-tab">
+                      <?php include '../my-clients/educate.php'?>
+                    </div>
+                    <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                      <?php include '../my-clients/message.php'?>
+                    </div>
+                    <div class="tab-pane fade" id="internal-notes" role="tabpanel" aria-labelledby="internal-notes-tab">
+                      <?php include '../my-clients/internal-notes.php'?>
+                    </div>
+                    <div class="tab-pane fade" id="invoices" role="tabpanel" aria-labelledby="invoices-tab">
+                      <?php include '../my-clients/invoices.php'?>
+                    </div>
+                    <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+                      <?php include '../my-clients/activity.php'?>
                     </div>
                   </div>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3" role="alert">
-                    <div class="alert-icon">
-                      <span class="svg-icon svg-icon-primary svg-icon-xl">
-                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
-                              fill="#000000" opacity="0.3" />
-                            <path
-                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                      </span>
-                    </div>
-                    <div class="alert-text">
-                      This page lists your <a href="#">clients</a>, <a href="#">prospects</a> and <a href="#">leads</a>.
-                      Use <a href="#">Advanced Search</a> above to sort by affiliate or team member. Use Quick Filter to
-                      sort by status
-                      (for follow-up). Click a client’s name to access records, the pencil icon to edit a profile or
-                      click a status to
-                      change it. If you enable portal access or set an agreement in a new client profile, icons of
-                      envelopes or
-                      checkmarks will appear below. Mouse-over the icons below to see more details. To learn the system,
-                      use your <a href="#">Sample Client</a>.
-                    </div>
-                  </div>
-                  <!--end::Notice-->
-                  <!--begin::Card-->
-                  <div class="card card-custom">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <span class="card-icon">
-                          <i class="flaticon2-delivery-package text-primary"></i>
-                        </span>
-                        <h3 class="card-label">Search My Clients</h3>
-                      </div>
-                      <div class="card-toolbar">
-                        <!--begin::Dropdown-->
-                        <div class="dropdown dropdown-inline mr-2">
-                          <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="svg-icon svg-icon-md">
-                              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Design/PenAndRuller.svg-->
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                  <rect x="0" y="0" width="24" height="24" />
-                                  <path
-                                    d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
-                                    fill="#000000" opacity="0.3" />
-                                  <path
-                                    d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
-                                    fill="#000000" />
-                                </g>
-                              </svg>
-                              <!--end::Svg Icon-->
-                            </span>Export</button>
-                          <!--begin::Dropdown Menu-->
-                          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                            <!--begin::Navigation-->
-                            <ul class="navi flex-column navi-hover py-2">
-                              <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
-                                Choose an
-                                option:</li>
-                              <li class="navi-item">
-                                <a href="#" class="navi-link">
-                                  <span class="navi-icon">
-                                    <i class="la la-print"></i>
-                                  </span>
-                                  <span class="navi-text">Print</span>
-                                </a>
-                              </li>
-                              <li class="navi-item">
-                                <a href="#" class="navi-link">
-                                  <span class="navi-icon">
-                                    <i class="la la-copy"></i>
-                                  </span>
-                                  <span class="navi-text">Copy</span>
-                                </a>
-                              </li>
-                              <li class="navi-item">
-                                <a href="#" class="navi-link">
-                                  <span class="navi-icon">
-                                    <i class="la la-file-excel-o"></i>
-                                  </span>
-                                  <span class="navi-text">Excel</span>
-                                </a>
-                              </li>
-                              <li class="navi-item">
-                                <a href="#" class="navi-link">
-                                  <span class="navi-icon">
-                                    <i class="la la-file-text-o"></i>
-                                  </span>
-                                  <span class="navi-text">CSV</span>
-                                </a>
-                              </li>
-                              <li class="navi-item">
-                                <a href="#" class="navi-link">
-                                  <span class="navi-icon">
-                                    <i class="la la-file-pdf-o"></i>
-                                  </span>
-                                  <span class="navi-text">PDF</span>
-                                </a>
-                              </li>
-                            </ul>
-                            <!--end::Navigation-->
-                          </div>
-                          <!--end::Dropdown Menu-->
-                        </div>
-                        <!--end::Dropdown-->
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <!--begin: Datatable-->
-                      <div class="table-responsive">
-                        <div class="d-flex justify-content-around align-items-center">
-                          <div class="d-flex align-items-center">
-                            <label>Search</label>
-                            <input type="text" class="form-control datatable-input w-100 ml-2 mr-2 mb-2"
-                              placeholder="Search For Data" data-col-index="1" />
-                          </div>
-                          <div>
-                            Learn How To Find Clients Faster
-                            <a href="#">Click Here</a>
-                          </div>
-                        </div>
-                        <table class="table table-bordered table-hover" id="clients-list-datatable">
-                          <thead>
-                            <tr>
-                              <th>Record ID</th>
-                              <th>Name</th>
-                              <th>Assigned To</th>
-                              <th>Referred By</th>
-                              <th>Added</th>
-                              <th>Start Date</th>
-                              <th>Last Login</th>
-                              <th>Status</th>
-                              <th>Actions</th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      <!--end: Datatable-->
-                    </div>
-                  </div>
-                  <!--end::Card-->
                 </div>
-                <!--end::Container-->
               </div>
-              <!--end::Entry-->
             </div>
             <!--end::Container-->
           </div>
@@ -1334,8 +1135,7 @@
             <!--begin::Copyright-->
             <div class="text-dark order-2 order-md-1">
               <span class="text-muted font-weight-bold mr-2">2020©</span>
-              <a href="#" class="text-dark-75 text-hover-primary">Credit
-                Repair Cloud</a>
+              <a href="#" class="text-dark-75 text-hover-primary"><?= TITLE ?></a>
             </div>
             <!--end::Copyright-->
             <!--begin::Nav-->
@@ -2700,6 +2500,7 @@
     </span>
   </div>
   <!--end::Scrolltop-->
+  <!--begin::Demo Panel-->
   <script>
   var HOST_URL = "#";
   </script>
@@ -2782,8 +2583,8 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
-  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-  <script src="assets/js/clients-list.js"></script>
+  <script src="assets/dist/assets/js/pages/custom/chat/chat.js"></script>
+  <script src="assets/js/edit-client.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"

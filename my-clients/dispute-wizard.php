@@ -2,14 +2,25 @@
   <div class="card-header">
     <div class="d-flex align-items-center">
       <h5>Credit Wizard (Client Name)</h5>
-      <a href="#"><i class="fa fa-2x fa-question-circle p-2" aria-hidden="true"></i></a>
+      <p>
+        <i class="fa fa-2x fa-question-circle p-2 text-primary" data-toggle="popover" data-html="true"
+          data-placement="right"
+          title="<p>This page is self explanatory. There are 3 first steps to every dispute
+        process: Order reports, review reports and correct errors. This wizard saves you a tremendous amount of time,
+        because it helps to automate the tedious process of generating credit dispute letters.<p><p>FYI: Standard or Free
+          Annual Reports Credit DO NOT include 'scores'. Credit 'scores' must be purchased directly from the credit
+          bureaus or services. We have great resources in processing credit reports on this web page:</p><a
+          href='#'>https://help.creditrepaircloud.com/hc/en-us/articles/360025939871-Part-3-Importing-Credit-Reports</a>" aria-hidden="true">
+        </i>
+      </p>
     </div>
     <p>This is an ideal starting point for every client. You can accomplish all 3 very quickly.</p>
   </div>
   <div class="card-body">
-    <a href="#" class="m-2 btn btn-light">
+    <a href="my-clients/edit-client/dispute-wizard/credit-history-reports" class="m-2 btn btn-light">
       <div class="media">
-        <i class="fa fa-5x fa-star align-self-center mr-3" aria-hidden="true"></i>
+        <img src="assets/img/numbers/one.png" class="align-self-center mr-2" alt="Number One Icon" height="50"
+          width="50">
         <div class="media-body">
           <h5 class="mt-0">ORDER CREDIT HISTORY REPORTS</h5>
           <P>Contact the 3 credit major bureaus to obtain up to date credit history reports.It is important that you
@@ -17,9 +28,10 @@
         </div>
       </div>
     </a>
-    <a href="#" class="m-2 btn btn-light">
+    <a href="my-clients/edit-client/dispute-wizard/step2" class="m-2 btn btn-light">
       <div class="media">
-        <i class="fa fa-5x fa-star align-self-center mr-3" aria-hidden="true"></i>
+        <img src="assets/img/numbers/two.png" class="align-self-center mr-2" alt="Number Two Icon" height="50"
+          width="50">
         <div class="media-body">
           <h5 class="mt-0">REVIEW CREDIT HISTORY REPORTS</h5>
           <P>
@@ -29,9 +41,10 @@
         </div>
       </div>
     </a>
-    <a href="#" class="m-2 btn btn-light">
+    <a href="my-clients/edit-client/dispute-wizard/step3" class="m-2 btn btn-light">
       <div class="media">
-        <i class="fa fa-5x fa-star align-self-center mr-3" aria-hidden="true"></i>
+        <img src="assets/img/numbers/three.png" class="align-self-center mr-2" alt="Number Three Icon" height="50"
+          width="50">
         <div class="media-body">
           <h5 class="mt-0">CREATE DISPUTE LETTERS</h5>
           <P>
