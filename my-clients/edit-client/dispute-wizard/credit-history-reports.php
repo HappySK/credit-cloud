@@ -378,7 +378,8 @@
                 <div class="card-body align-self-center">
                   <ul class="list-unstyled">
                     <li class="media">
-                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                      <a href="my-clients/edit-client/dispute-wizard/step1a"
+                        class="btn btn-light d-flex align-items-center w-100">
                         <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/a_blue_big.png"
                           alt="Generic placeholder image">
                         <div class="media-body">
@@ -399,7 +400,8 @@
                       </a>
                     </li>
                     <li class="media my-4">
-                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                      <a href="my-clients/edit-client/dispute-wizard/step1c"
+                        class="btn btn-light d-flex align-items-center w-100">
                         <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/c_blue_big.png"
                           alt="Generic placeholder image">
                         <div class="media-body">
