@@ -24,7 +24,8 @@
           </div>
           <div class="card-body text-center">
             <i class="fa fa-7x fa-check text-white" aria-hidden="true"></i>
-            <p><a href="#" class="btn btn-sm btn-outline-success text-white">Reimport Credit Report</a></p>
+            <p><a href="my-clients/edit-client/preview-credit-report"
+                class="btn btn-sm btn-outline-success text-white">Reimport Credit Report</a></p>
           </div>
         </div>
       </div>
