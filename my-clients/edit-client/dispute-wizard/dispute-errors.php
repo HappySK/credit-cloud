@@ -382,62 +382,396 @@
                     For all new clients, or the first time you're disputing an item, we recommend starting with
                     "Round 1 Basic Dispute" (Credit Bureaus).
                   </strong>
-                  <div class="d-flex justify-content-start m-3 align-items-center">
-                    <img src="https://app.creditrepaircloud.com/application/images/a_blue_big.png" alt="Image A"
-                      class="m-2">
-                    <div class="form-check form-check-inline">
-                      <input type="radio" name="rounds" id="round-1" class="align-middle form-check-input">
-                      <label for="round-1">Round 1: Basic Dispute (Credit Bureaus) </label>
+                  <div class="radio-inline m-3 collapse show top-bottom-collapse">
+                    <div>
+                      <img src="https://app.creditrepaircloud.com/application/images/a_blue_big.png" alt="Image A"
+                        class="m-2">
                     </div>
-                    <div class="m-2 form-check form-check-inline">
-                      <input type="radio" name="rounds" id="round-2" class="align-middle m-2 form-check-input">
-                      <label for=" round-2">
-                        Round 2 (or higher): All other letters (Credit Bureaus, Creditor/Furnishers
-                        or Collections)
-                      </label>
-                    </div>
+                    <label class="radio">
+                      <input type="radio" name="rounds" id="round-1" />
+                      <span></span>
+                      Round 1: Basic Dispute (Credit Bureaus)
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="rounds" id="round-2" />
+                      <span></span>
+                      Round 2 (or higher): All other letters (Credit Bureaus, Creditor/Furnishers
+                      or Collections)
+                    </label>
                   </div>
                   <div class="d-flex justify-content-start m-3 align-items-center">
                     <img src="https://app.creditrepaircloud.com/application/images/b_blue_big.png" alt="Image B"
                       class="m-2">
                     <strong>Add the items you wish to dispute </strong>
-                    <div class="button-group m-5">
+                    <div class="button-group m-5 flex-wrap">
+                      <a href="#" class="btn btn-sm btn-primary m-3" data-toggle="collapse"
+                        data-target=".top-bottom-collapse">
+                        ADD NEW ITEM
+                      </a>
+                      <span>Or</span>
                       <a href="#" class="btn btn-sm btn-primary m-3">PREVIOUSLY SAVED / PENDING ITEMS</a>
-                      <a href="#" class="btn btn-sm btn-primary m-3">ADD NEW ITEM</a>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-start m-3 align-items-center">
-                    <img src="https://app.creditrepaircloud.com/application/images/c_blue_big.png" alt="Image B"
-                      class="m-2">
-                    <strong>Choose a letter </strong>
-                    <div class="button-group ml-5">
-                      <div class="form-check form-check-inline">
-                        <input type="radio" name="modes" class="m-2 form-check-input" id="guided-mode">
-                        <label for="guided-mode">Use New Letter Finder Tool (Guided Mode)</label>
+                  <div class="collapse hide table-collapse">
+                    <table class="table table-responsive-sm table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Creditor / Furnisher</th>
+                          <th>Account #</th>
+                          <th>Reason</th>
+                          <th>Equifax</th>
+                          <th>Experian</th>
+                          <th>Transunion</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="collapse hide top-bottom-collapse">
+                    <div class="row m-4">
+                      <div class="col-lg-4">
+                        <span>Select Credit Bureaus</span>
                       </div>
-                      <div class="form-check form-check-inline">
-                        <input type="radio" name="modes" class="m-2 form-check-input" id="expert-mode">
-                        <label for="expert-mode">Choose a letter from library (Expert Mode)</label>
+                      <div class="col-lg-2">
+                        <div class="form-check form-check-inline">
+                          <input type="checkbox" class="form-check-input" id="equifax-checkbox">
+                          <label for="equifax-checkbox" class="form-check-label">Equifax</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="form-check form-check-inline">
+                          <input type="checkbox" class="form-check-input" id="experian-checkbox">
+                          <label for="experian-checkbox" class="form-check-label">Experian</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="form-check form-check-inline">
+                          <input type="checkbox" class="form-check-input" id="transunion-checkbox">
+                          <label for="transunion-checkbox" class="form-check-label">Transunion</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row m-4">
+                      <div class="col-lg-4">
+                        Creditor / Furnisher
+                      </div>
+                      <div class="col-lg-4">
+                        <select name="creditor-furnisher" id="creditor-furnisher" class="custom-select">
+                          <option value="">Select Creditor Furnisher</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-2">
+                        <button class="btn btn-sm btn-outline-primary">Add Creditor / Furnisher</button>
+                      </div>
+                    </div>
+                    <div class="row m-4">
+                      <div class="col-lg-4">
+                        Account Number
+                      </div>
+                      <div class="col-lg-4">
+                        <input type="text" name="account-number" id="account-number" class="form-control">
+                      </div>
+                      <div class="col-lg-2">
+                        <span>
+                          Different for each bureau (Optional)
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row m-4">
+                      <div class="col-lg-4">
+                        Reason
+                      </div>
+                      <div class="col-lg-4 text-center">
+                        <select name="reason" id="reason" class="custom-select">
+                          <option value="">Choose a reason for your dispute</option>
+                        </select>
+                        <cite>
+                          (if you can't find an appropriate reason. choose "other information i would like to
+                          changed")
+                        </cite>
+                      </div>
+                      <div class="col-lg-2">
+                        <button class="btn btn-sm btn-outline-primary">Manage Reasons</button>
+                      </div>
+                    </div>
+                    <div class="row m-4 align-items-center">
+                      <div class="col-lg-4">
+                        Instruction
+                      </div>
+                      <div class="col-lg-4 text-center">
+                        <select name="reason" id="reason" class="custom-select collapsing show multi-collapse">
+                          <option value="">Choose Instructions</option>
+                        </select>
+                        <div class="collapse multi-collapse">
+                          <input type="text" name="add-instructions" class="form-control">
+                          <input type="checkbox" name="save-instructions" id="save-instructions"
+                            class="form-check-input">
+                          <label for="save-instructions" class="form-check-label">
+                            Save instructions for future use
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                          data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse">
+                          Add Instruction
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                          data-target=".multiple-collapse">
+                          Show More Details(Optional)
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row collapse multiple-collapse">
+                      <div class="col-lg-12 text-center">
+                        <div class="form-check form-check-inline">
+                          <span>
+                            Choose Mode
+                            <input type="radio" name="bureaus" id="same-for-all-bureaus" class="form-check-input"
+                              data-toggle="collapse" data-target=".bureau-collapse" checked>
+                            <label for="same-for-all-bureaus" class="form-check-label">Same for all bureaus</label>
+                            <input type="radio" name="bureaus" id="different-for-all-bureaus" class="form-check-input"
+                              data-toggle="collapse" data-target=".bureau-collapse">
+                            <label for="different-for-all-bureaus" class="form-check-label">Same for all bureaus</label>
+                          </span>
+                        </div>
+                        <div class="m-5">
+                          <div class="collapse show bureau-collapse">
+                            <div class="form-group row">
+                              <label for="bureau-status" class="col-lg-4">Status</label>
+                              <select name="bureau-select-option" class="custom-select col-lg-6"
+                                id="bureau-select-option">
+                                <option value="">Select Status</option>
+                              </select>
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-name" class="col-lg-4">Account Name</label>
+                              <input type="text" class="form-control col-lg-6" id="account-name">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-reported" class="col-lg-4">Date Reported</label>
+                              <input type="date" class="form-control col-lg-6" id="date-reported">
+                            </div>
+                            <div class="form-group row">
+                              <label for="last-activity" class="col-lg-4">Last Activity</label>
+                              <input type="date" class="form-control col-lg-6" id="last-activity">
+                            </div>
+                            <div class="form-group row">
+                              <label for="amount" class="col-lg-4">Amount</label>
+                              <input type="text" class="form-control col-lg-6" id="amount">
+                            </div>
+                            <div class="form-group row">
+                              <label for="plaintiff" class="col-lg-4">Plaintiff</label>
+                              <input type="text" class="form-control col-lg-6" id="plaintiff">
+                            </div>
+                            <div class="form-group row">
+                              <label for="ecoa" class="col-lg-4">ECOA</label>
+                              <input type="text" class="form-control col-lg-6" id="ecoa">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-filed" class="col-lg-4">Account Name</label>
+                              <input type="date" class="form-control col-lg-6" id="date-filed">
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-type" class="col-lg-4">Account Type</label>
+                              <input type="text" class="form-control col-lg-6" id="account-type">
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-status" class="col-lg-4">Account Status</label>
+                              <input type="text" class="form-control col-lg-6" id="account-status">
+                            </div>
+                            <div class="form-group row">
+                              <label for="monthly-payment" class="col-lg-4">Monthly Payment</label>
+                              <input type="text" class="form-control col-lg-6" id="monthly-payment">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-opened" class="col-lg-4">Date Opened</label>
+                              <input type="text" class="form-control col-lg-6" id="date-opened">
+                            </div>
+                            <div class="form-group row">
+                              <label for="balance" class="col-lg-4">Balance</label>
+                              <input type="text" class="form-control col-lg-6" id="balance">
+                            </div>
+                            <div class="form-group row">
+                              <label for="term" class="col-lg-4">Term</label>
+                              <input type="text" class="form-control col-lg-6" id="term">
+                            </div>
+                            <div class="form-group row">
+                              <label for="high-balance" class="col-lg-4">High Balance</label>
+                              <input type="text" class="form-control col-lg-6" id="high-balance">
+                            </div>
+                            <div class="form-group row">
+                              <label for="limit" class="col-lg-4">Limit</label>
+                              <input type="text" class="form-control col-lg-6" id="limit">
+                            </div>
+                            <div class="form-group row">
+                              <label for="past-due" class="col-lg-4">Past Due</label>
+                              <input type="text" class="form-control col-lg-6" id="past-due">
+                            </div>
+                            <div class="form-group row">
+                              <label for="payment-status" class="col-lg-4">Payment Status</label>
+                              <input type="text" class="form-control col-lg-6" id="payment-status">
+                            </div>
+                            <div class="form-group row">
+                              <label for="comment" class="col-lg-4">Comment</label>
+                              <input type="text" class="form-control col-lg-6" id="comment">
+                            </div>
+                            <div class="form-group row">
+                              <label for="address" class="col-lg-4">Address</label>
+                              <input type="text" class="form-control col-lg-6" id="address">
+                            </div>
+                            <div class="form-group row">
+                              <label for="internal-notes" class="col-lg-4">Internal Notes</label>
+                              <input type="text" class="form-control col-lg-6" id="internal-notes">
+                            </div>
+                          </div>
+                          <div class="collapse hide bureau-collapse">
+                            <div class="form-group row">
+                              <label for="bureau-status" class="col-lg-4">Status</label>
+                              <select name="bureau-select-option" class="custom-select col-lg-6"
+                                id="bureau-select-option">
+                                <option value="">Select Status</option>
+                              </select>
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-name" class="col-lg-4">Account Name</label>
+                              <input type="text" class="form-control col-lg-6" id="account-name">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-reported" class="col-lg-4">Date Reported</label>
+                              <input type="date" class="form-control col-lg-6" id="date-reported">
+                            </div>
+                            <div class="form-group row">
+                              <label for="last-activity" class="col-lg-4">Last Activity</label>
+                              <input type="date" class="form-control col-lg-6" id="last-activity">
+                            </div>
+                            <div class="form-group row">
+                              <label for="amount" class="col-lg-4">Amount</label>
+                              <input type="text" class="form-control col-lg-6" id="amount">
+                            </div>
+                            <div class="form-group row">
+                              <label for="plaintiff" class="col-lg-4">Plaintiff</label>
+                              <input type="text" class="form-control col-lg-6" id="plaintiff">
+                            </div>
+                            <div class="form-group row">
+                              <label for="ecoa" class="col-lg-4">ECOA</label>
+                              <input type="text" class="form-control col-lg-6" id="ecoa">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-filed" class="col-lg-4">Account Name</label>
+                              <input type="date" class="form-control col-lg-6" id="date-filed">
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-type" class="col-lg-4">Account Type</label>
+                              <input type="text" class="form-control col-lg-6" id="account-type">
+                            </div>
+                            <div class="form-group row">
+                              <label for="account-status" class="col-lg-4">Account Status</label>
+                              <input type="text" class="form-control col-lg-6" id="account-status">
+                            </div>
+                            <div class="form-group row">
+                              <label for="monthly-payment" class="col-lg-4">Monthly Payment</label>
+                              <input type="text" class="form-control col-lg-6" id="monthly-payment">
+                            </div>
+                            <div class="form-group row">
+                              <label for="date-opened" class="col-lg-4">Date Opened</label>
+                              <input type="text" class="form-control col-lg-6" id="date-opened">
+                            </div>
+                            <div class="form-group row">
+                              <label for="balance" class="col-lg-4">Balance</label>
+                              <input type="text" class="form-control col-lg-6" id="balance">
+                            </div>
+                            <div class="form-group row">
+                              <label for="term" class="col-lg-4">Term</label>
+                              <input type="text" class="form-control col-lg-6" id="term">
+                            </div>
+                            <div class="form-group row">
+                              <label for="high-balance" class="col-lg-4">High Balance</label>
+                              <input type="text" class="form-control col-lg-6" id="high-balance">
+                            </div>
+                            <div class="form-group row">
+                              <label for="limit" class="col-lg-4">Limit</label>
+                              <input type="text" class="form-control col-lg-6" id="limit">
+                            </div>
+                            <div class="form-group row">
+                              <label for="past-due" class="col-lg-4">Past Due</label>
+                              <input type="text" class="form-control col-lg-6" id="past-due">
+                            </div>
+                            <div class="form-group row">
+                              <label for="payment-status" class="col-lg-4">Payment Status</label>
+                              <input type="text" class="form-control col-lg-6" id="payment-status">
+                            </div>
+                            <div class="form-group row">
+                              <label for="comment" class="col-lg-4">Comment</label>
+                              <input type="text" class="form-control col-lg-6" id="comment">
+                            </div>
+                            <div class="form-group row">
+                              <label for="address" class="col-lg-4">Address</label>
+                              <input type="text" class="form-control col-lg-6" id="address">
+                            </div>
+                            <div class="form-group row">
+                              <label for="internal-notes" class="col-lg-4">Internal Notes</label>
+                              <input type="text" class="form-control col-lg-6" id="internal-notes">
+                            </div>
+                          </div>
+                          <div class="button-group d-flex justify-content-around m-3">
+                            <a data-toggle="collapse" href=".top-bottom-collapse"
+                              class="btn btn-sm btn-outline-primary">
+                              <i class="fa fa-backward"></i>
+                              Back
+                            </a>
+                            <a data-toggle="collapse" data-target=".top-bottom-collapse,.table-collapse"
+                              class="btn btn-sm btn-outline-primary ml-1 mr-1">
+                              Add Another Item
+                            </a>
+                            <a data-target=".top-bottom-collapse,.table-collapse"
+                              class="btn btn-sm btn-outline-primary">
+                              <i class="fa fa-forward"></i>
+                              Continue
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="button-group d-flex justify-content-around">
-                    <a href="my-clients/edit-client/dispute-wizard/credit-history-reports"
-                      class="btn btn-sm btn-outline-primary">
-                      <i class="fa fa-backward"></i>
-                      Back
-                    </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
-                      It is important to have your clients order their own credit reports. Click Here
-                    </a>
-                    <a href="my-clients/edit-client/dispute-wizard/step1a-letter"
-                      class="btn btn-sm btn-outline-primary">
-                      <i class="fa fa-forward"></i>
-                      Next
-                    </a>
+                  <div class="collapse show top-bottom-collapse">
+                    <div class="d-flex justify-content-around align-items-center pl-2 pr-2">
+                      <div>
+                        <img src="https://app.creditrepaircloud.com/application/images/c_blue_big.png" alt="Image A"
+                          class="m-2">
+                      </div>
+                      <strong>
+                        In the left column above, check the boxes to select the dispute items that you wish to include
+                        in this letter. We suggest never sending more than 5 dispute items within a 30 day period (see
+                        TIP below). Any remaining unchecked items will be saved as "Pending" to include in another
+                        Round
+                        1 Dispute Letter in 30 days. When you're ready to continue, click "Next".
+                      </strong>
+                    </div>
                   </div>
-                  <p class="mt-5 mb-5">
-                    *Please don't contact us about credit reports or scores. Scores are purchased directly from the
+                  <div class="collapse show top-bottom-collapse">
+                    <div class="button-group d-flex justify-content-around m-3">
+                      <a href="my-clients/edit-client/dispute-wizard/credit-history-reports"
+                        class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-backward"></i>
+                        Back
+                      </a>
+                      <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
+                        It is important to have your clients order their own credit reports. Click Here
+                      </a>
+                      <a href="my-clients/edit-client/dispute-wizard/step1a-letter"
+                        class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-forward"></i>
+                        Next
+                      </a>
+                    </div>
+                  </div>
+                  . <p class="mt-5 mb-5">
+                    *Please don't contact us about credit reports or scores. Scores are purchased directly from
+                    the
                     credit bureaus or third-party services. We are not affiliated with the credit bureaus and we
                     cannot
                     give credit or legal advice.
@@ -453,11 +787,16 @@
                         bureau
                       </strong>
                       (unless
-                      it's Identity Theft and you are including a police report), otherwise the bureaus may mark your
-                      disputes as "frivolous and irrelevant" and reject them. Most credit repair firms dispute 2-5 items
-                      per bureau per month. When sending a Round 1 letter to credit bureaus, always include a copy of
-                      client's photo ID and utility bill. There is no need to send photo ID and utility bill with later
-                      rounds of letters. This wizard is an awesome tool. To learn to use it, watch the 2 Quick Videos
+                      it's Identity Theft and you are including a police report), otherwise the bureaus may mark
+                      your
+                      disputes as "frivolous and irrelevant" and reject them. Most credit repair firms dispute 2-5
+                      items
+                      per bureau per month. When sending a Round 1 letter to credit bureaus, always include a copy
+                      of
+                      client's photo ID and utility bill. There is no need to send photo ID and utility bill with
+                      later
+                      rounds of letters. This wizard is an awesome tool. To learn to use it, watch the 2 Quick
+                      Videos
                       above.
                     </div>
                   </div>
@@ -1145,7 +1484,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+                  would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
