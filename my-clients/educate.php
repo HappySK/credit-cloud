@@ -6,9 +6,9 @@
         understanding of this. This area of the program will keep all of that information organized and at your
         fingertips.</p>
     </div>
-    <a href="#" class="m-2 btn btn-light w-75">
+    <a href="my-clients/educate-steps" class="m-2 btn btn-light w-75">
       <div class="media">
-        <i class="fa fa-3x fa-usd align-self-center mr-3" aria-hidden="true"></i>
+        <i class="fa fa-3x fa-dollar-sign align-self-center mr-3" aria-hidden="true"></i>
         <div class="media-body">
           <h5 class="mt-0">CLIENTS OUTSTANDING DEBTS</h5>
           <P>Help Your Client to understand their revolving debt and how it affects their credit scores</P>
