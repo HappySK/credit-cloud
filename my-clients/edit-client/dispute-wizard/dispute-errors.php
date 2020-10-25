@@ -551,7 +551,7 @@
                               <label for="account-name" class="col-lg-4">Account Name</label>
                               <input type="text" class="form-control col-lg-6" id="account-name">
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row date">
                               <label for="date-reported" class="col-lg-4">Date Reported</label>
                               <input type="date" class="form-control col-lg-6" id="date-reported">
                             </div>
@@ -717,24 +717,22 @@
                               <input type="text" class="form-control col-lg-6" id="internal-notes">
                             </div>
                           </div>
-                          <div class="button-group d-flex justify-content-around m-3">
-                            <a data-toggle="collapse" href=".top-bottom-collapse"
-                              class="btn btn-sm btn-outline-primary">
-                              <i class="fa fa-backward"></i>
-                              Back
-                            </a>
-                            <a data-toggle="collapse" data-target=".top-bottom-collapse,.table-collapse"
-                              class="btn btn-sm btn-outline-primary ml-1 mr-1">
-                              Add Another Item
-                            </a>
-                            <a data-target=".top-bottom-collapse,.table-collapse"
-                              class="btn btn-sm btn-outline-primary">
-                              <i class="fa fa-forward"></i>
-                              Continue
-                            </a>
-                          </div>
                         </div>
                       </div>
+                    </div>
+                    <div class="button-group d-flex justify-content-around m-3">
+                      <a data-toggle="collapse" href=".top-bottom-collapse" class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-backward"></i>
+                        Back
+                      </a>
+                      <a data-toggle="collapse" data-target=".top-bottom-collapse,.table-collapse"
+                        class="btn btn-sm btn-outline-primary ml-1 mr-1" id="add-another-item">
+                        Add Another Item
+                      </a>
+                      <a data-target=".top-bottom-collapse,.table-collapse" class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-forward"></i>
+                        Continue
+                      </a>
                     </div>
                   </div>
                   <div class="collapse show top-bottom-collapse">
@@ -2260,6 +2258,7 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
+  <script src="assets/js/my-clients/edit-client/dispute-wizard/dispute-errors.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
