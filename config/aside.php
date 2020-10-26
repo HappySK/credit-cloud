@@ -125,7 +125,7 @@
              <i class="menu-arrow"></i>
              <ul class="menu-subnav">
                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                 <a href="#" class="menu-link menu-toggle">
+                 <a href="my-company/my-company-profile" class="menu-link menu-toggle">
                    <span class="svg-icon menu-icon">
                      <!--begin::Svg Iconsvg--><svg xmlns="http://www.w3.org/2000/svg"
                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
