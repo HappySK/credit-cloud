@@ -3,13 +3,13 @@
 <!--begin::Head-->
 
 <head>
+  <base href="../">
   <meta charset="utf-8" />
-  <base href="../../../">
-  <?php require '../../../config/constants.php'?>
-  <title><?= TITLE ?> | Dispute Errors</title>
+  <?php require '../config/constants.php'?>
+  <title><?= TITLE ?> | Home</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="canonical" href="<?= LINK ?>" />
+  <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
   <!--end::Fonts-->
@@ -82,157 +82,10 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include '../../../config/aside.php'?>
+      <?php include '../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-        <!--begin::Header-->
-        <div id="kt_header" class="header header-fixed">
-          <!--begin::Container-->
-          <div class="container-fluid d-flex align-items-stretch justify-content-between">
-            <!--begin::Header Menu Wrapper-->
-            <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-              <!--begin::Header Menu-->
-              <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
-                <!--begin::Header Nav-->
-                <ul class="menu-nav">
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <!-- Button trigger modal-->
-                    <a href="#" data-toggle="modal" class="menu-link menu-toggle" data-target="#newLeads">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <polygon points="0 0 24 0 24 24 0 24" />
-                            <path
-                              d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
-                              fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                            <path
-                              d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">New Leads</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0)" data-toggle="modal" class="menu-link menu-toggle"
-                      data-target="#messagesModal">
-                      <!-- Button trigger modal-->
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5" />
-                            <path
-                              d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
-                              fill="#000000" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Messages</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0);" class="menu-link menu-toggle" data-toggle="modal"
-                      data-target="#tasksModal">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M5.5,4 L9.5,4 C10.3284271,4 11,4.67157288 11,5.5 L11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,5.5 C4,4.67157288 4.67157288,4 5.5,4 Z M14.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,17.5 C13,16.6715729 13.6715729,16 14.5,16 Z"
-                              fill="#000000" />
-                            <path
-                              d="M5.5,10 L9.5,10 C10.3284271,10 11,10.6715729 11,11.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L14.5,14 C13.6715729,14 13,13.3284271 13,12.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z"
-                              fill="#000000" opacity="0.3" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Task and Events</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z"
-                              fill="#000000" />
-                            <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Batchprint</span>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <!--end::Header Nav-->
-              </div>
-              <!--end::Header Menu-->
-            </div>
-            <!--end::Header Menu Wrapper-->
-            <!--begin::Topbar-->
-            <div class="topbar">
-              <!-- start::nav-link -->
-              <ul class="nav topbar-item">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">My Account</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">New Features</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">
-                    Help & Support
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Support Center</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Watch Quick Videos</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Live Software Classes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Tips and Tricks</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">New Feature Requests</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Resources</a>
-                  </div>
-                </li>
-              </ul>
-              <!-- end::nav-link -->
-              <div class="topbar-item">
-                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
-                  id="kt_quick_user_toggle">
-                  <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
-                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                    <span class="symbol-label font-size-h5 font-weight-bold">S</span>
-                  </span>
-                </div>
-              </div>
-              <!--end::User-->
-            </div>
-            <!--end::Topbar-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::Header-->
+        <?php include '../config/header.php'?>
         <!--begin::Content-->
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
           <!--begin::Subheader-->
@@ -243,15 +96,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Order Your Credit History Reports</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Home</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client-details?tab=dispute-wizard" class="text-muted">Dispute Wizard</a>
+                      <a href="" class="text-muted">General</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client/dispute-wizard/step1a" class="text-muted">Step 1 A</a>
+                      <a href="" class="text-muted">Home Page</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -347,468 +200,14 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <!-- begin :: credit wizard -->
-              <div class="card">
-                <div class="card-body">
-                  <h4>Credit Wizard (Kenneth Johnson)</h4>
-                  <div class="card-title d-flex align-items-center pt-0">
-                    <h5>Step</h5>
-                    <img src="assets/img/numbers/three.png" alt="Number three Icon" class="m-3" height="50" width="50">
-                    <h5>DISPUTE ERRORS</h5>
-                  </div>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
-                    <div class="alert-text">
-                      <strong>Wizard 3 is where you generate all dispute letters for clients.</strong> It auto-merges
-                      client/credit data
-                      into a letter in seconds. All new clients start with a Round 1 Dispute. Next "Add New Items"
-                      manually or "Add Saved/Pending Items." For editing or updating dispute items already saved, use
-                      the <a href="#">Dispute Items</a> Page.
-                      <div class="d-flex justify-content-around align-items-center mt-4 mb-4">
-                        <strong>Watch these 2 Quick Videos first:</strong>
-                        <a href="#" class="btn btn-sm btn-outline-primary mr-2">
-                          <i class="fa fa-play" aria-hidden="true"></i>
-                          Quick Video : Adding report items manually
-                        </a>
-                        <a href="#" class="btn btn-sm btn-outline-primary mr-2">
-                          <i class="fa fa-play" aria-hidden="true"></i>
-                          Quick Video : Working with same or imported items
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <!--end::Notice-->
-                  <strong>
-                    For all new clients, or the first time you're disputing an item, we recommend starting with
-                    "Round 1 Basic Dispute" (Credit Bureaus).
-                  </strong>
-                  <div class="radio-inline m-3 collapse show top-bottom-collapse">
-                    <div>
-                      <img src="https://app.creditrepaircloud.com/application/images/a_blue_big.png" alt="Image A"
-                        class="m-2">
-                    </div>
-                    <label class="radio">
-                      <input type="radio" name="rounds" id="round-1" />
-                      <span></span>
-                      Round 1: Basic Dispute (Credit Bureaus)
-                    </label>
-                    <label class="radio">
-                      <input type="radio" name="rounds" id="round-2" />
-                      <span></span>
-                      Round 2 (or higher): All other letters (Credit Bureaus, Creditor/Furnishers
-                      or Collections)
-                    </label>
-                  </div>
-                  <div class="d-flex justify-content-start m-3 align-items-center">
-                    <img src="https://app.creditrepaircloud.com/application/images/b_blue_big.png" alt="Image B"
-                      class="m-2">
-                    <strong>Add the items you wish to dispute </strong>
-                    <div class="button-group m-5 flex-wrap">
-                      <a href="#" class="btn btn-sm btn-primary m-3" data-toggle="collapse"
-                        data-target=".top-bottom-collapse">
-                        ADD NEW ITEM
-                      </a>
-                      <span>Or</span>
-                      <a href="#" class="btn btn-sm btn-primary m-3">PREVIOUSLY SAVED / PENDING ITEMS</a>
-                    </div>
-                  </div>
-                  <div class="collapse hide table-collapse">
-                    <table class="table table-responsive-sm table-bordered">
-                      <thead>
-                        <tr>
-                          <th>Creditor / Furnisher</th>
-                          <th>Account #</th>
-                          <th>Reason</th>
-                          <th>Equifax</th>
-                          <th>Experian</th>
-                          <th>Transunion</th>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
-                  <div class="collapse hide top-bottom-collapse">
-                    <div class="row m-4">
-                      <div class="col-lg-4">
-                        <span>Select Credit Bureaus</span>
-                      </div>
-                      <div class="col-lg-2">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="equifax-checkbox">
-                          <label for="equifax-checkbox" class="form-check-label">Equifax</label>
-                        </div>
-                      </div>
-                      <div class="col-lg-2">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="experian-checkbox">
-                          <label for="experian-checkbox" class="form-check-label">Experian</label>
-                        </div>
-                      </div>
-                      <div class="col-lg-2">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="transunion-checkbox">
-                          <label for="transunion-checkbox" class="form-check-label">Transunion</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row m-4">
-                      <div class="col-lg-4">
-                        Creditor / Furnisher
-                      </div>
-                      <div class="col-lg-4">
-                        <select name="creditor-furnisher" id="creditor-furnisher" class="custom-select">
-                          <option value="">Select Creditor Furnisher</option>
-                        </select>
-                      </div>
-                      <div class="col-lg-2">
-                        <button class="btn btn-sm btn-outline-primary">Add Creditor / Furnisher</button>
-                      </div>
-                    </div>
-                    <div class="row m-4">
-                      <div class="col-lg-4">
-                        Account Number
-                      </div>
-                      <div class="col-lg-4">
-                        <input type="text" name="account-number" id="account-number" class="form-control">
-                      </div>
-                      <div class="col-lg-2">
-                        <span>
-                          Different for each bureau (Optional)
-                        </span>
-                      </div>
-                    </div>
-                    <div class="row m-4">
-                      <div class="col-lg-4">
-                        Reason
-                      </div>
-                      <div class="col-lg-4 text-center">
-                        <select name="reason" id="reason" class="custom-select">
-                          <option value="">Choose a reason for your dispute</option>
-                        </select>
-                        <cite>
-                          (if you can't find an appropriate reason. choose "other information i would like to
-                          changed")
-                        </cite>
-                      </div>
-                      <div class="col-lg-2">
-                        <button class="btn btn-sm btn-outline-primary">Manage Reasons</button>
-                      </div>
-                    </div>
-                    <div class="row m-4 align-items-center">
-                      <div class="col-lg-4">
-                        Instruction
-                      </div>
-                      <div class="col-lg-4 text-center">
-                        <select name="reason" id="reason" class="custom-select collapsing show multi-collapse">
-                          <option value="">Choose Instructions</option>
-                        </select>
-                        <div class="collapse multi-collapse">
-                          <input type="text" name="add-instructions" class="form-control">
-                          <input type="checkbox" name="save-instructions" id="save-instructions"
-                            class="form-check-input">
-                          <label for="save-instructions" class="form-check-label">
-                            Save instructions for future use
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-lg-2">
-                        <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                          data-target=".multi-collapse" aria-expanded="false" aria-controls="multi-collapse">
-                          Add Instruction
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                          data-target=".multiple-collapse">
-                          Show More Details(Optional)
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row collapse multiple-collapse">
-                      <div class="col-lg-12 text-center">
-                        <div class="form-check form-check-inline">
-                          <span>
-                            Choose Mode
-                            <input type="radio" name="bureaus" id="same-for-all-bureaus" class="form-check-input"
-                              data-toggle="collapse" data-target=".bureau-collapse" checked>
-                            <label for="same-for-all-bureaus" class="form-check-label">Same for all bureaus</label>
-                            <input type="radio" name="bureaus" id="different-for-all-bureaus" class="form-check-input"
-                              data-toggle="collapse" data-target=".bureau-collapse">
-                            <label for="different-for-all-bureaus" class="form-check-label">Same for all bureaus</label>
-                          </span>
-                        </div>
-                        <div class="m-5">
-                          <div class="collapse show bureau-collapse">
-                            <div class="form-group row">
-                              <label for="bureau-status" class="col-lg-4">Status</label>
-                              <select name="bureau-select-option" class="custom-select col-lg-6"
-                                id="bureau-select-option">
-                                <option value="">Select Status</option>
-                              </select>
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-name" class="col-lg-4">Account Name</label>
-                              <input type="text" class="form-control col-lg-6" id="account-name">
-                            </div>
-                            <div class="form-group row date">
-                              <label for="date-reported" class="col-lg-4">Date Reported</label>
-                              <input type="date" class="form-control col-lg-6" id="date-reported">
-                            </div>
-                            <div class="form-group row">
-                              <label for="last-activity" class="col-lg-4">Last Activity</label>
-                              <input type="date" class="form-control col-lg-6" id="last-activity">
-                            </div>
-                            <div class="form-group row">
-                              <label for="amount" class="col-lg-4">Amount</label>
-                              <input type="text" class="form-control col-lg-6" id="amount">
-                            </div>
-                            <div class="form-group row">
-                              <label for="plaintiff" class="col-lg-4">Plaintiff</label>
-                              <input type="text" class="form-control col-lg-6" id="plaintiff">
-                            </div>
-                            <div class="form-group row">
-                              <label for="ecoa" class="col-lg-4">ECOA</label>
-                              <input type="text" class="form-control col-lg-6" id="ecoa">
-                            </div>
-                            <div class="form-group row">
-                              <label for="date-filed" class="col-lg-4">Account Name</label>
-                              <input type="date" class="form-control col-lg-6" id="date-filed">
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-type" class="col-lg-4">Account Type</label>
-                              <input type="text" class="form-control col-lg-6" id="account-type">
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-status" class="col-lg-4">Account Status</label>
-                              <input type="text" class="form-control col-lg-6" id="account-status">
-                            </div>
-                            <div class="form-group row">
-                              <label for="monthly-payment" class="col-lg-4">Monthly Payment</label>
-                              <input type="text" class="form-control col-lg-6" id="monthly-payment">
-                            </div>
-                            <div class="form-group row">
-                              <label for="date-opened" class="col-lg-4">Date Opened</label>
-                              <input type="text" class="form-control col-lg-6" id="date-opened">
-                            </div>
-                            <div class="form-group row">
-                              <label for="balance" class="col-lg-4">Balance</label>
-                              <input type="text" class="form-control col-lg-6" id="balance">
-                            </div>
-                            <div class="form-group row">
-                              <label for="term" class="col-lg-4">Term</label>
-                              <input type="text" class="form-control col-lg-6" id="term">
-                            </div>
-                            <div class="form-group row">
-                              <label for="high-balance" class="col-lg-4">High Balance</label>
-                              <input type="text" class="form-control col-lg-6" id="high-balance">
-                            </div>
-                            <div class="form-group row">
-                              <label for="limit" class="col-lg-4">Limit</label>
-                              <input type="text" class="form-control col-lg-6" id="limit">
-                            </div>
-                            <div class="form-group row">
-                              <label for="past-due" class="col-lg-4">Past Due</label>
-                              <input type="text" class="form-control col-lg-6" id="past-due">
-                            </div>
-                            <div class="form-group row">
-                              <label for="payment-status" class="col-lg-4">Payment Status</label>
-                              <input type="text" class="form-control col-lg-6" id="payment-status">
-                            </div>
-                            <div class="form-group row">
-                              <label for="comment" class="col-lg-4">Comment</label>
-                              <input type="text" class="form-control col-lg-6" id="comment">
-                            </div>
-                            <div class="form-group row">
-                              <label for="address" class="col-lg-4">Address</label>
-                              <input type="text" class="form-control col-lg-6" id="address">
-                            </div>
-                            <div class="form-group row">
-                              <label for="internal-notes" class="col-lg-4">Internal Notes</label>
-                              <input type="text" class="form-control col-lg-6" id="internal-notes">
-                            </div>
-                          </div>
-                          <div class="collapse hide bureau-collapse">
-                            <div class="form-group row">
-                              <label for="bureau-status" class="col-lg-4">Status</label>
-                              <select name="bureau-select-option" class="custom-select col-lg-6"
-                                id="bureau-select-option">
-                                <option value="">Select Status</option>
-                              </select>
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-name" class="col-lg-4">Account Name</label>
-                              <input type="text" class="form-control col-lg-6" id="account-name">
-                            </div>
-                            <div class="form-group row">
-                              <label for="date-reported" class="col-lg-4">Date Reported</label>
-                              <input type="date" class="form-control col-lg-6" id="date-reported">
-                            </div>
-                            <div class="form-group row">
-                              <label for="last-activity" class="col-lg-4">Last Activity</label>
-                              <input type="date" class="form-control col-lg-6" id="last-activity">
-                            </div>
-                            <div class="form-group row">
-                              <label for="amount" class="col-lg-4">Amount</label>
-                              <input type="text" class="form-control col-lg-6" id="amount">
-                            </div>
-                            <div class="form-group row">
-                              <label for="plaintiff" class="col-lg-4">Plaintiff</label>
-                              <input type="text" class="form-control col-lg-6" id="plaintiff">
-                            </div>
-                            <div class="form-group row">
-                              <label for="ecoa" class="col-lg-4">ECOA</label>
-                              <input type="text" class="form-control col-lg-6" id="ecoa">
-                            </div>
-                            <div class="form-group row">
-                              <label for="date-filed" class="col-lg-4">Account Name</label>
-                              <input type="date" class="form-control col-lg-6" id="date-filed">
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-type" class="col-lg-4">Account Type</label>
-                              <input type="text" class="form-control col-lg-6" id="account-type">
-                            </div>
-                            <div class="form-group row">
-                              <label for="account-status" class="col-lg-4">Account Status</label>
-                              <input type="text" class="form-control col-lg-6" id="account-status">
-                            </div>
-                            <div class="form-group row">
-                              <label for="monthly-payment" class="col-lg-4">Monthly Payment</label>
-                              <input type="text" class="form-control col-lg-6" id="monthly-payment">
-                            </div>
-                            <div class="form-group row">
-                              <label for="date-opened" class="col-lg-4">Date Opened</label>
-                              <input type="text" class="form-control col-lg-6" id="date-opened">
-                            </div>
-                            <div class="form-group row">
-                              <label for="balance" class="col-lg-4">Balance</label>
-                              <input type="text" class="form-control col-lg-6" id="balance">
-                            </div>
-                            <div class="form-group row">
-                              <label for="term" class="col-lg-4">Term</label>
-                              <input type="text" class="form-control col-lg-6" id="term">
-                            </div>
-                            <div class="form-group row">
-                              <label for="high-balance" class="col-lg-4">High Balance</label>
-                              <input type="text" class="form-control col-lg-6" id="high-balance">
-                            </div>
-                            <div class="form-group row">
-                              <label for="limit" class="col-lg-4">Limit</label>
-                              <input type="text" class="form-control col-lg-6" id="limit">
-                            </div>
-                            <div class="form-group row">
-                              <label for="past-due" class="col-lg-4">Past Due</label>
-                              <input type="text" class="form-control col-lg-6" id="past-due">
-                            </div>
-                            <div class="form-group row">
-                              <label for="payment-status" class="col-lg-4">Payment Status</label>
-                              <input type="text" class="form-control col-lg-6" id="payment-status">
-                            </div>
-                            <div class="form-group row">
-                              <label for="comment" class="col-lg-4">Comment</label>
-                              <input type="text" class="form-control col-lg-6" id="comment">
-                            </div>
-                            <div class="form-group row">
-                              <label for="address" class="col-lg-4">Address</label>
-                              <input type="text" class="form-control col-lg-6" id="address">
-                            </div>
-                            <div class="form-group row">
-                              <label for="internal-notes" class="col-lg-4">Internal Notes</label>
-                              <input type="text" class="form-control col-lg-6" id="internal-notes">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="button-group d-flex justify-content-around m-3">
-                      <a data-toggle="collapse" href=".top-bottom-collapse" class="btn btn-sm btn-outline-primary">
-                        <i class="fa fa-backward"></i>
-                        Back
-                      </a>
-                      <a data-toggle="collapse" data-target=".top-bottom-collapse,.table-collapse"
-                        class="btn btn-sm btn-outline-primary ml-1 mr-1" id="add-another-item">
-                        Add Another Item
-                      </a>
-                      <a data-target=".top-bottom-collapse,.table-collapse" class="btn btn-sm btn-outline-primary">
-                        <i class="fa fa-forward"></i>
-                        Continue
-                      </a>
-                    </div>
-                  </div>
-                  <div class="collapse show top-bottom-collapse">
-                    <div class="d-flex justify-content-around align-items-center pl-2 pr-2">
-                      <div>
-                        <img src="https://app.creditrepaircloud.com/application/images/c_blue_big.png" alt="Image A"
-                          class="m-2">
-                      </div>
-                      <strong>
-                        In the left column above, check the boxes to select the dispute items that you wish to include
-                        in this letter. We suggest never sending more than 5 dispute items within a 30 day period (see
-                        TIP below). Any remaining unchecked items will be saved as "Pending" to include in another
-                        Round
-                        1 Dispute Letter in 30 days. When you're ready to continue, click "Next".
-                      </strong>
-                    </div>
-                  </div>
-                  <div class="collapse show top-bottom-collapse">
-                    <div class="button-group d-flex justify-content-around m-3">
-                      <a href="my-clients/edit-client/dispute-wizard/credit-history-reports"
-                        class="btn btn-sm btn-outline-primary">
-                        <i class="fa fa-backward"></i>
-                        Back
-                      </a>
-                      <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
-                        It is important to have your clients order their own credit reports. Click Here
-                      </a>
-                      <a href="my-clients/edit-client/dispute-wizard/step1a-letter"
-                        class="btn btn-sm btn-outline-primary">
-                        <i class="fa fa-forward"></i>
-                        Next
-                      </a>
-                    </div>
-                  </div>
-                  . <p class="mt-5 mb-5">
-                    *Please don't contact us about credit reports or scores. Scores are purchased directly from
-                    the
-                    credit bureaus or third-party services. We are not affiliated with the credit bureaus and we
-                    cannot
-                    give credit or legal advice.
-                  </p>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light w-100" role="alert">
-                    <div class="alert-icon">
-                      <i class="fa fa-2x fa-lightbulb text-warning"></i>
-                    </div>
-                    <div class="alert-text">
-                      <strong>
-                        Tip: We recommend never sending more than 5 dispute items per month to each credit
-                        bureau
-                      </strong>
-                      (unless
-                      it's Identity Theft and you are including a police report), otherwise the bureaus may mark
-                      your
-                      disputes as "frivolous and irrelevant" and reject them. Most credit repair firms dispute 2-5
-                      items
-                      per bureau per month. When sending a Round 1 letter to credit bureaus, always include a copy
-                      of
-                      client's photo ID and utility bill. There is no need to send photo ID and utility bill with
-                      later
-                      rounds of letters. This wizard is an awesome tool. To learn to use it, watch the 2 Quick
-                      Videos
-                      above.
-                    </div>
-                  </div>
-                  <!--end::Notice-->
-                </div>
-              </div>
-              <!-- end :: credit-wizard -->
+              <p>Page content goes here...</p>
             </div>
             <!--end::Container-->
           </div>
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <?php include '../../../config/footer.php'?>
+        <?php include '../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>
@@ -832,8 +231,7 @@
       <!--begin::Header-->
       <div class="d-flex align-items-center mt-5">
         <div class="symbol symbol-100 mr-5">
-          <div class="symbol-label" style="background-image:url('assets/dist/assets/media/users/300_21.jpg')">
-          </div>
+          <div class="symbol-label" style="background-image:url('assets/dist/assets/media/users/300_21.jpg')"></div>
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
@@ -1022,8 +420,7 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
-              purpose
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1052,8 +449,7 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be
-              to
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
               people</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1081,8 +477,7 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
-              would be to
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1329,8 +724,7 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top
-                  Authors</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">+82$</span>
@@ -1359,8 +753,7 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
-                  Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1423,8 +816,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
-                  purpose
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
                   persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1453,8 +845,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
-                  be to
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
                   people</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1482,8 +873,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
-                  would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1521,8 +911,7 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
-                  best
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
                   product</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1992,8 +1381,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -2015,8 +1403,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository
-                    on GitHub.
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.
                   </div>
                 </div>
                 <!--end::Message Out-->
@@ -2027,8 +1414,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2060,8 +1446,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2085,8 +1470,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
-                    viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -2096,8 +1480,7 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                        Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2119,8 +1502,7 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided
-                  </div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -2243,8 +1625,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -2258,7 +1639,6 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
-  <script src="assets/js/my-clients/edit-client/dispute-wizard/dispute-errors.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
