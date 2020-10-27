@@ -207,16 +207,21 @@
                   </div>
                   <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                        role="tab" aria-controls="nav-home" aria-selected="true">CLIENT'S OUTSTANDING DEBTS</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                        aria-controls="nav-profile" aria-selected="false">CLIENT'S EXPENSES</a>
-                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                        aria-controls="nav-contact" aria-selected="false">CALCULATORS</a>
+                      <a class="nav-item nav-link <?php if($_GET['tab'] == 'clients-debts') echo 'active'?>"
+                        id="clients-debts-tab" data-toggle="tab" href="#clients-debts" role="tab"
+                        aria-controls="clients-debts" aria-selected="true">CLIENT'S
+                        OUTSTANDING DEBTS</a>
+                      <a class="nav-item nav-link <?php if($_GET['tab'] == 'clients-expenses') echo 'active'?>"
+                        id="clients-expenses-tab" data-toggle="tab" href="#clients-expenses" role="tab"
+                        aria-controls="clients-expenses" aria-selected="false">CLIENT'S EXPENSES</a>
+                      <a class="nav-item nav-link <?php if($_GET['tab'] == 'calculators') echo 'active'?>"
+                        id="calculators-tab" data-toggle="tab" href="#calculators" role="tab"
+                        aria-controls="calculators" aria-selected="false">CALCULATORS</a>
                     </div>
                   </nav>
                   <div class="tab-content m-4" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'clients-debts') echo 'show active'?>"
+                      id="clients-debts" role="tabpanel" aria-labelledby="clients-debts-tab">
                       <h5>Client's Debts (Client Name)</h5>
                       <div class="card-deck m-2">
                         <div class="card bg-light">
@@ -354,7 +359,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'clients-expenses') echo 'show active';?>"
+                      id="clients-expenses" role="tabpanel" aria-labelledby="clients-expenses-tab">
                       <div class="card">
                         <div class="card-body">
                           <h5>Client's Expenses (Client Name)</h5>
@@ -653,7 +659,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="tab-pane fade <?php if($_GET['tab'] == 'calculators') echo 'show active';?>"
+                      id="calculators" role="tabpanel" aria-labelledby="calculators-tab">
                       <div class="card bg-light">
                         <div class="card-body">
                           <div class="card-title">
@@ -735,16 +742,37 @@
                                 <h5>HOW LONG WILL IT TAKE TO PAY OFF MY CREDIT CARD ?</h5>
                               </div>
                               <form action="" class="">
-                                <div class="form-row">
-                                  <div class="form-inline">
+                                <div class="form-group row">
+                                  <div class="form-inline col">
                                     <label for="card-balance">Card Balance $</label>
-                                    <input type="text" name="card-balance" id="card-balance" class="form-control">
+                                    <input type="text" name="card-balance" id="card-balance" class="form-control m-2">
                                   </div>
-                                  <div class="form-inline">
-                                    <label for="amount-per-month">Enter the amount payable per month $</label>
+                                  <div class="form-inline col">
+                                    <label for="amount-per-month">
+                                      Enter the amount payable
+                                      per month $
+                                    </label>
                                     <input type="text" name="amount-per-month" id="amount-per-month"
-                                      class="form-control">
+                                      class="form-control m-2">
                                   </div>
+                                </div>
+                                <div class="form-group row">
+                                  <div class="form-inline col">
+                                    <label for="interest-rate">Interest Rate</label>
+                                    <input type="text" name="interest-rate" id="interest-rate" class="form-control m-2">
+                                  </div>
+                                  <div class="form-inline col">
+                                    <label for="desired-months">
+                                      Enter the amount payable
+                                      per month $
+                                    </label>
+                                    <input type="text" name="desired-months" id="desired-months"
+                                      class="form-control m-2" value="ripul.chhabra@techwink.net">
+                                  </div>
+                                </div>
+                                <div class="button-group">
+                                  <button type="submit" class="btn btn-sm btn-outline-primary">Calculate</button>
+                                  <button type="reset" class="btn btn-sm btn-outline-primary">Reset</button>
                                 </div>
                               </form>
                             </div>
