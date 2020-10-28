@@ -3,20 +3,13 @@
 <!--begin::Head-->
 
 <head>
+  <base href="../">
   <meta charset="utf-8" />
-  <?php session_start(); ?>
-  <?php require 'config/constants.php'?>
-  <?php 
-    require 'server-side/dbconnect.php';
-    $user_details = $dbconnect->get_data($_SESSION['id']);
-    print_r($user_details);
-  ?>
-  <title>
-    <?= TITLE ?> | Home
-  </title>
+  <?php require '../config/constants.php'?>
+  <title><?= TITLE ?> | My Team Members</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="canonical" href="<?= LINK ?>" />
+  <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
   <!--end::Fonts-->
@@ -65,7 +58,7 @@
       <!--begin::Topbar Mobile Toggle-->
       <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
         <span class="svg-icon svg-icon-xl">
-          <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+          <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/General/User.svg-->
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
             viewBox="0 0 24 24" version="1.1">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -89,159 +82,10 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include 'config/aside.php'?>
+      <?php include '../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-        <!--begin::Header-->
-        <div id="kt_header" class="header header-fixed">
-          <!--begin::Container-->
-          <div class="container-fluid d-flex align-items-stretch justify-content-between">
-            <!--begin::Header Menu Wrapper-->
-            <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-              <!--begin::Header Menu-->
-              <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
-                <!--begin::Header Nav-->
-                <ul class="menu-nav">
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <!-- Button trigger modal-->
-                    <a href="#" data-toggle="modal" class="menu-link menu-toggle" data-target="#newLeads">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon\theme\html\demo1\dist/../src/media/svg/icons\General\User.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <polygon points="0 0 24 0 24 24 0 24" />
-                            <path
-                              d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
-                              fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                            <path
-                              d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">New Leads</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0)" data-toggle="modal" class="menu-link menu-toggle"
-                      data-target="#messagesModal">
-                      <!-- Button trigger modal-->
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5" />
-                            <path
-                              d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
-                              fill="#000000" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Messages</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0);" class="menu-link menu-toggle" data-toggle="modal"
-                      data-target="#tasksModal">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M5.5,4 L9.5,4 C10.3284271,4 11,4.67157288 11,5.5 L11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,5.5 C4,4.67157288 4.67157288,4 5.5,4 Z M14.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,17.5 C13,16.6715729 13.6715729,16 14.5,16 Z"
-                              fill="#000000" />
-                            <path
-                              d="M5.5,10 L9.5,10 C10.3284271,10 11,10.6715729 11,11.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L14.5,14 C13.6715729,14 13,13.3284271 13,12.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z"
-                              fill="#000000" opacity="0.3" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Task and Events</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon\theme\html\demo1\dist/../src/media/svg/icons\Devices\Printer.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z"
-                              fill="#000000" />
-                            <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Batchprint</span>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <!--end::Header Nav-->
-              </div>
-              <!--end::Header Menu-->
-            </div>
-            <!--end::Header Menu Wrapper-->
-            <!--begin::Topbar-->
-            <div class="topbar">
-              <!-- start::nav-link -->
-              <ul class="nav topbar-item">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">My Account</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">New Features</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">
-                    Help & Support
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Support Center</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Watch Quick Videos</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Live Software Classes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Tips and Tricks</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">New Feature Requests</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Resources</a>
-                  </div>
-                </li>
-              </ul>
-              <!-- end::nav-link -->
-              <div class="topbar-item">
-                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
-                  id="kt_quick_user_toggle">
-                  <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
-                    <?= $user_details->first_name ?>
-                  </span>
-                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                    <span class="symbol-label font-size-h5 font-weight-bold">S</span>
-                  </span>
-                </div>
-              </div>
-              <!--end::User-->
-            </div>
-            <!--end::Topbar-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::Header-->
+        <?php include '../config/header.php'?>
         <!--begin::Content-->
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
           <!--begin::Subheader-->
@@ -277,7 +121,7 @@
                 <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
                   <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="svg-icon svg-icon-success svg-icon-2x">
-                      <!--begin::Svg Icon | path:assets/media/svg/icons/Files/File-plus.svg-->
+                      <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Files/File-plus.svg-->
                       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                         height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -356,444 +200,299 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <!-- begin :: Description -->
-              <div class="alert alert-secondary" role="alert">
-                You have a full account with all access! Get started with the <a href="#">Welcome Video</a>, <a
-                  href="#">the Guided
-                  Tour</a> and learn with your <a href="#">Sample Client</a>. Be sure to read our <a href="#">User
-                  Guides</a>. For the
-                best possible experience, <a href="#">tune-up your web browser</a>. For account changes <a
-                  href="#">click here</a>.
-                Need help? See help and <a href="#">support options</a>.
-              </div>
-              <!-- end :: Description -->
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-5 col-sm-12">
-                    <div class="row mb-1 ml-1 mr-1">
-                      <div class="card w-100 h-100">
-                        <div class="card-body">
-                          <h3 class="card-title">Quick Tasks (Your Most Common Tasks)</h3>
-                          <ul class="list-unstyled d-flex flex-column justify-content-around">
-                            <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
-                                <i class="fas fa-user-plus fa-3x align-self-center" aria-hidden="true"></i>
-                                <div class="media-body">
-                                  <h6 class="mt-0 mb-1">Add a New Client</h6>
-                                  <span>Sign up a new client and add to database</span>
-                                </div>
-                              </a>
-                            </li>
-                            <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
-                                <i class="fas fa-users-cog fa-3x align-self-center" aria-hidden="true"></i>
-                                <div class="media-body">
-                                  <h6 class="mt-0 mb-1">Select an Existing Client</h6>
-                                  Work with an existing client and update leads
-                                </div>
-                              </a>
-                            </li>
-                            <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
-                                <i class="fas fa-user-check fa-3x align-self-center" aria-hidden="true"></i>
-                                <div class="media-body">
-                                  <h6 class="mt-0 mb-1">Run Credit Dispute Wizard</h6>
-                                  Order reports, review reports and correct errors
-                                </div>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex justify-content-between">
+                    <h5>My Team (800CREDITNOW.COM)</h5>
+                    <div>
+                      <a href="#" class="btn btn-sm btn-outline-primary mr-2">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Watch Quick Video
+                      </a>
+                      <button data-toggle="collapse" data-target=".show-hide-team"
+                        class="btn btn-sm btn-outline-primary">
+                        <i class="fa fa-user-plus"></i>
+                        Add Team Member
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse show show-hide-team">
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-icon">
+                        <span class="svg-icon svg-icon-primary svg-icon-xl">
+                        </span>
+                      </div>
+                      <div class="alert-text">
+                        Click "Add New Team Member" to give login access to your co-workers and employees. Each team
+                        member must have their own unique User ID and Password. User ID's cannot be shared
                       </div>
                     </div>
-                    <div class="row mt-3 m-1 ml-1 mr-1 mb-2">
-                      <div class="card w-100">
-                        <div class="card-body" style="height:230px">
-                          <h4 class="card-title">
-                            My Tasks
-                          </h4>
-                          <p class="text-center align-center">
-                            You have no tasks
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-primary">New Tasks</a>
-                            <a href="#" class="btn btn-primary btn-sm">View All Tasks</a>
+                    <!--end::Notice-->
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-icon">
+                        <span class="svg-icon svg-icon-primary svg-icon-xl">
+                        </span>
+                      </div>
+                      <div class="alert-text">
+                        Hold your mouse over a team member to display the options to Resend Login Details or Delete the
+                        Team Member. If you're a new user, be sure to click on your team member profile to enter all
+                        your
+                        contact details.
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                    <div class="d-flex flex-wrap justify-content-center">
+                      <?php for($i = 1; $i <= 7; $i++) { ?>
+                      <div class="card m-3" style="width:15rem">
+                        <div class="card-img-top">
+                          <img src="assets/dist/assets/media/users/100_<?= $i ?>.jpg" alt="user-image"
+                            style="width:15rem">
+                        </div>
+                        <div class="card-body text-center">
+                          <a href="#" class="btn btn-sm btn-outline-primary">Archie Andrews (Active)</a>
+                          <div class="button-group d-flex">
+                            <button class="btn btn-sm btn-outline-warning m-1">Last Login</button>
+                            <button class="btn btn-sm btn-outline-danger sweet-alert m-1">Inactivate / Delete</button>
                           </div>
                         </div>
                       </div>
+                      <?php } ?>
                     </div>
+                    <div>
+                      <h5>Team Chat</h5>
+                      <p>
+                        Team Chat enables your whole team to instant message each other while logged into Credit Repair
+                        Cloud.
+                      </p>
+                      <button class="btn btn-sm btn-success" id="enable-disable-button">Enable Team Chat Now</button>
+                    </div>
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-icon">
+                        <i class="fa fa-2x fa-lightbulb text-warning"></i>
+                      </div>
+                      <div class="alert-text">
+                        The account owner cannot change, as that is who has created this account, but if you would like
+                        to
+                        set a different name and email for all automated notifications sent from your company, visit
+                        <a href="#" class="btn-link">Automated Notification Options.</a>
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-text">
+                        Your account has one owner: the person who signed our user agreement. The account owner's name
+                        and
+                        User ID cannot be modified or deleted, and no other person may request changes to the account.
+                        If
+                        you need to contact us, always write from the same email address you signed up with. This is for
+                        safety and security of the data we store. <a href="#" class="btn-link">Read more.</a>
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-icon">
+                        <i class="fa fa-2x fa-exclamation-triangle text-warning"></i>
+                      </div>
+                      <div class="alert-text">
+                        *Warning: Never share your login details with any other person, especially when you are the
+                        account
+                        holder.
+                      </div>
+                    </div>
+                    <!--end::Notice-->
                   </div>
-                  <div class="col-lg-7 col-sm-12">
-                    <div class="card h-100">
+                  <div class="collapse hide show-hide-team">
+                    <div class="card card-custom card-sticky" id="kt_page_sticky_card">
+                      <div class="card-header">
+                        <div class="card-title d-flex justify-content-around">
+                          <h3 class="card-label">
+                            Team Member
+                            <i class="mr-2"></i>
+                          </h3>
+                          <button type="submit" class="btn btn-sm btn-outline-primary"
+                            id="member-submit">Submit</button>
+                        </div>
+                      </div>
                       <div class="card-body">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-building fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">My Company Profile</h6>
-                                    Configure User, Permission, Billing
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                        <form action="">
+                          <div class="form-horizontal row">
+                            <div class="form-group col">
+                              <label for="first-name">First Name<span class="text-danger">*</span></label>
+                              <input type="text" name="first-name" id="first-name" class="form-control">
+                            </div>
+                            <div class="form-group col">
+                              <label for="user-id">User ID</label>
+                              <input type="text" name="user-id" id="user-id" class="form-control">
+                            </div>
                           </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fas fa-user-tie fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Free Live Software Classes</h6>
-                                    Daily for all credit heroes
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row">
+                            <div class="form-group col">
+                              <label for="first-name">Last Name<span class="text-danger">*</span></label>
+                              <input type="text" name="last-name" id="last-name" class="form-control">
+                            </div>
+                            <div class="form-group col">
+                              <label for="password">Password</label>
+                              <input type="text" name="password" id="password" class="form-control">
+                            </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-user fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">My Clients</h6>
-                                    Add or Delete clients and Records
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row align-items-center">
+                            <div class="form-group col">
+                              <label for="gender">
+                                Gender
+                                <span class="text-danger">*</span>
+                              </label>
+                              <div class="col">
+                                <div class="form-check form-check-inline">
+                                  <input type="radio" name="gender" id="male" class="form-check-input">
+                                  <label for="male" class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input type="radio" name="gender" id="female" class="form-check-input">
+                                  <label for="female" class="form-check-label">Female</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group col">
+                              <div class="form-check form-check-inline">
+                                <input type="checkbox" name="login-info" id="login-info" class="form-check-input">
+                                <label for="login-info" class="form-check-label">Send Login Information
+                                  (Recommended)</label>
+                              </div>
+                            </div>
                           </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="far fa-play-circle fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Free Videos and Resources</h6>
-                                    Credit repair cloud user guides
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row align-items-center">
+                            <div class="form-group col">
+                              <label for="member-email">Email</label>
+                              <input type="email" name="member-email" id="member-email" class="form-control">
+                            </div>
+                            <div class="form-group col">
+                              <div class="form-check form-check-inline">
+                                <input type="checkbox" name="system-generated-password" id="system-generated-password"
+                                  class="form-check-input">
+                                <label for="system-generated-password" class="form-check-label">
+                                  System Generated Password (Not Recommended)
+                                </label>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="far fa-id-card fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">My Contacts</h6>
-                                    Manage Contacts and Address
+                          <div class="form-horizontal row align-items-center">
+                            <div class="col-lg-6">
+                              <div class="form-group row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" name="phone" id="phone" class="form-control">
                                   </div>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-certificate fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Credit Repair Academy</h6>
-                                    Get Credit Repair Training and Certificate
+                                </div>
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label for="ext">Ext</label>
+                                    <input type="text" name="ext" id="ext" class="form-control">
                                   </div>
-                                </a>
-                              </li>
-                            </ul>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="form-group col">
+                                  <label for="mobile">Mobile</label>
+                                  <input type="text" name="mobile" id="mobile" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="form-group col">
+                                  <label for="fax">Fax</label>
+                                  <input type="text" name="fax" id="fax" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="form-group col">
+                                  <label for="title">Title to display in portal</label>
+                                  <input type="text" name="title" id="title" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <!--begin::Notice-->
+                              <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" t
+                                role="alert">
+                                <div class="alert-icon">
+                                  <span class="svg-icon svg-icon-primary svg-icon-xl">
+                                    <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                      width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path
+                                          d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
+                                          fill="#000000" opacity="0.3" />
+                                        <path
+                                          d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
+                                          fill="#000000" fill-rule="nonzero" />
+                                      </g>
+                                    </svg>
+                                    <!--end::Svg Icon-->
+                                  </span>
+                                </div>
+                                <div class="alert-text">
+                                  This page lists your <a href="#">clients</a>, <a href="#">prospects</a> and <a
+                                    href="#">leads</a>.
+                                  Use <a href="#">Advanced Search</a> above to sort by affiliate or team member. Use
+                                  Quick Filter to
+                                  sort by status
+                                  (for follow-up). Click a client’s name to access records, the pencil icon to edit a
+                                  profile or
+                                  click a status to
+                                  change it. If you enable portal access or set an agreement in a new client profile,
+                                  icons of
+                                  envelopes or
+                                  checkmarks will appear below. Mouse-over the icons below to see more details. To learn
+                                  the system,
+                                  use your <a href="#">Sample Client</a>.
+                                </div>
+                              </div>
+                              <!--end::Notice-->
+                            </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="far fa-clock fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Schedule</h6>
-                                    Time Organization and Appointments
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row">
+                            <div class="form-group col">
+                              <label for="member-address">Address</label>
+                              <textarea type="text" name="member-address" id="member-address" class="form-control"
+                                rows="3">
+                              </textarea>
+                            </div>
                           </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-briefcase fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Business Website</h6>
-                                    Get a Proffessional Site in minutes
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row">
+                            <div class="form-group col-lg-6">
+                              <label for="role">
+                                Role
+                                <span class="text-danger">*</span>
+                              </label>
+                              <select name="select-role" id="select-role" class="custom-select">
+                                <option value="">Select Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Credit Rep">Credit Rep</option>
+                                <option value="Credit Specialist">Credit Specialist</option>
+                                <option value="Credit Specialist Pro">Credit Specialist Pro</option>
+                                <option value="Sales Representative">Sales Representative</option>
+                              </select>
+                            </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fas fa-street-view fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Client and Affiliate Portal</h6>
-                                    Clients and Affiliates Login here
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
+                          <div class="form-horizontal row align-items-center">
+                            <div class="form-group col-lg-6">
+                              <label for="photo">Photo</label>
+                              <input type="file" name="photo-file" id="photo-file" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <cite>(Only JPEG, JPG and PNG)</cite>
+                            </div>
                           </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-cloud fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Get CRC Verified!</h6>
-                                    Get free step by step and get the most out of CRC
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fa fa-book fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Library of Dispute letters</h6>
-                                    Also add your own custom letters
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-6 col-sm-12">
-                            <ul class="list-unstyled">
-                              <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
-                                  <i class="fas fa-receipt fa-3x align-self-center" aria-hidden="true"></i>
-                                  <div class="media-body">
-                                    <h6 class="mt-0 mb-1">Bonus Materials</h6>
-                                    Legal Docs and Marketing materials
-                                  </div>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                        </form>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="card mt-3">
-                      <div class="card-body">
-                        <h4 class="card-title">
-                          Business Status
-                        </h4>
-                        <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
-                            role="tab" aria-controls="v-pills-home" aria-selected="true">Active Clients</a>
-                          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                            role="tab" aria-controls="v-pills-profile" aria-selected="false">Affiliates</a>
-                          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                            role="tab" aria-controls="v-pills-messages" aria-selected="false">Leads</a>
-                          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Clients Success</a>
-                        </div>
-                        <div class="tab-content mt-5" id="v-pills-tabContent">
-                          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                            aria-labelledby="v-pills-home-tab">
-                            <div id="active_clients_chart"></div>
-                          </div>
-                          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                            aria-labelledby="v-pills-profile-tab">
-                            <div id="affiliates_chart"></div>
-                          </div>
-                          <div class=" tab-pane fade" id="v-pills-messages" role="tabpanel"
-                            aria-labelledby="v-pills-messages-tab">
-                            <div id="leads_chart"></div>
-                          </div>
-                          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                            aria-labelledby="v-pills-settings-tab">
-                            <div id="clients_success_chart"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="card mt-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <h4>
-                            My Schedule
-                          </h4>
-                          <a href="#" class="btn btn-outline-primary">
-                            Manage Schedule
-                          </a>
-                        </div>
-                        <p class="text-center" style="height:300px"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card card-custom gutter-b m-4">
-                  <div class="card-header flex-wrap border-0 pt-6 pb-0">
-                    <div class="card-title">
-                      <h3 class="card-label">
-                        Recent Login Activity
-                      </h3>
-                    </div>
-                    <div class="card-toolbar">
-                      <!--begin::Dropdown-->
-                      <div class="dropdown dropdown-inline mr-2">
-                        <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="svg-icon svg-icon-md">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                              width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect x="0" y="0" width="24" height="24" />
-                                <path
-                                  d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
-                                  fill="#000000" opacity="0.3" />
-                                <path
-                                  d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
-                                  fill="#000000" />
-                              </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                          </span>Export</button>
-                        <!--begin::Dropdown Menu-->
-                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                          <!--begin::Navigation-->
-                          <ul class="navi flex-column navi-hover py-2">
-                            <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
-                              Choose an option:
-                            </li>
-                            <li class="navi-item">
-                              <a href="#" class="navi-link">
-                                <span class="navi-icon">
-                                  <i class="la la-print"></i>
-                                </span>
-                                <span class="navi-text">Print</span>
-                              </a>
-                            </li>
-                            <li class="navi-item">
-                              <a href="#" class="navi-link">
-                                <span class="navi-icon">
-                                  <i class="la la-copy"></i>
-                                </span>
-                                <span class="navi-text">Copy</span>
-                              </a>
-                            </li>
-                            <li class="navi-item">
-                              <a href="#" class="navi-link">
-                                <span class="navi-icon">
-                                  <i class="la la-file-excel-o"></i>
-                                </span>
-                                <span class="navi-text">Excel</span>
-                              </a>
-                            </li>
-                            <li class="navi-item">
-                              <a href="#" class="navi-link">
-                                <span class="navi-icon">
-                                  <i class="la la-file-text-o"></i>
-                                </span>
-                                <span class="navi-text">CSV</span>
-                              </a>
-                            </li>
-                            <li class="navi-item">
-                              <a href="#" class="navi-link">
-                                <span class="navi-icon">
-                                  <i class="la la-file-pdf-o"></i>
-                                </span>
-                                <span class="navi-text">PDF</span>
-                              </a>
-                            </li>
-                          </ul>
-                          <!--end::Navigation-->
-                        </div>
-                        <!--end::Dropdown Menu-->
-                      </div>
-                      <!--end::Dropdown-->
-                      <!--begin::Button-->
-                      <a href="#" class="btn btn-primary font-weight-bolder">
-                        <span class="svg-icon svg-icon-md">
-                          <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                              <rect x="0" y="0" width="24" height="24" />
-                              <circle fill="#000000" cx="9" cy="15" r="6" />
-                              <path
-                                d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
-                                fill="#000000" opacity="0.3" />
-                            </g>
-                          </svg>
-                          <!--end::Svg Icon-->
-                        </span>New Record</a>
-                      <!--end::Button-->
-                    </div>
-                  </div>
-                  <div class="card-body w-100">
-                    <!--begin: Datatable-->
-                    <table class="table table-separate table-head-custom table-checkable table-responsive"
-                      id="kt_datatable1">
-                      <thead>
-                        <tr>
-                          <th>User</th>
-                          <th>IP Address</th>
-                          <th>Access Type</th>
-                          <th>Login</th>
-                          <th>Logout</th>
-                          <th>Location</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!--end: Datatable-->
                   </div>
                 </div>
               </div>
@@ -803,7 +502,7 @@
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <?php include 'config/footer.php'?>
+        <?php include '../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>
@@ -831,18 +530,14 @@
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
-          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-            <?php echo $user_details->first_name.' '.$user_details->last_name?>
-          </a>
-          <div class="text-muted mt-1">
-            <?php echo "Affiliate"?>
-          </div>
+          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
+          <div class="text-muted mt-1">Application Developer</div>
           <div class="navi mt-2">
             <a href="#" class="navi-item">
               <span class="navi-link p-0 pb-2">
                 <span class="navi-icon mr-1">
                   <span class="svg-icon svg-icon-lg svg-icon-primary">
-                    <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg-->
+                    <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Mail-notification.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                       height="24px" viewBox="0 0 24 24" version="1.1">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -856,12 +551,10 @@
                     <!--end::Svg Icon-->
                   </span>
                 </span>
-                <span class="navi-text text-muted text-hover-primary">
-                  <?= $user_details->email ?>
-                </span>
+                <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
               </span>
             </a>
-            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+            <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
           </div>
         </div>
       </div>
@@ -877,7 +570,7 @@
             <div class="symbol symbol-40 bg-light mr-3">
               <div class="symbol-label">
                 <span class="svg-icon svg-icon-md svg-icon-success">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/General/Notification2.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/General/Notification2.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -907,7 +600,7 @@
             <div class="symbol symbol-40 bg-light mr-3">
               <div class="symbol-label">
                 <span class="svg-icon svg-icon-md svg-icon-warning">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Shopping/Chart-bar1.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Shopping/Chart-bar1.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -937,7 +630,7 @@
             <div class="symbol symbol-40 bg-light mr-3">
               <div class="symbol-label">
                 <span class="svg-icon svg-icon-md svg-icon-danger">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Files/Selected-file.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Files/Selected-file.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -967,7 +660,7 @@
             <div class="symbol symbol-40 bg-light mr-3">
               <div class="symbol-label">
                 <span class="svg-icon svg-icon-md svg-icon-primary">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-opened.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Mail-opened.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1005,7 +698,7 @@
         <div class="d-flex align-items-center bg-light-warning rounded p-5 gutter-b">
           <span class="svg-icon svg-icon-warning mr-5">
             <span class="svg-icon svg-icon-lg">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Home/Library.svg-->
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1033,7 +726,7 @@
         <div class="d-flex align-items-center bg-light-success rounded p-5 gutter-b">
           <span class="svg-icon svg-icon-success mr-5">
             <span class="svg-icon svg-icon-lg">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Write.svg-->
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1062,7 +755,7 @@
         <div class="d-flex align-items-center bg-light-danger rounded p-5 gutter-b">
           <span class="svg-icon svg-icon-danger mr-5">
             <span class="svg-icon svg-icon-lg">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
+              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Group-chat.svg-->
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1091,7 +784,7 @@
         <div class="d-flex align-items-center bg-light-info rounded p-5">
           <span class="svg-icon svg-icon-info mr-5">
             <span class="svg-icon svg-icon-lg">
-              <!--begin::Svg Icon | path:assets/media/svg/icons/General/Attachment2.svg-->
+              <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/General/Attachment2.svg-->
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1403,7 +1096,7 @@
             <div class="d-flex align-items-center bg-light-warning rounded p-5 mb-5">
               <span class="svg-icon svg-icon-warning mr-5">
                 <span class="svg-icon svg-icon-lg">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Home/Library.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1432,7 +1125,7 @@
             <div class="d-flex align-items-center bg-light-success rounded p-5 mb-5">
               <span class="svg-icon svg-icon-success mr-5">
                 <span class="svg-icon svg-icon-lg">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Write.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1461,7 +1154,7 @@
             <div class="d-flex align-items-center bg-light-danger rounded p-5 mb-5">
               <span class="svg-icon svg-icon-danger mr-5">
                 <span class="svg-icon svg-icon-lg">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Group-chat.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1489,7 +1182,7 @@
             <div class="d-flex align-items-center bg-light-info rounded p-5">
               <span class="svg-icon svg-icon-info mr-5">
                 <span class="svg-icon svg-icon-lg">
-                  <!--begin::Svg Icon | path:assets/media/svg/icons/General/Attachment2.svg-->
+                  <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/General/Attachment2.svg-->
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                     height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1871,7 +1564,7 @@
                 <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   <span class="svg-icon svg-icon-lg">
-                    <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
+                    <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Communication/Add-user.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                       height="24px" viewBox="0 0 24 24" version="1.1">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -2147,7 +1840,7 @@
   <!--begin::Scrolltop-->
   <div id="kt_scrolltop" class="scrolltop">
     <span class="svg-icon">
-      <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+      <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Navigation/Up-2.svg-->
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
         viewBox="0 0 24 24" version="1.1">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -2245,8 +1938,7 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="assets/js/index-charts.js"></script>
+  <script src="assets/js/my-company/my-team-members.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"

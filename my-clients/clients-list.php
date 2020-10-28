@@ -7,7 +7,7 @@
   <?php require '../config/constants.php'?>
   <meta charset="utf-8" />
   <title>
-    <?= LINK ?> | My Clients
+    <?= TITLE ?> | My Clients
   </title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

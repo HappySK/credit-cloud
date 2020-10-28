@@ -6,7 +6,7 @@
         understanding of this. This area of the program will keep all of that information organized and at your
         fingertips.</p>
     </div>
-    <a href="my-clients/educate-steps" class="m-2 btn btn-light w-75">
+    <a href="my-clients/educate-steps?tab=clients-debts" class="m-2 btn btn-light w-75">
       <div class="media">
         <i class="fa fa-3x fa-dollar-sign align-self-center mr-3" aria-hidden="true"></i>
         <div class="media-body">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </a>
-    <a href="#" class="m-2 btn btn-light w-75">
+    <a href="my-clients/educate-steps?tab=clients-expenses" class="m-2 btn btn-light w-75">
       <div class="media">
         <i class="fa fa-3x fa-suitcase align-self-center mr-3" aria-hidden="true"></i>
         <div class="media-body">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </a>
-    <a href="#" class="m-2 btn btn-light w-75">
+    <a href="my-clients/educate-steps?tab=calculators" class="m-2 btn btn-light w-75">
       <div class="media">
         <i class="fa fa-3x fa-plus align-self-center mr-3" aria-hidden="true"></i>
         <div class="media-body">
