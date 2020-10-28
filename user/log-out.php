@@ -1,0 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['id']))
+{
+  if(!empty($_SESSION['id']))
+  {
+    session_unset();
+    header('Location:sign-in');
+  }
+}
+?>
