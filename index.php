@@ -4,7 +4,13 @@
 
 <head>
   <meta charset="utf-8" />
+  <?php session_start(); ?>
   <?php require 'config/constants.php'?>
+  <?php 
+    require 'server-side/dbconnect.php';
+    $user_details = $dbconnect->get_data($_SESSION['id']);
+    print_r($user_details);
+  ?>
   <title>
     <?= TITLE ?> | Home
   </title>
@@ -221,7 +227,9 @@
                 <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
                   id="kt_quick_user_toggle">
                   <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
+                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
+                    <?= $user_details->first_name ?>
+                  </span>
                   <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                     <span class="symbol-label font-size-h5 font-weight-bold">S</span>
                   </span>
@@ -823,8 +831,12 @@
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
-          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
-          <div class="text-muted mt-1">Application Developer</div>
+          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
+            <?php echo $user_details->first_name.' '.$user_details->last_name?>
+          </a>
+          <div class="text-muted mt-1">
+            <?php echo "Affiliate"?>
+          </div>
           <div class="navi mt-2">
             <a href="#" class="navi-item">
               <span class="navi-link p-0 pb-2">
@@ -844,10 +856,12 @@
                     <!--end::Svg Icon-->
                   </span>
                 </span>
-                <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+                <span class="navi-text text-muted text-hover-primary">
+                  <?= $user_details->email ?>
+                </span>
               </span>
             </a>
-            <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
           </div>
         </div>
       </div>
