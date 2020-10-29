@@ -34,7 +34,7 @@
 <!--begin::Body-->
 
 <body id="kt_body"
-  class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+  class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable aside-minimize page-loading">
   <!--begin::Main-->
   <!--begin::Header Mobile-->
   <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
@@ -1016,7 +1016,7 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <div class="card m-3">
+              <div class="card">
                 <div class="card-body">
                   <ul class="nav nav-pills row" id="my-clients-navtabs" role="tablist">
                     <li class="nav-item">
