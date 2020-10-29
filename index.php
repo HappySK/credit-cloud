@@ -9,7 +9,6 @@
   <?php 
     require 'server-side/dbconnect.php';
     $user_details = $dbconnect->get_data($_SESSION['id']);
-    print_r($user_details);
   ?>
   <title>
     <?= TITLE ?> | Home
