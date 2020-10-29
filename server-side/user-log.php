@@ -1,17 +1,18 @@
 <?php 
 session_start();
-require 'dbconnect.php';
+require 'class/dbconnect.php';
+require 'class/user.php';
 switch($_GET['action'])
 {
     case 'register' : if(isset($_POST))
                         {                   
-                            $user = $_POST;
-                            if(!empty($user))
+                            $user_data = $_POST;
+                            if(!empty($user_data))
                             {
-                                if(!($dbconnect->is_email_exists($user['email'])))
+                                if(!($user->is_email_exists($user_data['email'])))
                                 {
-                                  $dbconnect->insert_user_details($user);
-                                  $dbconnect->assign_session_id($user['email']);
+                                  $user->insert_user_details($user_data);
+                                  $user->assign_session_id($user_data['email']);
                                 }
                                 else
                                 {
@@ -36,11 +37,11 @@ switch($_GET['action'])
     case 'login' : if(isset($_POST))
                         {
                           $user = $_POST;
-                          if(!empty($user))
+                          if(!empty($user_data))
                           {
-                            if($dbconnect->is_email_exists($user['email']))
+                            if($user->is_email_exists($user_data['email']))
                             {
-                              $dbconnect->login($user);
+                              $user->login($user_data);
                             }
                             else
                             {
