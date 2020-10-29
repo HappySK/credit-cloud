@@ -6,10 +6,10 @@
   <meta charset="utf-8" />
   <?php session_start(); ?>
   <?php require 'config/constants.php'?>
-  <?php 
-    require 'server-side/dbconnect.php';
-    $user_details = $dbconnect->get_data($_SESSION['id']);
-    print_r($user_details);
+  <?php
+    require_once 'server-side/class/dbconnect.php';
+    require 'server-side/class/user.php';
+    $user_details = $user->get_data($_SESSION['id']);
   ?>
   <title>
     <?= TITLE ?> | Home
