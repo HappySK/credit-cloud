@@ -1,0 +1,16 @@
+*******************Super-Admin****************************
+The following points are included in the super-admin-dashboard
+
+1) The super-admin-login.php facilitates the super-admin to login to the dashboard
+
+2) The super-admin-dashboard.php helps in assigning the roles to the users
+
+3) On Assiging the roles to the team members, it will be updated into the database
+
+4) Therefore, the user depending on their role will get their previleges in the features.
+
+5) The super-admin URL will be 
+
+6) The following login credentials will help logging into the super-admin-dashboard
+    username : admin
+    password : admin
