@@ -5,8 +5,10 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php require '../config/constants.php'?>
-  <title><?= TITLE ?> | Home</title>
+  <?php 
+    require '../config/config.php'
+  ?>
+  <title><?= TITLE ?> | Super Admin</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
@@ -213,8 +215,7 @@
                       <select name="select-user" id="select-user" data-flip="false" class="custom-select">
                         <option value="">Select User</option>
                         <?php 
-                          require '../server-side/class/dbconnect.php';
-                          require '../server-side/class/super-admin.php';
+                          require CLASS_PATH.'/super-admin.php';
                           $user_data = $admin->get_all_users();
                           foreach($user_data as $user_id => $user_details)
                           {
