@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require 'class/dbconnect.php';
-require 'class/user.php';
+require '../config/config.php';
+require CLASS_PATH.'/user.php';
 switch($_GET['action'])
 {
     case 'register' : if(isset($_POST))
@@ -36,7 +36,7 @@ switch($_GET['action'])
                       break;
     case 'login' : if(isset($_POST))
                         {
-                          $user = $_POST;
+                          $user_data = $_POST;
                           if(!empty($user_data))
                           {
                             if($user->is_email_exists($user_data['email']))

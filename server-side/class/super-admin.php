@@ -1,10 +1,10 @@
 <?php
-// require '../dbconnect.php';
+include CLASS_PATH.'/dbconnect.php';
 class super_admin extends dbconnect
 {
-  function __construct()
+  function __construct($db_config)
   {
-    parent::__construct(); 
+    parent::__construct($db_config); 
   }
 
   function get_all_users()
@@ -65,7 +65,7 @@ class super_admin extends dbconnect
     }
   }
 }
-$admin = new super_admin();
+$admin = new super_admin($db_config);
 // $roles = $admin->get_roles();
 // print_r($admin->get_roles());
 ?>
