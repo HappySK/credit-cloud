@@ -15,6 +15,7 @@ $(document).ready(function () {
 		$.post("server-side/user-log.php?action=login", user_details, function (
 			data
 		) {
+			console.log(data)
 			res = JSON.parse(data);
 			if (res.mode == "login" && res.status == "success") {
 				Swal.fire({
