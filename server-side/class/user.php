@@ -1,6 +1,12 @@
 <?php
+include CLASS_PATH.'/dbconnect.php';
 class user extends dbconnect
 {
+  function __construct($db_config)
+  {
+    parent::__construct($db_config);
+  }
+  
   //generate a username from Full name
   function generate_username($string_name="Mike Tyson", $rand_no = 200){
   $username_parts = array_filter(explode(" ", strtolower($string_name))); //explode and lowercase name
@@ -124,5 +130,5 @@ function login($user)
 }
 }
 
-$user = new user();
+$user = new user($db_config);
 ?>

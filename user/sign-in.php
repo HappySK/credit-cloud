@@ -4,7 +4,7 @@
 
 <head>
   <base href="../">
-  <?php require '../config/constants.php'?>
+  <?php require '../config/config.php'?>
   <meta charset="utf-8" />
   <title>
     <?= TITLE ?> | Sign In

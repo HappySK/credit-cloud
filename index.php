@@ -5,10 +5,9 @@
 <head>
   <meta charset="utf-8" />
   <?php session_start(); ?>
-  <?php require 'config/constants.php'?>
+  <?php require 'config/config.php'?>
   <?php
-    require_once 'server-side/class/dbconnect.php';
-    require 'server-side/class/user.php';
+    require CLASS_PATH.'/user.php';
     $user_details = $user->get_data($_SESSION['id']);
   ?>
   <title>
@@ -810,7 +809,7 @@
     <!--end::Page-->
   </div>
   <!--end::Main-->
-  <!-- begin::User Panel-->
+  <!-- begin::   Panel-->
   <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
