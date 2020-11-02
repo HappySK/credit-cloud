@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8" />
   <?php session_start(); ?>
-  <?php require 'config/config.php'?>
-  <?php
+  <?php 
+    require 'config/config.php';
     require CLASS_PATH.'/user.php';
     $user_details = $user->get_data($_SESSION['id']);
   ?>
@@ -227,7 +227,18 @@
                   id="kt_quick_user_toggle">
                   <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                   <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
-                    <?= $user_details->first_name ?>
+                    <?php
+                    if(isset($user_details->first_name))
+                    {
+                      echo $user_details->first_name;
+                    }
+                    else
+                    {
+                    ?>
+                    <span>Not Logged in ? Please <a href="user/sign-in">Login</a></span>
+                    <?php  
+                    }
+                    ?>
                   </span>
                   <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                     <span class="symbol-label font-size-h5 font-weight-bold">S</span>
@@ -736,6 +747,10 @@
                     </div>
                   </div>
                   <div class="card-body w-100">
+                    <?php
+                    if(isset($_SESSION['id']))
+                    {
+                     ?>
                     <!--begin: Datatable-->
                     <table
                       class="table table-separate table-head-custom table-checkable table-responsive-lg text-center"
@@ -752,6 +767,15 @@
                       </thead>
                     </table>
                     <!--end: Datatable-->
+                    <?php
+                    }
+                    else
+                    {
+                      ?>
+                    <div>Please <a href="user/sign-in">Login</a> to see the login history !</div>
+                    <?php
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -819,7 +843,8 @@
                 </span>
               </span>
             </a>
-            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign
+              Out</a>
           </div>
         </div>
       </div>
@@ -980,7 +1005,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
+              purpose
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1009,7 +1035,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
+              be to
               people</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1037,7 +1064,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+              would be
               to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
@@ -1076,7 +1104,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+              best
               product</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1315,7 +1344,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
+                  Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1474,7 +1504,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+                  best
                   product</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1944,7 +1975,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -1966,7 +1998,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on
                     GitHub.
                   </div>
                 </div>
@@ -1978,7 +2011,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2010,7 +2044,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2034,7 +2069,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
+                    viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -2044,7 +2080,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2066,7 +2103,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -2189,7 +2227,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
+  </script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
