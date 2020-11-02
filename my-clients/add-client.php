@@ -1069,7 +1069,7 @@
                     <div class="form-group row">
                       <div class="col-lg-5">
                         <label>First Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter firstname" />
+                        <input type="text" class="form-control is-valid" placeholder="Enter firstname" />
                       </div>
                       <div class="col-lg-5">
                         <label>Middle Name:</label>

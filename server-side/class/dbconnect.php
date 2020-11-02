@@ -1,5 +1,4 @@
 <?php 
-$db_config = json_decode(file_get_contents(MAIN_PATH.'/config/db_config.json'));
 class dbconnect
 {
   private $db_host; 
