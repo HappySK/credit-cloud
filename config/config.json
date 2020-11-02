@@ -2,13 +2,13 @@
 	"DB_CREDENTIALS": {
 		"DB_HOST": "localhost",
 		"DB_NAME": "sowlyehg_credit",
-		"DB_USER": "sowlyehg_sravan",
-		"DB_PASSWORD": "g4}[#V;9}G1s"
+		"DB_USER": "root",
+		"DB_PASSWORD": ""
   },
   "APPLICATION_PATH": {
-    "MAIN_PATH" : "/credit",
-    "ASSETS_PATH" : "/credit/assets",
-    "CLASS_PATH" : "/credit/server-side/class"
+    "MAIN_PATH" : "/projects/credit-cloud",
+    "ASSETS_PATH" : "projects/credit-cloud/assets",
+    "CLASS_PATH" : "/projects/credit-cloud/server-side/class"
   },
   "APPLICATION_CREDENTIALS" : {
     "TITLE" : "CREDIT REPAIR CLOUD",
