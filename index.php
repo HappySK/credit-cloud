@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8" />
   <?php session_start(); ?>
-  <?php require 'config/config.php'?>
-  <?php
+  <?php 
+    require 'config/config.php';
     require CLASS_PATH.'/user.php';
     $user_details = $user->get_data($_SESSION['id']);
   ?>
@@ -227,7 +227,18 @@
                   id="kt_quick_user_toggle">
                   <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                   <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
-                    <?= $user_details->first_name ?>
+                    <?php
+                    if(isset($user_details->first_name))
+                    {
+                      echo $user_details->first_name;
+                    }
+                    else
+                    {
+                    ?>
+                    <span>Not Logged in ? Please <a href="user/sign-in">Login</a></span>
+                    <?php  
+                    }
+                    ?>
                   </span>
                   <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                     <span class="symbol-label font-size-h5 font-weight-bold">S</span>
@@ -375,7 +386,7 @@
                           <h3 class="card-title">Quick Tasks (Your Most Common Tasks)</h3>
                           <ul class="list-unstyled d-flex flex-column justify-content-around">
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/add-client" class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-user-plus fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Add a New Client</h6>
@@ -384,7 +395,7 @@
                               </a>
                             </li>
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-users-cog fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Select an Existing Client</h6>
@@ -393,7 +404,8 @@
                               </a>
                             </li>
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/edit-client-details?tab=dispute-wizard"
+                                class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-user-check fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Run Credit Dispute Wizard</h6>
@@ -429,7 +441,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-company/my-company-profile" class="btn btn-secondary d-flex w-100">
                                   <i class="fa fa-building fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">My Company Profile</h6>
@@ -457,7 +469,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
                                   <i class="fa fa-user fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">My Clients</h6>
@@ -513,7 +525,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-schedule/my-schedule" class="btn btn-secondary d-flex w-100">
                                   <i class="far fa-clock fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">Schedule</h6>
@@ -732,29 +744,17 @@
                         <!--end::Dropdown Menu-->
                       </div>
                       <!--end::Dropdown-->
-                      <!--begin::Button-->
-                      <a href="#" class="btn btn-primary font-weight-bolder">
-                        <span class="svg-icon svg-icon-md">
-                          <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                              <rect x="0" y="0" width="24" height="24" />
-                              <circle fill="#000000" cx="9" cy="15" r="6" />
-                              <path
-                                d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
-                                fill="#000000" opacity="0.3" />
-                            </g>
-                          </svg>
-                          <!--end::Svg Icon-->
-                        </span>New Record</a>
-                      <!--end::Button-->
                     </div>
                   </div>
                   <div class="card-body w-100">
+                    <?php
+                    if(isset($_SESSION['id']))
+                    {
+                     ?>
                     <!--begin: Datatable-->
-                    <table class="table table-separate table-head-custom table-checkable table-responsive"
-                      id="kt_datatable1">
+                    <table
+                      class="table table-separate table-head-custom table-checkable table-responsive-lg text-center"
+                      id="last-login-activity">
                       <thead>
                         <tr>
                           <th>User</th>
@@ -765,34 +765,17 @@
                           <th>Location</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                        <tr>
-                          <td>Nick</td>
-                          <td>127.0.0.1</td>
-                          <td>Browser</td>
-                          <td>22-05-2020 06:05:34 am</td>
-                          <td>22-05-2020 08:05:22 am</td>
-                          <td>India</td>
-                        </tr>
-                      </tbody>
                     </table>
                     <!--end: Datatable-->
+                    <?php
+                    }
+                    else
+                    {
+                      ?>
+                    <div>Please <a href="user/sign-in">Login</a> to see the login history !</div>
+                    <?php
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -860,7 +843,8 @@
                 </span>
               </span>
             </a>
-            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+            <a href="user/log-out" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign
+              Out</a>
           </div>
         </div>
       </div>
@@ -1021,7 +1005,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
+              purpose
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1050,7 +1035,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
+              be to
               people</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1078,7 +1064,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+              would be
               to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
@@ -1117,7 +1104,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+              best
               product</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1356,7 +1344,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
+                  Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1515,7 +1504,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+                  best
                   product</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1985,7 +1975,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -2007,7 +1998,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on
                     GitHub.
                   </div>
                 </div>
@@ -2019,7 +2011,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2051,7 +2044,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2075,7 +2069,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
+                    viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -2085,7 +2080,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -2107,7 +2103,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -2230,7 +2227,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
+  </script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -2246,6 +2244,8 @@
   <!--end::Page Scripts-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="assets/js/index-charts.js"></script>
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script type="text/javascript" src="assets/js/index/last-login-datatable.js"></script>
 </body>
 <!--end::Body-->
 <div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"

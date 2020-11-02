@@ -33,8 +33,7 @@ function insert_user_details($user)
   $username = $this->generate_username($user['fname'].$user['lname'],10);
   $sql1 = "INSERT INTO `users`(`user_id`,`first_name`, `last_name`, `email`,`password`,`username`) VALUES (?,?,?,?,?,?)";
   $stmt1 = $this->conn->prepare($sql1);
-  $sql2 = "INSERT INTO `user_details`(`user_id`, `address_line_1`, `address_line_2`, `state`, `country`) VALUES
-  (?,?,?,?,?)";
+  $sql2 = "INSERT INTO `user_details`(`user_id`, `address_line_1`, `address_line_2`, `state`, `country`) VALUES (?,?,?,?,?)";
   $stmt2 = $this->conn->prepare($sql2);
   if($stmt1->execute([$user_id,$user['fname'],$user['lname'],$user['email'],md5($user['password']),$username]) &&
   $stmt2->execute([$user_id,$user['address1'],$user['address2'],$user['state'],$user['country']]))
@@ -64,12 +63,13 @@ function is_credentials_correct($user)
   return ($stmt->execute([$user['email'],md5($user['password'])]) && $stmt->rowCount() == 1);
 }
 
-function assign_session_id($email)
+function assign_session($email)
 {
   if($this->is_email_exists($email))
   {
     $user_details = $this->get_user_details($email);
     $_SESSION['id'] = $user_details->s_no;
+    $_SESSION['user_id'] = $user_details->user_id;
   }
   else
   {
@@ -105,11 +105,35 @@ function is_email_exists($email)
   return ($stmt->execute([$email]) && $stmt->rowCount() == 1);
 }
 
+function insert_login_activity($userid)
+{
+  $sql = "INSERT INTO `last_login`(`user_id`, `ip_address`, `access_type`) VALUES (?,?,?)";
+  $stmt = $this->conn->prepare($sql);
+  if(!($stmt->execute([$userid, $_SERVER['REMOTE_ADDR'],'Browser'])))
+  {
+    $status = array(
+      'user_id' => $userid,
+      'mode' => 'login',
+      'status' => 'failure',
+      'message' => 'insert_login_activity_query_failure'
+      );
+      echo json_encode($status);
+  }
+}
+
+function update_login_activity($user_id)
+{
+  $sql = "UPDATE `last_login` SET date_logout = now() WHERE `user_id` = (SELECT `user_id` FROM `last_login` WHERE `user_id` = ? ORDER BY date_login DESC LIMIT 1)";
+  $stmt = $this->conn->prepare($sql);
+  $stmt->execute([$user_id]);
+}
+
 function login($user)
 {
   if($this->is_credentials_correct($user))
   {
-  $this->assign_session_id($user['email']);
+  $this->assign_session($user['email']);
+  $this->insert_login_activity($_SESSION['user_id']);
   $status = array(
   'mode' => 'login',
   'status' => 'success'
