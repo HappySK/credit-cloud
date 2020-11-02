@@ -375,7 +375,7 @@
                           <h3 class="card-title">Quick Tasks (Your Most Common Tasks)</h3>
                           <ul class="list-unstyled d-flex flex-column justify-content-around">
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-user-plus fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Add a New Client</h6>
@@ -384,7 +384,7 @@
                               </a>
                             </li>
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-users-cog fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Select an Existing Client</h6>
@@ -393,7 +393,8 @@
                               </a>
                             </li>
                             <li class="media my-4">
-                              <a href="#" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/edit-client-details?tab=dispute-wizard"
+                                class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-user-check fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Run Credit Dispute Wizard</h6>
@@ -429,7 +430,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-company/my-company-profile" class="btn btn-secondary d-flex w-100">
                                   <i class="fa fa-building fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">My Company Profile</h6>
@@ -457,7 +458,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
                                   <i class="fa fa-user fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">My Clients</h6>
@@ -513,7 +514,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <ul class="list-unstyled">
                               <li class="media">
-                                <a href="#" class="btn btn-secondary d-flex w-100">
+                                <a href="my-schedule/my-schedule" class="btn btn-secondary d-flex w-100">
                                   <i class="far fa-clock fa-3x align-self-center" aria-hidden="true"></i>
                                   <div class="media-body">
                                     <h6 class="mt-0 mb-1">Schedule</h6>
@@ -736,7 +737,8 @@
                   </div>
                   <div class="card-body w-100">
                     <!--begin: Datatable-->
-                    <table class="table table-separate table-head-custom table-checkable table-responsive-lg"
+                    <table
+                      class="table table-separate table-head-custom table-checkable table-responsive-lg text-center"
                       id="last-login-activity">
                       <thead>
                         <tr>
