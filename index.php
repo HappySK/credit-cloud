@@ -375,7 +375,7 @@
                           <h3 class="card-title">Quick Tasks (Your Most Common Tasks)</h3>
                           <ul class="list-unstyled d-flex flex-column justify-content-around">
                             <li class="media my-4">
-                              <a href="my-clients/clients-list" class="btn btn-secondary d-flex w-100">
+                              <a href="my-clients/add-client" class="btn btn-secondary d-flex w-100">
                                 <i class="fas fa-user-plus fa-3x align-self-center" aria-hidden="true"></i>
                                 <div class="media-body">
                                   <h6 class="mt-0 mb-1">Add a New Client</h6>
