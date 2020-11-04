@@ -5,7 +5,7 @@ $(document).ready(function(){
     info : false,
     ajax : 'assets/datatables/last-login-datatable.php',
     columns : [
-      {data : 'first_name'},
+      {data : 'email'},
       {data : 'ip_address'},
       {data : 'access_type'},
       {data : 'date_login'},

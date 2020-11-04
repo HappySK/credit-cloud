@@ -1,5 +1,6 @@
 <?php
-include '../../config/config.php';
+session_start();
+require '../../config/config.php';
 require CLASS_PATH.'/dbconnect.php';
 class last_login_datatable extends dbconnect
 {
@@ -10,7 +11,7 @@ class last_login_datatable extends dbconnect
  
  function get_data($user_id)
  {
-   $sql = "SELECT users.first_name,`ip_address`,`access_type`,`date_login`,`date_logout`,`location` FROM `last_login`,`users` WHERE users.user_id = ? AND last_login.user_id = ?";
+   $sql = "SELECT users.email,`ip_address`,`access_type`,`date_login`,`date_logout`,`location` FROM `last_login`,`users` WHERE users.user_id = ? AND last_login.user_id = ?";
    $stmt = $this->conn->prepare($sql);
    if($stmt->execute([$user_id,$user_id]))
    {
@@ -23,6 +24,6 @@ class last_login_datatable extends dbconnect
    }
  } 
 }
-$last_login = new last_login_datatable($db_config);
-$last_login->get_data('SLKWR');
+$last_login = new last_login_datatable($config->DB_CREDENTIALS);
+$last_login->get_data($_SESSION['user_id']);
 ?>
