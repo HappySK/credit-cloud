@@ -3,6 +3,10 @@ $(document).ready(function () {
 		paging: false,
 		info: false,
 		ajax: "assets/datatables/clients-list-datatable.php",
+		dom : 'lBfrtip',
+		buttons : [
+			'excel','pdf','csv','copy'
+		],
 		columns: [
 			{ data: "s_no" },
 			{ data: "name" },
