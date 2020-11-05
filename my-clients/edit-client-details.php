@@ -5,7 +5,14 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php require '../config/config.php'?>
+  <?php 
+    require '../config/config.php';
+    if(isset($_GET['c_id']))
+    {
+      session_start();
+      $_SESSION['c_id'] = $_GET['c_id']; 
+    }
+  ?>
   <title><?= TITLE ?> | Edit Client</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
