@@ -1,5 +1,4 @@
 <?php
-require '../../config/config.php';
 require CLASS_PATH.'/dbconnect.php';
 session_start();
 class clients_list extends dbconnect
