@@ -27,7 +27,7 @@ class clients_list_datatable extends dbconnect
           $row['date_of_start'] = $record->date_of_start;
           $row['date_login'] = $record->date_login;
           $row['status'] = $record->status;
-          $row['action'] = "<div class='d-flex justify-content-between'><a href='my-clients-edit-client-details'><i class='fa fa-check' aria-hidden='true'></i></a> | <a href='my-clients-edit-client-details'><i class='fa fa-sticky-note' aria-hidden='true'></i></a> | <a href='my-clients-edit-client-details'><i class='fa fa-user' aria-hidden='true'></i></a> | <a href='my-clients/edit-client-details?client-id=".$record->client_id."'><i class='fa fa-edit' aria-hidden='true'></i></a> | <a href='my-clients/edit-client-details'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
+          $row['action'] = "<div class='d-flex justify-content-between'><a href='my-clients-edit-client-details'><i class='fa fa-check' aria-hidden='true'></i></a> | <a href='my-clients-edit-client-details'><i class='fa fa-sticky-note' aria-hidden='true'></i></a> | <a href='my-clients-edit-client-details'><i class='fa fa-user' aria-hidden='true'></i></a> | <a href='my-clients/edit-client-details?c_id=".$record->client_id."'><i class='fa fa-edit' aria-hidden='true'></i></a> | <a href='my-clients/edit-client-details'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
           array_push($data,$row);
         }
         echo json_encode(array('data' => $data));
