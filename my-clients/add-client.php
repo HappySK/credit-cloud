@@ -5,7 +5,15 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
+  <?php session_start(); ?>
   <?php require '../config/config.php'?>
+  <?php
+    require CLASS_PATH.'/user.php';
+    if(isset($_SESSION['id']))
+    {
+      $user_details = $user->get_data($_SESSION['id']);     
+    }
+  ?>
   <title><?= TITLE ?> | Home</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -855,48 +863,7 @@
             </div>
             <!--end::Header Menu Wrapper-->
             <!--begin::Topbar-->
-            <div class="topbar">
-              <!-- start::nav-link -->
-              <ul class="nav topbar-item">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">My Account</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">New Features</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">
-                    Help & Support
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Support Center</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Watch Quick Videos</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Live Software Classes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Tips and Tricks</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">New Feature Requests</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Resources</a>
-                  </div>
-                </li>
-              </ul>
-              <!-- end::nav-link -->
-              <div class="topbar-item">
-                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
-                  id="kt_quick_user_toggle">
-                  <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
-                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                    <span class="symbol-label font-size-h5 font-weight-bold">S</span>
-                  </span>
-                </div>
-              </div>
-              <!--end::User-->
-            </div>
+            <?php require '../config/top-bar.php'?>
             <!--end::Topbar-->
           </div>
           <!--end::Container-->
@@ -1064,176 +1031,207 @@
                 </div>
               </div>
               <div class="card m-5">
-                <form class="form">
-                  <div class="card-body">
+                <form class="form" id="addClientForm" method="POST" action="server-side/class/add-client-data.php">
+                  <div class="card-body scroll scroll-pull" data-scroll="true" data-wheel-propagation="true"
+                    style="height:500px">
                     <div class="form-group row">
-                      <div class="col-lg-5">
-                        <label>First Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter firstname" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>First Name:</strong></label>
+                        <input type="text" class="form-control" name="firstName" placeholder="Enter firstname" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>Middle Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter contact number" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Middle Name:</strong></label>
+                        <input type="text" class="form-control" name="middleName" placeholder="Enter contact number" />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <div class="col-lg-5">
-                        <label>Last Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter Last name" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Last Name:</strong></label>
+                        <input type="text" class="form-control" name="lastName" placeholder="Enter Last name" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>Suffix</label>
-                        <input type="text" class="form-control" placeholder="Enter Suffix (Jr, Sr, Etc.,)" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Suffix</strong></label>
+                        <select name="suffix" id="suffix" class="custom-select">
+                          <option value="">Select Suffix</option>
+                          <option value="Mr.">Mr</option>
+                          <option value="Mrs.">Mrs</option>
+                          <option value="Ms.">Ms</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Email :</label>
-                        <input type="email" class="form-control" placeholder="Enter Email" />
-                      </div>
-                      <div class="col-lg-5">
-                        <input type="checkbox" name="email-checkbox" id="email-checkbox">
-                        <label>Client Has No Email</label>
+                      <div class="col-form-label col-lg-5 collapse show" id="email-section-collapse">
+                        <label><strong>Email :</strong></label>
+                        <input type="email" class="form-control" name="clientEmail" placeholder="Enter Email" />
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Last 4 of SSN:</label>
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Last 4 of SSN:</strong></label>
                         <input type="text" name="ssn" id="ssn" class="form-control" placeholder="Enter last 4 of SSN" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>DOB:</label>
-                        <input type="date" name="date-of-birth" id="date-of-birth" class="form-control"
-                          placeholder="Enter Suffix (Jr, Sr, Etc.,)" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>DOB:</strong></label>
+                        <input type="date" name="dateOfBirth" id="date-of-birth" class="form-control" />
                       </div>
                       <div class="col-lg-2">
-                        <button class="btn btn-sm btn-outline-primary">Clear</button>
+                        <input class="btn btn-sm btn-outline-primary w-50" id="clearDate" value="clear" />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <div class="col-lg-5">
-                        <label>Phone (H):</label>
-                        <input type="text" class="form-control" placeholder="Enter Last name" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Phone (H):</strong></label>
+                        <input type="text" class="form-control" name="phoneH" placeholder="Enter Last name" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>Phone (W)</label>
-                        <input type="text" class="form-control" placeholder="Enter Suffix (Jr, Sr, Etc.,)" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Phone (W)</strong></label>
+                        <input type="text" class="form-control" name="phoneW" placeholder="Enter Phone(W)" />
                       </div>
-                      <div class="col-lg-2">
-                        <label>Ext</label>
-                        <input type="text" class="form-control" placeholder="Enter Suffix (Jr, Sr, Etc.,)" />
+                      <div class="col-form-label col-lg-2">
+                        <label><strong>Ext</strong></label>
+                        <input type="text" class="form-control" name="ext" placeholder="Enter ext" />
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Phone (M)</label>
-                        <input type="text" class="form-control" placeholder="Enter Phone Number" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Phone (M)</strong></label>
+                        <input type="text" class="form-control" name="phoneM" placeholder="Enter Phone Number" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>Fax :</label>
-                        <input type="text" class="form-control" placeholder="Enter the fax" name="fax"
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Fax :</strong></label>
+                        <input type="text" class="form-control" name="fax" placeholder="Enter the fax" name="fax"
                           id="Enter the FAX">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-lg-10">
-                        <label>Mailing Address:</label>
-                        <input type="text" class="form-control h-75" placeholder="Enter Location" />
+                        <label><strong>Mailing Address:</strong></label>
+                        <textarea class="form-control" rows="5" name="mailingAddress">
+                        </textarea>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>City:</label>
-                        <input type="text" class="form-control" placeholder="Enter City" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>City:</strong></label>
+                        <input type="text" class="form-control" name="clientCity" placeholder="Enter City" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>State:</label>
-                        <select class="custom-select">
-                          <option selected>Select State</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>State:</strong></label>
+                        <select class="custom-select" id="client-state" name="clientState">
+                          <option value="">Select State</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Zip Code:</label>
-                        <input type="text" class="form-control" placeholder="Enter Phone Number" />
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Zip Code:</strong></label>
+                        <input type="text" class="form-control" name="zipCode" placeholder="Enter Phone Number" />
                       </div>
-                      <div class="col-lg-5">
-                        <label>Country</label>
-                        <input type="text" class="form-control" value="United States" name="fax" id="country">
-                      </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="form-group row align-items-center">
-                      <div class="col-lg-10 mt-3">
-                        <input type="checkbox" class="align-middle" name="previous-mailing-address"
-                          id="previous-mailing-address">
-                        Previous Mailing Address (Only If at current mailing address for less than 2 years)
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Country</strong></label>
+                        <input type="text" class="form-control" name="clientCountry" value="United States" name="fax"
+                          id="clientCountry">
                       </div>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Status</label>
-                        <select class="custom-select">
-                          <option selected>Select State</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                      <div class="col-form-label col-lg-10 mt-3">
+                        <div class="checkbox checkbox-inline">
+                          <label class="checkbox">
+                            <input type="checkbox" name="previousMailingAddress" id="previous-mailing-address"
+                              data-toggle="collapse" data-target="#prevMailingAddress" value="1" />
+                            <span></span>
+                            Previous Mailing Address (Only If at current mailing address for less than 2 years)
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="collapse" id="prevMailingAddress">
+                      <div class="form-group row">
+                        <div class="col-lg-10">
+                          <label><strong>Previous Mailing Address:</strong></label>
+                          <textarea class="form-control" rows="5" name="prevMailingAddress">
+                        </textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row align-items-center">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Previous City:</strong></label>
+                          <input type="text" class="form-control" name="prevClientCity" placeholder="Enter City" />
+                        </div>
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Previous State:</strong></label>
+                          <select class="custom-select" name="prevClientState" id="prev-client-state">
+                            <option value="">Select State</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row align-items-center">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Previous Zip Code:</strong></label>
+                          <input type="text" class="form-control" name="prevZipCode" placeholder="Enter Phone Number" />
+                        </div>
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Previous Country</strong></label>
+                          <input type="text" class="form-control" name="prevClientCountry" value="United States"
+                            name="fax" id="country">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group row align-items-center">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Status</strong></label>
+                        <select class="custom-select" name="status">
+                          <option value="">Select Status</option>
+                          <option value="Lead">Lead</option>
+                          <option value="Prospect">Prospect</option>
+                          <option value="Lead-Inactive">Lead-Inactive</option>
+                          <option value="Client">Client</option>
+                          <option value="Inactive">Inactive</option>
+                          <option value="Suspended">Suspended</option>
                         </select>
                       </div>
-                      <div class="col-lg-5">
-                        <label>Date Of Start</label>
-                        <input type="date" class="form-control">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Date Of Start</strong></label>
+                        <input type="date" class="form-control" name="dateOfStart">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Zip Code:</label>
-                        <input type="text" class="form-control" placeholder="Enter Phone Number" />
-                      </div>
-                      <div class="col-lg-5">
-                        <label>Country</label>
-                        <input type="text" class="form-control" value="United States" name="fax" id="country-1">
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Assigned To :</label>
-                        <div style="height: 100px; padding:5px; overflow-y: scroll;" class="border border-rounded">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Assigned To :</strong></label>
+                        <div style="height: 100px; padding:5px; overflow-y: scroll;" name="assignedTo"
+                          class="border border-rounded">
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" name="assignedToList[]" class="align-middle" value="Veronica Lodge">
                             <span>Veronica Lodge</span>
                           </div>
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" class="align-middle" name="assignedToList[]" value="Hermione Lodge">
                             <span>Hermione Lodge</span>
                           </div>
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" class="align-middle" name="assignedToList[]" value="Hiram Lodge">
                             <span>Hiram Lodge</span>
                           </div>
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" class="align-middle" name="assignedToList[]" value="Walter White">
                             <span>Walter White</span>
                           </div>
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" class="align-middle" name="assignedToList[]" value="Skyler White">
                             <span>Skyler White</span>
                           </div>
                           <div>
-                            <input type="checkbox" class="align-middle">
+                            <input type="checkbox" class="align-middle" name="assignedToList[]" value="Jughead Jones">
                             <span>Jughead Jones</span>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-5">
-                        <label>Referred By:</label>
-                        <select name="referred-by" id="referred-by" class="custom-select">
-                          <option value="">Referred B<y /option>
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Referred By:</strong></label>
+                        <select name="referredBy" id="referred-by" class="custom-select" name="referredBy">
+                          <option value="">Referred By</option>
                           <option value="Herlin">Herlin</option>
                           <option value="Hermione">Hermione</option>
                           <option value="Jack">Jack</option>
@@ -1242,88 +1240,90 @@
                       </div>
                     </div>
                     <div class="dropdown-divider"></div>
-                    <div class="form-group row align-items-center mt-5">
-                      <div class="col-lg-5">
-                        <h5>Portal Access</h5>
-                      </div>
-                      <div class="col-lg-5">
-                        <div class="d-flex justify-content-around">
-                          <div>
-                            <input type="radio" name="portal-access" id="portal-access-on" class="align-self-center">
-                            On
-                          </div>
-                          <div>
-                            <input type="radio" name="portal-access" id="portal-access-off" class="align-self-center">
-                            Off
-                          </div>
-                        </div>
+                    <div class="form-group validated">
+                      <label class="form-control-label"><strong>Portal Access</strong></label>
+                      <div class="radio-inline">
+                        <label for="radio-on" class="radio">
+                          <input type="radio" name="portalAccess" id="radio-on">
+                          <span></span>
+                          On
+                        </label>
+                        <label for="radio-off" class="radio">
+                          <input type="radio" name="portalAccess" id="radio-off">
+                          <span></span>
+                          Off
+                        </label>
                       </div>
                     </div>
                     <div class="dropdown-divider"></div>
                     <h5>Chargebee Payment</h5>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Plan</label>
-                        <select name="chargebee-plan" id="chargebee-plan" class="custom-select">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Plan</strong></label>
+                        <select name="chargebeePlan" id="chargebee-plan" class="custom-select">
                           <option value="">Select</option>
                           <option value="21 Day Plan">21 Day Plan</option>
                           <option value="45 - 60 Day Plan">45 - 60 Day Plan</option>
                           <option value="Month 2 Month Plan">Month 2 Month Plan</option>
                         </select>
                       </div>
-                      <div class="col-lg-5">
-                        <label>Card Number:</label>
-                        <input type="text" class="form-control" name="fax" placeholder="Enter Card Number">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Card Number:</strong></label>
+                        <input type="text" class="form-control" name="cardNumber" placeholder="Enter Card Number">
                       </div>
                       <div class="col-lg-2">
-                        <label>CVV</label>
-                        <input type="text" class="form-control" name="fax" placeholder="Enter CVV">
+                        <label><strong>CVV</strong></label>
+                        <input type="text" class="form-control" name="CVV" placeholder="Enter CVV">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
-                      <div class="col-lg-5">
-                        <label>Expires On</label>
-                        <input type="date" class="form-control">
+                      <div class="col-form-label col-lg-5">
+                        <label><strong>Expires On</strong></label>
+                        <input type="date" class="form-control" name="expiresOn">
                       </div>
-                      <div class="col-lg-5">
-                        <input type="checkbox" data-toggle="collapse" data-target="#billing-address" name="#" id="#">
-                        Add a Billing Address
+                      <div class="col-form-label col-lg-5">
+                        <div class="checkbox-inline">
+                          <label class="checkbox">
+                            <input type="checkbox" data-toggle="collapse" data-target="#billing-address"
+                              name="billingAddressCheck" value="1" />
+                            <span></span>
+                            Add a Billing Address
+                          </label>
+                        </div>
                       </div>
                     </div>
                     <div class="collapse" id="billing-address">
                       <div class="form-group row align-items-center">
-                        <div class="col-lg-5">
-                          <label>Billing Name</label>
-                          <input type="text" class="form-control" placeholder="Enter Billing Name">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Billing Name</strong></label>
+                          <input type="text" class="form-control" name="billingName" placeholder="Enter Billing Name">
                         </div>
-                        <div class="col-lg-5">
-                          <label>Billing City</label>
-                          <input type="text" class="form-control" placeholder="Enter Billing City">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Billing City</strong></label>
+                          <input type="text" class="form-control" name="billingCity" placeholder="Enter Billing City">
                         </div>
                       </div>
                       <div class="form-group row align-items-center">
-                        <div class="col-lg-5">
-                          <label>Billing State</label>
-                          <select name="billing state" id="billing-state" class="custom-select">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Billing State</strong></label>
+                          <select name="billingState" id="billingState" class="custom-select">
                             <option value="">Select State</option>
-                            <option value="XXX">XXX</option>
-                            <option value="YYY">YYY</option>
-                            <option value="ZZZ">ZZZ</option>
                           </select>
                         </div>
-                        <div class="col-lg-5">
-                          <label>Billing Zip</label>
-                          <input type="text" class="form-control" placeholder="Billing Zip">
+                        <div class="col-form-label col-lg-5">
+                          <label><strong>Billing Zip</strong></label>
+                          <input type="text" class="form-control" name="billingZip" placeholder="Billing Zip">
                         </div>
                       </div>
                       <div class="form-group row align-items-center">
                         <div class="col-lg-10">
-                          <label>Billing Address</label>
-                          <input type="text" class="form-control" placeholder="Enter Billing Address">
+                          <label><strong>Billing Address</strong></label>
+                          <input type="text" class="form-control" name="billingAddress"
+                            placeholder="Enter Billing Address">
                         </div>
                       </div>
                     </div>
-                    <input type="submit" value="Submit" class="btn btn-sm btn-primary">
+                    <input type="submit" id="submitButton" value="Submit" class="btn btn-sm btn-primary">
                 </form>
               </div>
             </div>
@@ -2750,7 +2750,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
+  </script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -2763,6 +2764,7 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/js/my-clients/add-client.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

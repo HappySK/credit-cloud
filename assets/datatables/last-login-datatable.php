@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../config/config.php';
+require '../../config/config.php';
 require CLASS_PATH.'/dbconnect.php';
 class last_login_datatable extends dbconnect
 {
@@ -24,6 +24,6 @@ class last_login_datatable extends dbconnect
    }
  } 
 }
-$last_login = new last_login_datatable($db_config);
+$last_login = new last_login_datatable($config->DB_CREDENTIALS);
 $last_login->get_data($_SESSION['user_id']);
 ?>

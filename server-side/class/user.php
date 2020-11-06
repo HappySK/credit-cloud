@@ -154,5 +154,5 @@ function login($user)
 }
 }
 
-$user = new user($db_config);
+$user = new user($config->DB_CREDENTIALS);
 ?>

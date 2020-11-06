@@ -1,0 +1,18 @@
+{
+	"DB_CREDENTIALS": {
+		"DB_HOST": "localhost",
+		"DB_NAME": "sowlyehg_credit",
+		"DB_USER": "root",
+		"DB_PASSWORD": ""
+  },
+  "APPLICATION_PATH": {
+    "MAIN_PATH" : "/projects/credit-cloud",
+    "ASSETS_PATH" : "/projects/credit-cloud/assets",
+    "CLASS_PATH" : "/projects/credit-cloud/server-side/class",
+    "FUNCTIONS_PATH": "/projects/credit-cloud/server-side/functions"
+  },
+  "APPLICATION_CREDENTIALS" : {
+    "TITLE" : "CREDIT REPAIR CLOUD",
+    "LINK" : "sravan.sowlab.website"
+  }
+}
