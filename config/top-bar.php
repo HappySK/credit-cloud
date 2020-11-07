@@ -34,17 +34,17 @@
       <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
       <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
         <?php
-                    if(isset($user_details->first_name))
-                    {
-                      echo $user_details->first_name;
-                    }
-                    else
-                    {
-                    ?>
+        if(isset($user_details->first_name))
+        {
+          echo $user_details->first_name;
+        }
+        else
+        {
+        ?>
         Not Signed In ? Please <a href="user/sign-in">Sign In</a>
         <?php
-                    }
-                    ?>
+        }
+        ?>
       </span>
       <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
         <span class="symbol-label font-size-h5 font-weight-bold">S</span>
