@@ -176,50 +176,123 @@ $(document).ready(function () {
 		).value = monthly_expenses_total;
 	});
 
-	$('#month-year-submit').click(function(){
-		var month = document.getElementById('monthly-expenses-month');
-		var year = document.getElementById('monthly-expenses-year');
+	$("#month-year-submit").click(function () {
+		var month = document.getElementById("monthly-expenses-month");
+		var year = document.getElementById("monthly-expenses-year");
 		$.ajax({
-			url : 'server-side/class/monthly-expenses.php',
-			type: 'GET',
-			dataType : 'JSON',
-			data : {
-				month : month.options[month.selectedIndex].value,
-				year : year.options[year.selectedIndex].value
+			url: "server-side/class/monthly-expenses.php",
+			type: "GET",
+			dataType: "JSON",
+			data: {
+				month: month.options[month.selectedIndex].value,
+				year: year.options[year.selectedIndex].value,
 			},
-			success : function(response)
-			{
-				document.getElementById("auto-fuel").value = response.auto_fuel
-				document.getElementById("auto-insurance").value = response.auto_insurance
-				document.getElementById("auto-maintainence-repairs").value = response.auto_maintainence_repairs
-				document.getElementById("auto-payment").value = response.auto_payment
-				document.getElementById("cable-satellite").value = response.cable_satellite
-				document.getElementById("cell-phone").value = response.cell_phone
-				document.getElementById("child-support-animoly").value = response.child_support_animoly
-				document.getElementById("child-care").value = response.child_care
-				document.getElementById("cigarettes-alcohol").value = response.cigarettes_alcohol
-				document.getElementById("clothing").value = response.clothing
-				document.getElementById("credit-card-charge-card").value = response.credit_card_charge_card
-				document.getElementById("dining").value = response.dining
-				document.getElementById("doctor-prescriptions").value = response.doctor_prescriptions
-				document.getElementById("education-expenses").value = response.education_expenses
-				document.getElementById("electric-bill").value = response.electric_bill
-				document.getElementById("entertainment").value = response.entertainment
-				document.getElementById("gas-bill").value = response.gas_bill
-				document.getElementById("gifts").value = response.gifts
-				document.getElementById("groceries-suppliers").value = response.groceries_suppliers
-				document.getElementById("hobbies-clubs-sports").value = response.hobbies_clubs_sports
-				document.getElementById("home-maintainence").value = response.home_maintainence
-				document.getElementById("insurance").value = response.insurance
-				document.getElementById("internet-service").value = response.internet_services
-				document.getElementById("local-payment").value = response.local_payment
-				document.getElementById("newspapers-magazines").value = response.newspapers_magazines
-				document.getElementById("rent-mortgages-payment").value = response.rent_mortgages_payments
-				document.getElementById("taxes").value = response.taxes
-				document.getElementById("telephone").value = response.telephone
-				document.getElementById("work-expenses").value = response.work_expenses
-				document.getElementById("monthly-expenses-total").value = response.total
-			}
-		})
-	})
+			success: function (response) {
+				document.getElementById("auto-fuel").value = response.auto_fuel;
+				document.getElementById("auto-insurance").value =
+					response.auto_insurance;
+				document.getElementById("auto-maintainence-repairs").value =
+					response.auto_maintainence_repairs;
+				document.getElementById("auto-payment").value = response.auto_payment;
+				document.getElementById("cable-satellite").value =
+					response.cable_satellite;
+				document.getElementById("cell-phone").value = response.cell_phone;
+				document.getElementById("child-support-animoly").value =
+					response.child_support_animoly;
+				document.getElementById("child-care").value = response.child_care;
+				document.getElementById("cigarettes-alcohol").value =
+					response.cigarettes_alcohol;
+				document.getElementById("clothing").value = response.clothing;
+				document.getElementById("credit-card-charge-card").value =
+					response.credit_card_charge_card;
+				document.getElementById("dining").value = response.dining;
+				document.getElementById("doctor-prescriptions").value =
+					response.doctor_prescriptions;
+				document.getElementById("education-expenses").value =
+					response.education_expenses;
+				document.getElementById("electric-bill").value = response.electric_bill;
+				document.getElementById("entertainment").value = response.entertainment;
+				document.getElementById("gas-bill").value = response.gas_bill;
+				document.getElementById("gifts").value = response.gifts;
+				document.getElementById("groceries-suppliers").value =
+					response.groceries_suppliers;
+				document.getElementById("hobbies-clubs-sports").value =
+					response.hobbies_clubs_sports;
+				document.getElementById("home-maintainence").value =
+					response.home_maintainence;
+				document.getElementById("insurance").value = response.insurance;
+				document.getElementById("internet-service").value =
+					response.internet_services;
+				document.getElementById("local-payment").value = response.local_payment;
+				document.getElementById("newspapers-magazines").value =
+					response.newspapers_magazines;
+				document.getElementById("rent-mortgages-payment").value =
+					response.rent_mortgages_payments;
+				document.getElementById("taxes").value = response.taxes;
+				document.getElementById("telephone").value = response.telephone;
+				document.getElementById("work-expenses").value = response.work_expenses;
+				document.getElementById("monthly-expenses-total").value =
+					response.total;
+			},
+		});
+	});
+
+	for (let i = 0; i < 15; i++) {
+		$("#limit-" + i + ",#balance-" + i).keyup(function () {
+			$("#ratio-" + i).val(
+				($("#limit-" + i).val() / $("#balance-" + i).val()) * 100
+			);
+		});
+	}
+
+	$(".credit-accounts-sum").keyup(function () {
+		var total_limit = 0;
+		var total_balance = 0;
+		var total_ratio = 0;
+		for (let i = 0; i < 15; i++) {
+			total_limit += parseInt(document.getElementById("limit-" + i).value);
+			total_balance += parseInt(document.getElementById("balance-" + i).value);
+			total_ratio += parseInt(document.getElementById("ratio-" + i).value);
+		}
+		document.getElementById("limit-last").value = total_limit;
+		document.getElementById("balance-last").value = total_balance;
+		document.getElementById("ratio-last").value =
+			(total_limit / total_balance) * 100;
+	});
+
+	$("#button-save").click(function () {
+		credit_accounts = [];
+		for (let i = 0; i < 15; i++) {
+			credit_accounts.push({
+				account_or_card: document.getElementById("account-or-card-" + i).value,
+				apr: document.getElementById("apr-" + i).value,
+				limit: document.getElementById("limit-" + i).value,
+				balance: document.getElementById("balance-" + i).value,
+				ratio: document.getElementById("ratio-" + i).value,
+			});
+		}
+		var month = document.getElementById('month');
+		var year = document.getElementById('year');
+		$.ajax({
+			url: "server-side/class/my-clients/educate/add-client-debts.php",
+			type: "POST",
+			data: {
+				credit_ac: credit_accounts,
+				month: month.options[month.selectedIndex].value,
+				year: year.options[year.selectedIndex].value,
+				total_limit: document.getElementById("limit-last").value,
+				total_balance: document.getElementById("balance-last").value,
+				total_ratio: document.getElementById("ratio-last").value,
+			},
+			success: function (response) {
+				console.log(response);
+			},
+		}).then(
+			Swal.fire(
+				"Success !",
+				"The Credit Accounts have been saved",
+				"success"
+			)
+		);
+	});
 });
