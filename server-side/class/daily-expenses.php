@@ -13,7 +13,7 @@ class daily_expenses extends dbconnect
   {
     try
     {
-      $sql = "SELECT * FROM `daily_expenses` WHERE `date` = ? AND `client_id` = ?";
+      $sql = "SELECT * FROM `educate__daily_expenses` WHERE `date` = ? AND `client_id` = ?";
       $stmt = $this->conn->prepare($sql);
       return ($stmt->execute([$date,$_SESSION['c_id']]) && $stmt->rowCount() == 1);
     }
@@ -27,7 +27,7 @@ class daily_expenses extends dbconnect
   {
     try
     {
-      $sql = "UPDATE `daily_expenses` SET `daily_expenses` = ?, `total` = ? WHERE `client_id` = ? AND `date` = ?";
+      $sql = "UPDATE `educate__daily_expenses` SET `daily_expenses` = ?, `total` = ? WHERE `client_id` = ? AND `date` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$details['daily_expenses'],$details['total'],$_SESSION['c_id'], $date]);
     }
@@ -41,7 +41,7 @@ class daily_expenses extends dbconnect
   {
     try
     {
-      $sql = "INSERT INTO `daily_expenses`(`client_id`, `date`, `daily_expenses`,`total`) VALUES (?,?,?,?)";
+      $sql = "INSERT INTO `educate__daily_expenses`(`client_id`, `date`, `daily_expenses`,`total`) VALUES (?,?,?,?)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['c_id'], $details['date'], $details['daily_expenses'], $details['total']]); 
     }
@@ -55,7 +55,7 @@ class daily_expenses extends dbconnect
   {
     try
     {
-      $sql = "SELECT `daily_expenses`, `total` FROM `daily_expenses` WHERE `client_id` = ? AND `date` = ?";
+      $sql = "SELECT `daily_expenses`, `total` FROM `educate__daily_expenses` WHERE `client_id` = ? AND `date` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['c_id'], $date]);
       if($stmt->rowCount() == 1)

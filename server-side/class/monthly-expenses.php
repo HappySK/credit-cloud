@@ -13,7 +13,7 @@ class monthly_expenses extends dbconnect
   {
     try
     {
-      $sql = "INSERT INTO `monthly_expenses`(`client_id`,`month`,`year`, `auto_fuel`, `auto_insurance`, `auto_maintainence_repairs`, `auto_payment`, `cabel_satellite`, `cell_phone`, `child_support_animoly`, `child_care`, `cigarettes_alcohol`, `clothing`, `credit_card_charge_card`, `dining`, `doctor_prescriptions`, `education_expenses`, `electric_bill`, `entertainment`, `gas_bill`, `gifts`, `groceries_suppliers`, `hobbies_clubs_sports`, `home_maintainence`, `insurance`, `internet_services`, `local_payment`, `newspapers_magazines`, `rent_mortgages_payments`, `taxes`, `telephone`, `work_expenses`, `total`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO `educate__monthly_expenses`(`client_id`,`month`,`year`, `auto_fuel`, `auto_insurance`, `auto_maintainence_repairs`, `auto_payment`, `cabel_satellite`, `cell_phone`, `child_support_animoly`, `child_care`, `cigarettes_alcohol`, `clothing`, `credit_card_charge_card`, `dining`, `doctor_prescriptions`, `education_expenses`, `electric_bill`, `entertainment`, `gas_bill`, `gifts`, `groceries_suppliers`, `hobbies_clubs_sports`, `home_maintainence`, `insurance`, `internet_services`, `local_payment`, `newspapers_magazines`, `rent_mortgages_payments`, `taxes`, `telephone`, `work_expenses`, `total`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['c_id'],$month,$year,$expenses['auto_fuel'],$expenses['auto_insurance'],$expenses['auto_maintainence_repairs'],$expenses['auto_payment'],$expenses['cable_satellite'],$expenses['cell_phone'],$expenses['child_support_animoly'],$expenses['child_care'],$expenses['cigarettes_alcohol'],$expenses['clothing'],$expenses['credit_card_charge_card'],$expenses['dining'],$expenses['doctor_prescriptions'],$expenses['education_expenses'],$expenses['electric_bill'],$expenses['entertainment'],$expenses['gas_bill'],$expenses['gifts'],$expenses['groceries_suppliers'],$expenses['hobbies_clubs_sports'],$expenses['home_maintainence'],$expenses['insurance'],$expenses['internet_service'],$expenses['local_payment'],$expenses['newspapers_magazines'],$expenses['rent_mortgages_payment'],$expenses['taxes'],$expenses['telephone'],$expenses['work_expenses'],$expenses['total']]);
     }
@@ -27,7 +27,7 @@ class monthly_expenses extends dbconnect
   {
     try
     {
-      $sql = "SELECT * FROM `monthly_expenses` WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
+      $sql = "SELECT * FROM `educate__monthly_expenses` WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['c_id'], $month, $year]);
       return ($stmt->rowCount() == 1);
@@ -42,7 +42,7 @@ class monthly_expenses extends dbconnect
   {
     try
     {
-      $sql = "UPDATE `monthly_expenses` SET `auto_fuel`= ? ,`auto_insurance`= ? ,`auto_maintainence_repairs`= ? ,`auto_payment`= ? ,`cabel_satellite`= ? ,`cell_phone`= ? ,`child_support_animoly`= ? ,`child_care`= ? ,`cigarettes_alcohol`= ? ,`clothing`= ? ,`credit_card_charge_card`= ? ,`dining`= ? ,`doctor_prescriptions`= ? ,`education_expenses`= ? ,`electric_bill`= ? ,`entertainment`= ? ,`gas_bill`= ? ,`gifts`= ? ,`groceries_suppliers`= ? ,`hobbies_clubs_sports`= ? ,`home_maintainence`= ? ,`insurance`= ? ,`internet_services`= ? ,`local_payment`= ? ,`newspapers_magazines`= ? ,`rent_mortgages_payments`= ? ,`taxes`= ? ,`telephone`= ? ,`work_expenses`= ? ,`total`= ?  WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
+      $sql = "UPDATE `educate__monthly_expenses` SET `auto_fuel`= ? ,`auto_insurance`= ? ,`auto_maintainence_repairs`= ? ,`auto_payment`= ? ,`cabel_satellite`= ? ,`cell_phone`= ? ,`child_support_animoly`= ? ,`child_care`= ? ,`cigarettes_alcohol`= ? ,`clothing`= ? ,`credit_card_charge_card`= ? ,`dining`= ? ,`doctor_prescriptions`= ? ,`education_expenses`= ? ,`electric_bill`= ? ,`entertainment`= ? ,`gas_bill`= ? ,`gifts`= ? ,`groceries_suppliers`= ? ,`hobbies_clubs_sports`= ? ,`home_maintainence`= ? ,`insurance`= ? ,`internet_services`= ? ,`local_payment`= ? ,`newspapers_magazines`= ? ,`rent_mortgages_payments`= ? ,`taxes`= ? ,`telephone`= ? ,`work_expenses`= ? ,`total`= ?  WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$expenses['auto_fuel'],$expenses['auto_insurance'],$expenses['auto_maintainence_repairs'],$expenses['auto_payment'],$expenses['cable_satellite'],$expenses['cell_phone'],$expenses['child_support_animoly'],$expenses['child_care'],$expenses['cigarettes_alcohol'],$expenses['clothing'],$expenses['credit_card_charge_card'],$expenses['dining'],$expenses['doctor_prescriptions'],$expenses['education_expenses'],$expenses['electric_bill'],$expenses['entertainment'],$expenses['gas_bill'],$expenses['gifts'],$expenses['groceries_suppliers'],$expenses['hobbies_clubs_sports'],$expenses['home_maintainence'],$expenses['insurance'],$expenses['internet_service'],$expenses['local_payment'],$expenses['newspapers_magazines'],$expenses['rent_mortgages_payment'],$expenses['taxes'],$expenses['telephone'],$expenses['work_expenses'],$expenses['total'], $_SESSION['c_id'], $month, $year]);
     }
@@ -56,7 +56,7 @@ class monthly_expenses extends dbconnect
   {
     try
     {
-      $sql = "SELECT * FROM `monthly_expenses` WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
+      $sql = "SELECT * FROM `educate__monthly_expenses` WHERE `client_id` = ? AND `month` = ? AND `year` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['c_id'],$month,$year]);
       if($stmt->rowCount() == 1)
