@@ -271,8 +271,8 @@ $(document).ready(function () {
 				ratio: document.getElementById("ratio-" + i).value,
 			});
 		}
-		var month = document.getElementById('month');
-		var year = document.getElementById('year');
+		var month = document.getElementById("month");
+		var year = document.getElementById("year");
 		$.ajax({
 			url: "server-side/class/my-clients/educate/add-client-debts.php",
 			type: "POST",
@@ -288,11 +288,7 @@ $(document).ready(function () {
 				console.log(response);
 			},
 		}).then(
-			Swal.fire(
-				"Success !",
-				"The Credit Accounts have been saved",
-				"success"
-			)
+			Swal.fire("Success !", "The Credit Accounts have been saved", "success")
 		);
 	});
 });
