@@ -8,6 +8,7 @@
   <?php require '../config/config.php'?>
   <?php
     require CLASS_PATH.'/user.php';
+    session_start();
     if(isset($_SESSION['id']))
     {
       $user_details = $user->get_data($_SESSION['id']);     
@@ -302,7 +303,7 @@
                                   <th>APR</th>
                                   <th>Limit</th>
                                   <th>Balance</th>
-                                  <th>Ratio</th>
+                                  <th>Ratio (%)</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -310,22 +311,23 @@
                                 <tr>
                                   <td>
                                     <input type="text" name="account-or-card-<?= $i ?>" id="account-or-card-<?= $i ?>"
-                                      class="form-control">
+                                      class="form-control credit-accounts-sum">
                                   </td>
                                   <td>
-                                    <input type="number" name="apr-<?= $i ?>" id="apr-<?= $i ?>" class="form-control">
+                                    <input type="number" name="apr-<?= $i ?>" id="apr-<?= $i ?>"
+                                      class="form-control credit-accounts-sum">
                                   </td>
                                   <td>
-                                    <input type="number" name="limit-<?= $i ?>" id="limit-<?= $i ?>"
-                                      class="form-control">
+                                    <input type="text" name="limit-<?= $i ?>" id="limit-<?= $i ?>"
+                                      class="form-control credit-accounts-sum" value="0">
                                   </td>
                                   <td>
-                                    <input type="number" name="balance-<?= $i ?>" id="balance-<?= $i ?>"
-                                      class="form-control">
+                                    <input type="text" name="balance-<?= $i ?>" id="balance-<?= $i ?>"
+                                      class="form-control credit-accounts-sum" value="0">
                                   </td>
                                   <td>
-                                    <input type="number" name="ratio-<?= $i ?>" id="ratio-<?= $i ?>"
-                                      class="form-control">
+                                    <input type="text" name="ratio-<?= $i ?>" id="ratio-<?= $i ?>"
+                                      class="form-control credit-accounts-sum" value="0">
                                   </td>
                                 </tr>
                                 <?php } ?>
@@ -333,13 +335,13 @@
                                   <td></td>
                                   <td></td>
                                   <td>
-                                    <input type="number" name="limit-last" id="limit-last" class="form-control">
+                                    <input type="text" name="limit-last" id="limit-last" class="form-control">
                                   </td>
                                   <td>
-                                    <input type="number" name="balance-last" id="balance-last" class="form-control">
+                                    <input type="text" name="balance-last" id="balance-last" class="form-control">
                                   </td>
                                   <td>
-                                    <input type="number" name="ratio-last" id="ratio-last" class="form-control">
+                                    <input type="text" name="ratio-last" id="ratio-last" class="form-control">
                                   </td>
                                 </tr>
                                 <tr>
@@ -358,7 +360,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <button class="btn btn-sm btn-outline-primary">Save</button>
+                            <button class="btn btn-sm btn-outline-primary" id="button-save">Save</button>
                           </div>
                         </div>
                       </div>
@@ -708,7 +710,18 @@
                                 <div class="card-title">
                                   <h5>Mortgage Calculator</h5>
                                 </div>
-                                <form action="#" class="form-horizontal">
+                                <div class="collapse multi-collapse">
+                                  <div class="form-group">
+                                    <label for="monthly-payment">Monthly Payment</label>
+                                    <input type="text" name="monthly-payment" id="monthly-payment" class="form-control">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="interest-only">Interest Only</label>
+                                    <input type="text" name="interest-only" id="interest-only" class="form-control">
+                                  </div>
+                                </div>
+                                <form action="#" class="form-horizontal collapse show multi-collapse"
+                                  id="mortgage-calculator">
                                   <div class="form-group">
                                     <label for="loan-amount">Loan Amount</label>
                                     <input type="text" name="loan-amount" id="loan-amount" class="form-control">
@@ -721,12 +734,15 @@
                                     <label for="no-of-years">Number of Years</label>
                                     <input type="text" name="no-of-years" id="no-of-years" class="form-control">
                                   </div>
-                                  <div class="form-inline d-flex justify-content-around">
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">Calculate</button>
-                                    <button type="reset" class="btn btn-sm btn-outline-primary">Reset</button>
-                                  </div>
-                                  <span>*Based on Traditional Mortgage</span>
+                                  <button type="button" class="btn btn-sm btn-outline-primary w-100"
+                                    id="calculate-mortgage" data-toggle="collapse"
+                                    data-target=".multi-collapse">Calculate</button>
                                 </form>
+                                <div class="form-inline d-flex justify-content-around m-2">
+                                  <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                                    data-target=".multi-collapse">Reset</button>
+                                </div>
+                                <span>*Based on Traditional Mortgage</span>
                               </div>
                             </div>
                             <div class="card">
@@ -751,9 +767,15 @@
                                     <label for="years-to-save">Years to Save</label>
                                     <input type="text" name="years-to-save" id="years-to-save" class="form-control">
                                   </div>
+                                  <div class="form-group collapse collapse-2">
+                                    <label for="montly-amount">Monthly Amount needed to reach your goal($)</label>
+                                    <input type="text" name="monthly-amount" id="monthly-amount" class="form-control">
+                                  </div>
                                   <div class="form-inline d-flex justify-content-around">
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">Calculate</button>
-                                    <button type="reset" class="btn btn-sm btn-outline-primary">Reset</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                                      data-target=".collapse-2">Calculate</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                                      data-target=".collapse-2">Reset</button>
                                   </div>
                                   <span>* Assuming simple interest</span>
                                 </form>
