@@ -357,7 +357,7 @@
                       </a>
                     </li>
                     <li class="media my-4">
-                      <a href="#" class="btn btn-light d-flex align-items-center w-100">
+                      <a href="annualreport.com" class="btn btn-light d-flex align-items-center w-100">
                         <img class="mr-3" src="https://app.creditrepaircloud.com/application/images/b_blue_big.png"
                           alt="Generic placeholder image">
                         <div class="media-body">
