@@ -12,6 +12,11 @@
       session_start();
       $_SESSION['c_id'] = $_GET['c_id']; 
     }
+    require CLASS_PATH.'/user.php';
+    if(isset($_SESSION['id']))
+    {
+      $user_details = $user->get_data($_SESSION['id']);     
+    }
   ?>
   <title><?= TITLE ?> | Edit Client</title>
   <meta name="description" content="Page with empty content" />
@@ -862,48 +867,7 @@
             </div>
             <!--end::Header Menu Wrapper-->
             <!--begin::Topbar-->
-            <div class="topbar">
-              <!-- start::nav-link -->
-              <ul class="nav topbar-item">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">My Account</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">New Features</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">
-                    Help & Support
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Support Center</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Watch Quick Videos</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Live Software Classes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Tips and Tricks</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">New Feature Requests</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Resources</a>
-                  </div>
-                </li>
-              </ul>
-              <!-- end::nav-link -->
-              <div class="topbar-item">
-                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
-                  id="kt_quick_user_toggle">
-                  <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                  <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
-                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                    <span class="symbol-label font-size-h5 font-weight-bold">S</span>
-                  </span>
-                </div>
-              </div>
-              <!--end::User-->
-            </div>
+            <?php require '../config/top-bar.php'?>
             <!--end::Topbar-->
           </div>
           <!--end::Container-->
@@ -1061,8 +1025,8 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="educate-tab" data-toggle="tab" href="#educate" role="tab"
-                        aria-controls="educate" aria-selected="false">
+                      <a class="nav-link <?php if($_GET['tab'] === 'educate') {echo "active";}?>" id="educate-tab"
+                        data-toggle="tab" href="#educate" role="tab" aria-controls="educate" aria-selected="false">
                         Educate
                       </a>
                     </li>
@@ -1111,7 +1075,8 @@
                       id="dispute-items" role="tabpanel" aria-labelledby="dispute-items-tab">
                       <?php include '../my-clients/dispute-items.php'?>
                     </div>
-                    <div class=" tab-pane fade" id="educate" role="tabpanel" aria-labelledby="educate-tab">
+                    <div class=" tab-pane fade <?php if($_GET['tab'] == 'educate') {echo 'show active';}?>" id="educate"
+                      role="tabpanel" aria-labelledby="educate-tab">
                       <?php include '../my-clients/educate.php'?>
                     </div>
                     <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
@@ -2568,6 +2533,10 @@
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
   <script src="assets/dist/assets/js/pages/custom/chat/chat.js"></script>
+  <!--begin::Page Vendors(used by this page)-->
+  <script src="assets/dist/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+  <!--end::Page Vendors-->
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
   <script src="assets/js/edit-client.js"></script>
 </body>
 <!--end::Body-->

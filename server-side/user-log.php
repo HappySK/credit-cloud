@@ -12,7 +12,7 @@ switch($_GET['action'])
                                 if(!($user->is_email_exists($user_data['email'])))
                                 {
                                   $user->insert_user_details($user_data);
-                                  $user->assign_session_id($user_data['email']);
+                                  $user->assign_session($user_data['email']);
                                 }
                                 else
                                 {

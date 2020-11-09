@@ -6,9 +6,11 @@ $(document).ready(function () {
 			$(this).text("Advanced Search");
 		}
 	});
-	$('#import-audit-tab,#pending-report-tab,#dispute-wizard-tab,#dispute-items-tab,#educate-tab').click(function(){
-		setTimeout(sweet_alert,5000)
-	})
+	$(
+		"#import-audit-tab,#pending-report-tab,#dispute-wizard-tab,#dispute-items-tab,#educate-tab"
+	).click(function () {
+		setTimeout(sweet_alert, 5000);
+	});
 });
 
 function sweet_alert() {
@@ -35,4 +37,54 @@ $("#search-toggle-form").click(function () {
 	} else if ($(this).text() == "Save Details") {
 		$(this).text("Edit Details");
 	}
+});
+
+$("#add-internal-notes-btn").click(function () {
+	if ($(this).text().trim() == "Add Internal Notes") {
+		$(this).html('<i class=" fa fa-backward" aria-hidden="true"></i> Back');
+	} else if ($(this).text().trim() == "Back") {
+		$(this).html(
+			'<i class=" fa fa-user" aria-hidden="true"></i> Add Internal Notes'
+		);
+	}
+});
+
+// Class definition
+
+var KTCkeditor = (function () {
+	// Private functions
+	var demos = function () {
+		ClassicEditor.create(document.querySelector("#internal-notes-editor"))
+			.then((editor) => {
+				console.log(editor);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	};
+
+	return {
+		// public functions
+		init: function () {
+			demos();
+		},
+	};
+})();
+
+// Initialization
+jQuery(document).ready(function () {
+	KTCkeditor.init();
+});
+
+$("#internal-notes-table").DataTable({
+	paging: false,
+	info: false,
+	ajax: "assets/datatables/internal-notes-datatable.php",
+	searching: false,
+	columns: [
+		{data : 'date'},
+		{data : 'note'},
+		{data : 'name'},
+		{data : 'attachment'}
+	],
 });
