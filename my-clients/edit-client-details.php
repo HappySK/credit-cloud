@@ -2533,6 +2533,10 @@
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <!--end::Page Scripts-->
   <script src="assets/dist/assets/js/pages/custom/chat/chat.js"></script>
+  <!--begin::Page Vendors(used by this page)-->
+  <script src="assets/dist/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+  <!--end::Page Vendors-->
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
   <script src="assets/js/edit-client.js"></script>
 </body>
 <!--end::Body-->
