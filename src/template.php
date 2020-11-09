@@ -5,7 +5,7 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php require '../config/constants.php'?>
+  <?php require '../config/config.php'?>
   <title><?= TITLE ?> | Home</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -215,7 +215,7 @@
   </div>
   <!--end::Main-->
   <!-- begin::User Panel-->
-  <?php require 'config/user-panel.php'?>
+  <?php require '../config/user-panel.php'?>
   <!-- end::User Panel-->
   <!--begin::Quick Cart-->
   <div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
