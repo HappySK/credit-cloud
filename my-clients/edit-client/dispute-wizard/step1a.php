@@ -366,7 +366,8 @@
                       <i class="fa fa-backward"></i>
                       Back
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary ml-4 mr-4">
+                    <a href="https://help.creditrepaircloud.com/hc/en-us/articles/360025939871?flash_digest=8936acf5beed745544dca5127c898efc4eb49083After/"
+                      class="btn btn-sm btn-outline-primary ml-4 mr-4">
                       It is important to have your clients order their own credit reports. Click Here
                     </a>
                     <a href="my-clients/edit-client/dispute-wizard/step1a-letter"
