@@ -5,7 +5,15 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
+  <?php session_start(); ?>
   <?php require '../config/config.php'?>
+  <?php
+    require CLASS_PATH.'/user.php';
+    if(isset($_SESSION['id']))
+    {
+      $user_details = $user->get_data($_SESSION['id']);     
+    }
+  ?>
   <title><?= TITLE ?> | My Company Profile</title>
   <meta name="description" content="My Company Profile" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -236,63 +244,64 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <form action="" class="form-horizontal">
+                  <form action="server-side/class/" class="form-horizontal" id="company-profile-form">
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="company-name">Company Name</label>
-                        <input type="text" name="company-name" id="company-name" class="form-control">
+                        <label for="company-name"><strong>Company Name</strong></label>
+                        <input type="text" name="company_name" id="company-name" class="form-control">
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="">Website URL</label>
-                        <input type="text" name="website-url" id="website-url" class="form-control">
+                        <label for=""><strong>Website URL</strong></label>
+                        <input type="text" name="website_url" id="website-url" class="form-control">
                       </div>
                       <div class="col-lg-4">
                         <button type="button" class="btn btn-sm btn-outline-primary" id="check-url-btn">Check
-                          URL</button>
+                          <strong>URL</strong>
+                        </button>
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="form-group col-lg-12">
-                        <label for="address">Address</label>
+                        <label for="address"><strong>Address</strong></label>
                         <input type="text" name="address" id="address" class="form-control h-100">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="city">City</label>
+                        <label for="city"><strong>City</strong></label>
                         <input type="text" name="city" id="city" value="Birmingham" class="form-control w-100">
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="state">State</label>
+                        <label for="state"><strong>State</strong></label>
                         <input type="text" name="state" id="state" value="Alabama" class="form-control w-100">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="zip">Zip</label>
+                        <label for="zip"><strong>Zip</strong></label>
                         <input type="text" name="zip" id="zip" class="form-control">
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="country">Country</label>
+                        <label for="country"><strong>Country</strong></label>
                         <input type="text" name="country" id="country" value="United States"
                           class="form-control-plaintext">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-6">
-                        <label for="time-zone">TimeZone</label>
-                        <select name="time-zone" id="time-zone" class="custom-select">
+                        <label for="time-zone"><strong>TimeZone</strong></label>
+                        <select name="time_zone" id="time-zone" class="custom-select">
                           <option value="">Select Time Zone</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="phone">Phone</label>
+                        <label for="phone"><strong>Phone</strong></label>
                         <input type="text" name="phone" id="phone" class="form-control">
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="fax">Fax</label>
+                        <label for="fax"><strong>Fax</strong></label>
                         <input type="text" name="fax" id="fax" class="form-control">
                       </div>
                     </div>
@@ -303,12 +312,12 @@
                     </p>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="sender-name">Sender Name</label>
-                        <input type="text" name="sender-name" id="sender-name" class="form-control">
+                        <label for="sender-name"><strong>Sender Name</strong></label>
+                        <input type="text" name="sender_name" id="sender-name" class="form-control">
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="sender-email">Sender Email</label>
-                        <input type="text" name="sender-email" id="sender-email" class="form-control">
+                        <label for="sender-email"><strong>Sender Email</strong></label>
+                        <input type="text" name="sender_email" id="sender-email" class="form-control">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -316,8 +325,11 @@
                         <p>Name/company that your client invoices should be payable to </p>
                       </div>
                       <div class="form-group col-lg-4 align-middle">
-                        <input type="text" name="web-url" id="web-url" value="800 CREDIT NOW"
+                        <input type="text" name="web_url" id="web-url" value="800 CREDIT NOW"
                           class="form-control-plaintext">
+                      </div>
+                      <div class="form-group col-lg-4 align-middle">
+                        <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -1764,92 +1776,6 @@
   <script src="assets/js/my-company/my-company-profile.js"></script>
 </body>
 <!--end::Body-->
-<div class="modal fade" id="messagesModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-around">
-        <h5 class="modal-title" id="exampleModalLabel">Messages</h5>
-        <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">Send a new message</a>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i aria-hidden="true" class="ki ki-close"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="height: 300px;">
-        No Messages So Far
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">See All Messages</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end::Messages Modal -->
-<!--begin::Messages Modal-->
-<div class="modal fade" id="tasksModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-around">
-        <h5 class="modal-title" id="exampleModalLabel">Tasks & Events</h5>
-        <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">Create a new Task</a>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i aria-hidden="true" class="ki ki-close"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="height: 300px;">
-        No Tasks Available
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">See All Messages</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end::Messages Modal -->
-</body>
-<!--end::Body-->
-<!-- begin::NewLeads Modal-->
-<div class="modal fade" id="newLeads" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Leads</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i aria-hidden="true" class="ki ki-close"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div data-scroll="true" data-height="300">
-          <div class="d-flex flex-column justify-content-around">
-            <div class="d-flex flex-row justify-content-around">
-              <img src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043260-avatar-male-man-portrait_113269.png"
-                class="align-middle" alt="Avatar" width="50" height="50">
-              <div>
-                <h4>Archie Andrews</h4>
-                <cite>Referred By Miachel</cite>
-              </div>
-              <a href="#" class="btn btn-text-success btn-hover-light-success font-weight-bold mr-2">Add Client</a>
-              <a href="#" class="btn btn-text-danger btn-hover-light-danger font-weight-bold mr-2">Remove Client</a>
-            </div>
-            <div class="d-flex flex-row justify-content-around">
-              <img src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043260-avatar-male-man-portrait_113269.png"
-                alt="Avatar" width="50" height="50">
-              <div>
-                <h4>Veronica Lodge</h4>
-                <cite>Referred By Angelo</cite>
-              </div>
-              <a href="#" class="btn btn-text-success btn-hover-light-success font-weight-bold mr-2">Add Client</a>
-              <a href="#" class="btn btn-text-danger btn-hover-light-danger font-weight-bold mr-2">Remove Client</a>
-            </div>
-          </div>
-          <div>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">See All</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end::NewLeads Modal -->
+<?php include '../config/modals.php'?>
 
 </html>
