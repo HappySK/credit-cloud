@@ -14,3 +14,19 @@ The following points are included in the super-admin-dashboard
 6) The following login credentials will help logging into the super-admin-dashboard
     username : admin
     password : admin
+
+*********************************DB Configuration**********************************
+
+1) The DB username : sowlyehg_sravan
+
+2) DB Password  :   sowlyehg_sravan
+
+3)DB Name   :   sowlyehg_credit
+
+*******************************File Systems Configuration**************************
+
+1) APPLICATION PATH : 
+    i) MAIN PATH : /credit
+    ii)ASSETS_PATH : /credit/assets
+    iii)CLASS_PATH : /credit/server-side/class
+    iv)FUNCTIONS_PATH : /credit/server-side/functions

@@ -41,25 +41,100 @@ var KTCalendarBackgroundEvents = (function () {
 				eventLimit: true, // allow "more" link when too many events
 				navLinks: true,
 				businessHours: true, // display business hours
-				events:'server-side/class/my-schedule/event-management?action=fetch_events',
+				events:
+					"server-side/class/my-schedule/event-management?action=fetch_events",
 				selectable: true,
 				selectHelper: true,
 				select: function (start, end, allDay) {
-					console.log(TODAY);
 					$("#start-date").val(start.startStr);
 					$("#end-date").val(start.endStr);
 					$("#add-event-modal").modal("show");
 				},
 
-				eventDrop : function(info)
-				{
-					console.log(info);
-					console.log(info.event.start);
+				eventDrop: function (info) {
+					$("#start-date").val(convert_to_date(info.event.start));
+					$("#end-date").val(convert_to_date(info.event.end));
+					$.ajax({
+						url: "server-side/class/my-schedule/event-management.php",
+						type: "GET",
+						data: {
+							action: "fetch_event",
+							event_id: info.event.id,
+						},
+						dataType: "JSON",
+						success: function (response) {
+							$(
+								'#event-type option[value="' + response[0].event_type + '"]'
+							).attr("selected", "selected");
+							$("#event-subject").val(response[0].event_subject);
+							$(
+								'#client-name option[value="' + response[0].client_name + '"]'
+							).attr("selected", "selected");
+							$(
+								'#team-member-name option[value="' +
+									response[0].team_member_name +
+									'"]'
+							).attr("selected", "selected");
+							$("#location").val(response[0].location);
+							$("#remarks").val(response[0].remarks);
+						},
+					});
+					var event_type = document.getElementById("event-type");
+					var start_time = document.getElementById("start-time");
+					var end_time = document.getElementById("end-time");
+					var client_name = document.getElementById("client-name");
+					var team_member_name = document.getElementById("team-member-name");
+					$.ajax({
+						url:
+							"server-side/class/my-schedule/event-management?action=update_event",
+						type: "POST",
+						data: {
+							action: "update_event",
+							event_id: info.event.id,
+							event_type: event_type.options[event_type.selectedIndex].value,
+							event_subject: document.getElementById("event-subject").value,
+							start_date_and_time: convert(info.event.start),
+							end_date_and_time: convert(info.event.end),
+							client_name: client_name.options[client_name.selectedIndex].value,
+							team_member_name:
+								team_member_name.options[team_member_name.selectedIndex].value,
+							location: document.getElementById("location").value,
+							remarks: document.getElementById("remarks").value,
+						},
+						success: function (response) {
+							console.log(response);
+						},
+					}).then(location.reload());
 				},
 
-				eventClick : function(info)
-				{
-					console.log(info)
+				eventClick: function (info) {
+					$.ajax({
+						url: "server-side/class/my-schedule/event-management.php",
+						type: "GET",
+						data: {
+							action: "fetch_event",
+							event_id: info.event.id,
+						},
+						dataType: "JSON",
+						success: function (response) {
+							console.log(response)
+							$(
+								'#event-type option[value="' + response[0].event_type + '"]'
+							).attr("selected", "selected");
+							$("#event-subject").val(response[0].event_subject);
+							$(
+								'#client-name option[value="' + response[0].client_name + '"]'
+							).attr("selected", "selected");
+							$(
+								'#team-member-name option[value="' +
+									response[0].team_member_name +
+									'"]'
+							).attr("selected", "selected");
+							$("#location").val(response[0].location);
+							$("#remarks").val(response[0].remarks);
+						},
+					});
+					$("#add-event-modal").modal("show");
 				},
 
 				eventRender: function (info) {
@@ -127,13 +202,21 @@ jQuery(document).ready(function () {
 					team_member_name.options[team_member_name.selectedIndex].value,
 				location: document.getElementById("location").value,
 				remarks: document.getElementById("remarks").value,
-				action: "get_events",
+				action: "insert_event",
 			},
 			success: function (response) {
 				console.log(response);
 			},
-		}).then(
-			location.reload()
-		);
+		}).then(location.reload());
 	});
 });
+
+function convert_to_date(date) {
+	var json_date = JSON.stringify(date);
+	return json_date.slice(1, 11);
+}
+
+function convert(date) {
+	var json_date = JSON.stringify(date);
+	return json_date.slice(1, 20);
+}
