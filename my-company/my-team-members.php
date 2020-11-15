@@ -5,7 +5,15 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php require '../config/constants.php'?>
+  <?php session_start(); ?>
+  <?php require '../config/config.php'?>
+  <?php
+    require CLASS_PATH.'/user.php';
+    if(isset($_SESSION['id']))
+    {
+      $user_details = $user->get_data($_SESSION['id']);     
+    }
+  ?>
   <title><?= TITLE ?> | My Team Members</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -96,15 +104,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Home</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">My Team Members</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="" class="text-muted">General</a>
+                      <a href="my-company/my-company-profile" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="" class="text-muted">Home Page</a>
+                      <a href="my-company/my-team-members" class="text-muted">My Team Members</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
