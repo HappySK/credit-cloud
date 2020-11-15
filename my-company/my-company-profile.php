@@ -244,7 +244,8 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <form action="server-side/class/" class="form-horizontal" id="company-profile-form">
+                  <form action="server-side/class/my-company/company-profile" class="form-horizontal"
+                    id="company-profile-form" method="POST">
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
                         <label for="company-name"><strong>Company Name</strong></label>
@@ -252,7 +253,7 @@
                       </div>
                       <div class="form-group col-lg-4">
                         <label for=""><strong>Website URL</strong></label>
-                        <input type="text" name="website_url" id="website-url" class="form-control">
+                        <input type="url" name="website_url" id="website-url" class="form-control">
                       </div>
                       <div class="col-lg-4">
                         <button type="button" class="btn btn-sm btn-outline-primary" id="check-url-btn">Check
@@ -268,12 +269,18 @@
                     </div>
                     <div class="form-group row align-items-center">
                       <div class="form-group col-lg-4">
-                        <label for="city"><strong>City</strong></label>
-                        <input type="text" name="city" id="city" value="Birmingham" class="form-control w-100">
+                        <label for="state"><strong>State</strong></label>
+                        <select name="state" id="state" class="form-control w-100">
+                          <option value="">Select State</option>
+                          <option value="Mumbai">Mumbai</option>
+                        </select>
                       </div>
                       <div class="form-group col-lg-4">
-                        <label for="state"><strong>State</strong></label>
-                        <input type="text" name="state" id="state" value="Alabama" class="form-control w-100">
+                        <label for="city"><strong>City</strong></label>
+                        <select name="city" id="city" class="form-control w-100">
+                          <option value="">Select City</option>
+                          <option value="Mumbai">Mumbai</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -283,8 +290,9 @@
                       </div>
                       <div class="form-group col-lg-4">
                         <label for="country"><strong>Country</strong></label>
-                        <input type="text" name="country" id="country" value="United States"
-                          class="form-control-plaintext">
+                        <select name="country" id="country" class="form-control w-100">
+                          <option value="">Select Country</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -317,7 +325,7 @@
                       </div>
                       <div class="form-group col-lg-4">
                         <label for="sender-email"><strong>Sender Email</strong></label>
-                        <input type="text" name="sender_email" id="sender-email" class="form-control">
+                        <input type="url" name="sender_email" id="sender-email" class="form-control">
                       </div>
                     </div>
                     <div class="form-group row align-items-center">
