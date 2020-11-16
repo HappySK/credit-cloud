@@ -1,6 +1,8 @@
 $("#check-url-btn").click(function () {
 	window.location.href = "//" + document.getElementById("website-url").value;
 });
+
+// Form Validation plugin
 $(document).ready(function () {
 	FormValidation.formValidation(
 		document.getElementById("company-profile-form"),
@@ -103,6 +105,7 @@ $(document).ready(function () {
 		}
 	);
 
+	// For getting Timezones
 	$.getJSON("assets/json-files/timezones.json", function (data) {
 		$.each(data, function (index, value) {
 			var timezone = document.getElementById("time-zone");
@@ -113,6 +116,7 @@ $(document).ready(function () {
 		});
 	});
 
+	// For Getting States dropdown
 	$.getJSON("assets/json-files/states.json", function (data) {
 		$.each(data, function (index, value) {
 			var state = document.getElementById("state");
@@ -123,6 +127,7 @@ $(document).ready(function () {
 		});
 	});
 
+	// For getting countries dropdown
 	$.getJSON("assets/json-files/countries.json", function (data) {
 		$.each(data, function (index, value) {
 			var state = document.getElementById("country");
@@ -132,4 +137,24 @@ $(document).ready(function () {
 			state.appendChild(option);
 		});
 	});
+
+	$.get('server-side/class/my-company/company-profile.php',{action : 'get_company_profile'},function(company,status){
+		if(company != false)
+		{
+			console.log(company);
+			document.getElementById('company-name').value = company.company_name;
+			document.getElementById('website-url').value = company.website_url;
+			document.getElementById('address').value = company.address;
+			document.getElementById('state').value = company.state;
+			document.getElementById('city').value = company.city;
+			document.getElementById('zip').value = company.zip;
+			document.getElementById('country').value = company.country;
+			document.getElementById('time-zone').value = company.timezone;
+			document.getElementById('phone').value = company.phone;
+			document.getElementById('fax').value = company.fax;
+			document.getElementById('sender-name').value = company.sender_name;
+			document.getElementById('sender-email').value = company.sender_email;
+			document.getElementById('web-url').value = company.website_url
+		}
+	},'JSON')
 });
