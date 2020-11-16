@@ -1,6 +1,6 @@
 <?php
   require '../../../config/config.php';
-  require CLASS_PATH.'/dbconnect.php';
+  require_once CLASS_PATH.'/dbconnect.php';
   session_start();
   class company_profile extends dbconnect
   {
@@ -51,9 +51,24 @@
         echo $e->getMessage();
       }
     }
+
+    function get_company_profile()
+    {
+      try
+      {
+        $sql = "SELECT * FROM `mycompany__my_company_profile` WHERE `user_id` = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$_SESSION['user_id']]);
+        return $stmt->fetchObject();
+      }
+      catch(SQLException $e)
+      {
+        echo $e->getMessage();
+      }
+    }
   }
   $company = new company_profile($config->DB_CREDENTIALS);
-   if(isset($_POST))
+   if(isset($_POST['company_name']))
    {
      $company_details = $_POST;
      if($company->is_company_profile_exists())
@@ -62,8 +77,13 @@
      } 
      else
      {
-      $company->add_company_profile($company_details);
+        $company->add_company_profile($company_details);
      }
      header('Location:../../../my-company/my-company-profile');    
+   }
+
+   if(isset($_GET['action']))
+   {
+     echo json_encode($company->get_company_profile());
    }
 ?>
