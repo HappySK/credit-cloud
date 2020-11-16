@@ -322,68 +322,76 @@
                             Team Member
                             <i class="mr-2"></i>
                           </h3>
-                          <button type="submit" class="btn btn-sm btn-outline-primary"
-                            id="member-submit">Submit</button>
                         </div>
                       </div>
                       <div class="card-body">
-                        <form action="">
+                        <form action="server-side/class/my-company/team-member.php" method="POST"
+                          id="add-team-members-form">
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="first-name">First Name<span class="text-danger">*</span></label>
-                              <input type="text" name="first-name" id="first-name" class="form-control">
+                              <label for="first-name">
+                                <strong>First Name</strong>
+                                <span class="text-danger">*</span>
+                              </label>
+                              <input type="text" name="first_name" id="first-name"
+                                class="form-control form-control-solid form-control-solid">
                             </div>
                             <div class="form-group col">
-                              <label for="user-id">User ID</label>
-                              <input type="text" name="user-id" id="user-id" class="form-control">
+                              <label for="user-id"><strong>User ID</strong></label>
+                              <input type="text" name="user_name" id="user-id" class="form-control form-control-solid">
                             </div>
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="first-name">Last Name<span class="text-danger">*</span></label>
-                              <input type="text" name="last-name" id="last-name" class="form-control">
+                              <label for="first-name"><strong>Last Name</strong><span
+                                  class="text-danger">*</span></label>
+                              <input type="text" name="last_name" id="last-name"
+                                class="form-control form-control-solid">
                             </div>
                             <div class="form-group col">
-                              <label for="password">Password</label>
-                              <input type="text" name="password" id="password" class="form-control">
+                              <label for="password"><strong>Password</strong></label>
+                              <input type="password" name="password" id="password"
+                                class="form-control form-control-solid">
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col">
                               <label for="gender">
-                                Gender
+                                <strong>Gender</strong>
                                 <span class="text-danger">*</span>
                               </label>
                               <div class="col">
                                 <div class="form-check form-check-inline">
-                                  <input type="radio" name="gender" id="male" class="form-check-input">
+                                  <input type="radio" name="gender" id="male" class="form-check-input" value="Male">
                                   <label for="male" class="form-check-label">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input type="radio" name="gender" id="female" class="form-check-input">
+                                  <input type="radio" name="gender" id="female" class="form-check-input" value="Female">
                                   <label for="female" class="form-check-label">Female</label>
                                 </div>
                               </div>
                             </div>
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
-                                <input type="checkbox" name="login-info" id="login-info" class="form-check-input">
-                                <label for="login-info" class="form-check-label">Send Login Information
-                                  (Recommended)</label>
+                                <input type="checkbox" name="login_info" id="login-info" class="form-check-input">
+                                <label for="login-info" class="form-check-label">
+                                  <strong>Send Login Information (Recommended)</strong>
+                                </label>
                               </div>
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col">
-                              <label for="member-email">Email</label>
-                              <input type="email" name="member-email" id="member-email" class="form-control">
+                              <label for="member-email"><strong>Email</strong></label>
+                              <input type="email" name="member_email" id="member-email"
+                                class="form-control form-control-solid">
                             </div>
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
-                                <input type="checkbox" name="system-generated-password" id="system-generated-password"
+                                <input type="checkbox" name="system_generated_password" id="system-generated-password"
                                   class="form-check-input">
                                 <label for="system-generated-password" class="form-check-label">
-                                  System Generated Password (Not Recommended)
+                                  <strong>System Generated Password (Not Recommended)</strong>
                                 </label>
                               </div>
                             </div>
@@ -393,33 +401,33 @@
                               <div class="form-group row">
                                 <div class="col">
                                   <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" name="phone" id="phone" class="form-control">
+                                    <label for="phone"><strong>Phone</strong></label>
+                                    <input type="text" name="phone" id="phone" class="form-control form-control-solid">
                                   </div>
                                 </div>
                                 <div class="col">
                                   <div class="form-group">
-                                    <label for="ext">Ext</label>
-                                    <input type="text" name="ext" id="ext" class="form-control">
+                                    <label for="ext"><strong>Ext</strong></label>
+                                    <input type="text" name="ext" id="ext" class="form-control form-control-solid">
                                   </div>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="mobile">Mobile</label>
-                                  <input type="text" name="mobile" id="mobile" class="form-control">
+                                  <label for="mobile"><strong>Mobile</strong></label>
+                                  <input type="text" name="mobile" id="mobile" class="form-control form-control-solid">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="fax">Fax</label>
-                                  <input type="text" name="fax" id="fax" class="form-control">
+                                  <label for="fax"><strong>Fax</strong></label>
+                                  <input type="text" name="fax" id="fax" class="form-control form-control-solid">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="title">Title to display in portal</label>
-                                  <input type="text" name="title" id="title" class="form-control">
+                                  <label for="title"><strong>Title to display in portal</strong></label>
+                                  <input type="text" name="title" id="title" class="form-control form-control-solid">
                                 </div>
                               </div>
                             </div>
@@ -467,37 +475,34 @@
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="member-address">Address</label>
-                              <textarea type="text" name="member-address" id="member-address" class="form-control"
-                                rows="3">
+                              <label for="member-address"><strong>Address</strong></label>
+                              <textarea type="text" name="member_address" id="member-address"
+                                class="form-control form-control-solid" rows="3">
                               </textarea>
                             </div>
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col-lg-6">
                               <label for="role">
-                                Role
+                                <strong>Role</strong>
                                 <span class="text-danger">*</span>
                               </label>
-                              <select name="select-role" id="select-role" class="custom-select">
+                              <select name="select_role" id="select-role" class="custom-select">
                                 <option value="">Select Role</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Credit Rep">Credit Rep</option>
-                                <option value="Credit Specialist">Credit Specialist</option>
-                                <option value="Credit Specialist Pro">Credit Specialist Pro</option>
-                                <option value="Sales Representative">Sales Representative</option>
                               </select>
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col-lg-6">
-                              <label for="photo">Photo</label>
-                              <input type="file" name="photo-file" id="photo-file" class="form-control">
+                              <label for="photo-file" class="custom-file-label"><strong>Choose Photo</strong></label>
+                              <input type="file" name="photo_file" id="photo-file" class="custom-file-input">
                             </div>
                             <div class="form-group col-lg-6">
                               <cite>(Only JPEG, JPG and PNG)</cite>
                             </div>
                           </div>
+                          <button type="submit" class="btn btn-sm btn-outline-primary"
+                            id="member-submit">Submit</button>
                         </form>
                       </div>
                     </div>
@@ -1821,7 +1826,8 @@
           <!--begin::Footer-->
           <div class="card-footer align-items-center">
             <!--begin::Compose-->
-            <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+            <textarea class="form-control form-control-solid border-0 p-0" rows="2"
+              placeholder="Type a message"></textarea>
             <div class="d-flex align-items-center justify-content-between mt-5">
               <div class="mr-3">
                 <a href="#" class="btn btn-clean btn-icon btn-md mr-1">
