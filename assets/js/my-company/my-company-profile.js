@@ -138,23 +138,27 @@ $(document).ready(function () {
 		});
 	});
 
-	$.get('server-side/class/my-company/company-profile.php',{action : 'get_company_profile'},function(company,status){
-		if(company != false)
-		{
-			console.log(company);
-			document.getElementById('company-name').value = company.company_name;
-			document.getElementById('website-url').value = company.website_url;
-			document.getElementById('address').value = company.address;
-			document.getElementById('state').value = company.state;
-			document.getElementById('city').value = company.city;
-			document.getElementById('zip').value = company.zip;
-			document.getElementById('country').value = company.country;
-			document.getElementById('time-zone').value = company.timezone;
-			document.getElementById('phone').value = company.phone;
-			document.getElementById('fax').value = company.fax;
-			document.getElementById('sender-name').value = company.sender_name;
-			document.getElementById('sender-email').value = company.sender_email;
-			document.getElementById('web-url').value = company.website_url
-		}
-	},'JSON')
+	$.get(
+		"server-side/class/my-company/company-profile.php",
+		{ action: "get_company_profile" },
+		function (company, status) {
+			if (company != false) {
+				console.log(company);
+				document.getElementById("company-name").value = company.company_name;
+				document.getElementById("website-url").value = company.website_url;
+				document.getElementById("address").value = company.address;
+				document.getElementById("state").value = company.state;
+				document.getElementById("city").value = company.city;
+				document.getElementById("zip").value = company.zip;
+				document.getElementById("country").value = company.country;
+				document.getElementById("time-zone").value = company.timezone;
+				document.getElementById("phone").value = company.phone;
+				document.getElementById("fax").value = company.fax;
+				document.getElementById("sender-name").value = company.sender_name;
+				document.getElementById("sender-email").value = company.sender_email;
+				document.getElementById("web-url").value = company.website_url;
+			}
+		},
+		"JSON"
+	);
 });
