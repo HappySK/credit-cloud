@@ -1,5 +1,4 @@
 <?php
-  // require CLASS_PATH.'/dbconnect.php';
   $connection = new dbconnect($config->DB_CREDENTIALS);
   // session_start();
   function get_client($id,$connection)
