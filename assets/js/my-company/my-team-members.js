@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 	// For Creating alert for team member deletion
-	$(".sweet-alert").click(function (e) {
+	$(".delete-team-member").click(function (e) {
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!",
@@ -20,7 +20,11 @@ $(document).ready(function () {
 				// result.dismiss can be "cancel", "overlay",
 				// "close", and "timer"
 			} else if (result.dismiss === "cancel") {
+				$.post('server-side/class/my-company/team-member.php',{action : 'delete_team_member',team_member_id : e.target.getAttribute('team_member_id')},function(data,status){
+					console.log(data);
+				})
 				Swal.fire("Deleted !", "Your team member has been deleted", "error");
+				$('#team-members').load(location.href + ' #team-members');
 			}
 		});
 	});
@@ -63,98 +67,98 @@ $(document).ready(function () {
 				first_name: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "First Name is required",
 						},
 					},
 				},
 				user_id: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "User ID is required",
 						},
 					},
 				},
 				last_name: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Last Name is required",
 						},
 					},
 				},
 				password: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Password is required",
 						},
 					},
 				},
 				gender: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Gender is required",
 						},
 					},
 				},
 				member_email: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Email is required",
 						},
 					},
 				},
 				phone: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Phone is required",
 						},
 					},
 				},
 				ext: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Extension is required",
 						},
 					},
 				},
 				mobile: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Mobile is required",
 						},
 					},
 				},
 				fax: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Fax is required",
 						},
 					},
 				},
 				title: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Title is required",
 						},
 					},
 				},
 				member_address: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Address is required",
 						},
 					},
 				},
 				select_role: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Role is required",
 						},
 					},
 				},
 				photo_file: {
 					validators: {
 						notEmpty: {
-							message: "Company Name is required",
+							message: "Photo Upload is Required is required",
 						},
 					},
 				},
@@ -173,7 +177,39 @@ $(document).ready(function () {
 	);
 
 	//Fetching the team-members-details
-	$.get('server-side/class/my-company/add-team-member.php',{action : 'get_team_members'},function(data,status){
-		console.log(status)
-	})
+		$('.team-member-details').click(function(){
+			console.log('Button Clicked')
+			$.get('server-side/class/my-company/team-member.php',{action : 'get_team_member', team_member_id : $(this).attr('team_member_id')},function(data,status){
+				$.each(data, function(index,company){
+					if(data != false)
+					{
+						// console.log(company);
+						document.getElementById('first-name').value = company.first_name;
+						document.getElementById('user-id').value = company.user_name;
+						document.getElementById('last-name').value = company.last_name;
+						if(company.gender == 'Male')
+						{
+							document.getElementById('male').checked = true;
+						}
+						else if(company.gender == 'female')
+						{
+							document.getElementById('female').checked = true;
+						}
+						document.getElementById('login-info').value = company.send_login_information;
+						document.getElementById('member-email').value = company.email;
+						document.getElementById('phone').value = company.phone;
+						document.getElementById('ext').value = company.ext;
+						document.getElementById('mobile').value = company.mobile;
+						document.getElementById('fax').value = company.fax;
+						document.getElementById('title').value = company.title;
+						document.getElementById('member-address').value = company.address;
+						document.getElementById('select-role').value = company.role;
+					}
+					else
+					{
+						console.log('False Statements')
+					}
+				});
+			},'JSON')
+		})
 });
