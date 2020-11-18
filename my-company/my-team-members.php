@@ -9,9 +9,14 @@
   <?php require '../config/config.php'?>
   <?php
     require CLASS_PATH.'/user.php';
+    require FUNCTIONS_PATH.'/functions.php';
     if(isset($_SESSION['id']))
     {
       $user_details = $user->get_data($_SESSION['id']);     
+    }
+    if(isset($_SESSION['user_id']))
+    {
+      $team_members = get_team_members($connection);
     }
   ?>
   <title><?= TITLE ?> | My Team Members</title>
@@ -251,18 +256,25 @@
                       </div>
                     </div>
                     <!--end::Notice-->
-                    <div class="d-flex flex-wrap justify-content-center">
-                      <?php for($i = 1; $i <= 7; $i++) { ?>
+                    <div class="d-flex flex-wrap justify-content-center" id="team-members">
+                      <?php foreach($team_members as $team_member) { ?>
                       <div class="card m-3" style="width:15rem">
                         <div class="card-img-top">
-                          <img src="assets/dist/assets/media/users/100_<?= $i ?>.jpg" alt="user-image"
+                          <img src="data:image;base64,<?= $team_member['photo_file']?>" alt="user-image"
                             style="width:15rem">
                         </div>
                         <div class="card-body text-center">
-                          <a href="#" class="btn btn-sm btn-outline-primary">Archie Andrews (Active)</a>
+                          <a href="#" class="btn btn-sm btn-outline-primary team-member-details"
+                            team_member_id="<?= $team_member['team_member_id'] ?>" data-toggle="collapse"
+                            data-target=".show-hide-team">
+                            <?= $team_member['title'] ?> (Active)
+                          </a>
                           <div class="button-group d-flex">
                             <button class="btn btn-sm btn-outline-warning m-1">Last Login</button>
-                            <button class="btn btn-sm btn-outline-danger sweet-alert m-1">Inactivate / Delete</button>
+                            <button class="btn btn-sm btn-outline-danger sweet-alert m-1 delete-team-member"
+                              team_member_id="<?= $team_member['team_member_id'] ?>">
+                              Inactivate / Delete
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -326,7 +338,7 @@
                       </div>
                       <div class="card-body">
                         <form action="server-side/class/my-company/team-member.php" method="POST"
-                          id="add-team-members-form">
+                          id="add-team-members-form" enctype="multipart/form-data">
                           <div class="form-horizontal row">
                             <div class="form-group col">
                               <label for="first-name">
@@ -373,7 +385,8 @@
                             </div>
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
-                                <input type="checkbox" name="login_info" id="login-info" class="form-check-input">
+                                <input type="checkbox" name="login_info" id="login-info" class="form-check-input"
+                                  value="Yes">
                                 <label for="login-info" class="form-check-label">
                                   <strong>Send Login Information (Recommended)</strong>
                                 </label>
@@ -389,7 +402,7 @@
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
                                 <input type="checkbox" name="system_generated_password" id="system-generated-password"
-                                  class="form-check-input">
+                                  class="form-check-input" value="Yes">
                                 <label for="system-generated-password" class="form-check-label">
                                   <strong>System Generated Password (Not Recommended)</strong>
                                 </label>
@@ -495,7 +508,8 @@
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col-lg-6">
                               <label for="photo-file" class="custom-file-label"><strong>Choose Photo</strong></label>
-                              <input type="file" name="photo_file" id="photo-file" class="custom-file-input">
+                              <input type="file" name="photo_file" id="photo-file" class="custom-file-input"
+                                accept=".jpg, .png, .jpeg">
                             </div>
                             <div class="form-group col-lg-6">
                               <cite>(Only JPEG, JPG and PNG)</cite>
@@ -543,7 +557,8 @@
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
-          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
+          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James
+            Jones</a>
           <div class="text-muted mt-1">Application Developer</div>
           <div class="navi mt-2">
             <a href="#" class="navi-item">
@@ -757,7 +772,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
+              be to
               people</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -785,7 +801,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+              be
               to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
@@ -824,7 +841,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+              best
               product</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1063,7 +1081,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
+                  Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1184,7 +1203,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+                  would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1692,7 +1712,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -1714,7 +1735,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on
                     GitHub.
                   </div>
                 </div>
@@ -1726,7 +1748,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1758,7 +1781,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1782,7 +1806,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
+                    viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -1792,7 +1817,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1814,7 +1840,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
