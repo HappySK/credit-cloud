@@ -9,9 +9,14 @@
   <?php require '../config/config.php'?>
   <?php
     require CLASS_PATH.'/user.php';
+    require FUNCTIONS_PATH.'/functions.php';
     if(isset($_SESSION['id']))
     {
       $user_details = $user->get_data($_SESSION['id']);     
+    }
+    if(isset($_SESSION['user_id']))
+    {
+      $team_members = get_team_members($connection);
     }
   ?>
   <title><?= TITLE ?> | My Team Members</title>
@@ -251,18 +256,25 @@
                       </div>
                     </div>
                     <!--end::Notice-->
-                    <div class="d-flex flex-wrap justify-content-center">
-                      <?php for($i = 1; $i <= 7; $i++) { ?>
+                    <div class="d-flex flex-wrap justify-content-center" id="team-members">
+                      <?php foreach($team_members as $team_member) { ?>
                       <div class="card m-3" style="width:15rem">
                         <div class="card-img-top">
-                          <img src="assets/dist/assets/media/users/100_<?= $i ?>.jpg" alt="user-image"
+                          <img src="data:image;base64,<?= $team_member['photo_file']?>" alt="user-image"
                             style="width:15rem">
                         </div>
                         <div class="card-body text-center">
-                          <a href="#" class="btn btn-sm btn-outline-primary">Archie Andrews (Active)</a>
+                          <a href="#" class="btn btn-sm btn-outline-primary team-member-details"
+                            team_member_id="<?= $team_member['team_member_id'] ?>" data-toggle="collapse"
+                            data-target=".show-hide-team">
+                            <?= $team_member['title'] ?> (Active)
+                          </a>
                           <div class="button-group d-flex">
                             <button class="btn btn-sm btn-outline-warning m-1">Last Login</button>
-                            <button class="btn btn-sm btn-outline-danger sweet-alert m-1">Inactivate / Delete</button>
+                            <button class="btn btn-sm btn-outline-danger sweet-alert m-1 delete-team-member"
+                              team_member_id="<?= $team_member['team_member_id'] ?>">
+                              Inactivate / Delete
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -322,68 +334,77 @@
                             Team Member
                             <i class="mr-2"></i>
                           </h3>
-                          <button type="submit" class="btn btn-sm btn-outline-primary"
-                            id="member-submit">Submit</button>
                         </div>
                       </div>
                       <div class="card-body">
-                        <form action="">
+                        <form action="server-side/class/my-company/team-member.php" method="POST"
+                          id="add-team-members-form" enctype="multipart/form-data">
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="first-name">First Name<span class="text-danger">*</span></label>
-                              <input type="text" name="first-name" id="first-name" class="form-control">
+                              <label for="first-name">
+                                <strong>First Name</strong>
+                                <span class="text-danger">*</span>
+                              </label>
+                              <input type="text" name="first_name" id="first-name"
+                                class="form-control form-control-solid form-control-solid">
                             </div>
                             <div class="form-group col">
-                              <label for="user-id">User ID</label>
-                              <input type="text" name="user-id" id="user-id" class="form-control">
+                              <label for="user-id"><strong>User ID</strong></label>
+                              <input type="text" name="user_name" id="user-id" class="form-control form-control-solid">
                             </div>
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="first-name">Last Name<span class="text-danger">*</span></label>
-                              <input type="text" name="last-name" id="last-name" class="form-control">
+                              <label for="first-name"><strong>Last Name</strong><span
+                                  class="text-danger">*</span></label>
+                              <input type="text" name="last_name" id="last-name"
+                                class="form-control form-control-solid">
                             </div>
                             <div class="form-group col">
-                              <label for="password">Password</label>
-                              <input type="text" name="password" id="password" class="form-control">
+                              <label for="password"><strong>Password</strong></label>
+                              <input type="password" name="password" id="password"
+                                class="form-control form-control-solid">
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col">
                               <label for="gender">
-                                Gender
+                                <strong>Gender</strong>
                                 <span class="text-danger">*</span>
                               </label>
                               <div class="col">
                                 <div class="form-check form-check-inline">
-                                  <input type="radio" name="gender" id="male" class="form-check-input">
+                                  <input type="radio" name="gender" id="male" class="form-check-input" value="Male">
                                   <label for="male" class="form-check-label">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input type="radio" name="gender" id="female" class="form-check-input">
+                                  <input type="radio" name="gender" id="female" class="form-check-input" value="Female">
                                   <label for="female" class="form-check-label">Female</label>
                                 </div>
                               </div>
                             </div>
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
-                                <input type="checkbox" name="login-info" id="login-info" class="form-check-input">
-                                <label for="login-info" class="form-check-label">Send Login Information
-                                  (Recommended)</label>
+                                <input type="checkbox" name="login_info" id="login-info" class="form-check-input"
+                                  value="Yes">
+                                <label for="login-info" class="form-check-label">
+                                  <strong>Send Login Information (Recommended)</strong>
+                                </label>
                               </div>
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col">
-                              <label for="member-email">Email</label>
-                              <input type="email" name="member-email" id="member-email" class="form-control">
+                              <label for="member-email"><strong>Email</strong></label>
+                              <input type="email" name="member_email" id="member-email"
+                                class="form-control form-control-solid">
                             </div>
                             <div class="form-group col">
                               <div class="form-check form-check-inline">
-                                <input type="checkbox" name="system-generated-password" id="system-generated-password"
-                                  class="form-check-input">
+                                <input type="checkbox" name="system_generated_password" id="system-generated-password"
+                                  class="form-check-input" value="Yes">
                                 <label for="system-generated-password" class="form-check-label">
-                                  System Generated Password (Not Recommended)
+                                  <strong>System Generated Password (Not Recommended)</strong>
                                 </label>
                               </div>
                             </div>
@@ -393,33 +414,33 @@
                               <div class="form-group row">
                                 <div class="col">
                                   <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" name="phone" id="phone" class="form-control">
+                                    <label for="phone"><strong>Phone</strong></label>
+                                    <input type="text" name="phone" id="phone" class="form-control form-control-solid">
                                   </div>
                                 </div>
                                 <div class="col">
                                   <div class="form-group">
-                                    <label for="ext">Ext</label>
-                                    <input type="text" name="ext" id="ext" class="form-control">
+                                    <label for="ext"><strong>Ext</strong></label>
+                                    <input type="text" name="ext" id="ext" class="form-control form-control-solid">
                                   </div>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="mobile">Mobile</label>
-                                  <input type="text" name="mobile" id="mobile" class="form-control">
+                                  <label for="mobile"><strong>Mobile</strong></label>
+                                  <input type="text" name="mobile" id="mobile" class="form-control form-control-solid">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="fax">Fax</label>
-                                  <input type="text" name="fax" id="fax" class="form-control">
+                                  <label for="fax"><strong>Fax</strong></label>
+                                  <input type="text" name="fax" id="fax" class="form-control form-control-solid">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="form-group col">
-                                  <label for="title">Title to display in portal</label>
-                                  <input type="text" name="title" id="title" class="form-control">
+                                  <label for="title"><strong>Title to display in portal</strong></label>
+                                  <input type="text" name="title" id="title" class="form-control form-control-solid">
                                 </div>
                               </div>
                             </div>
@@ -467,37 +488,35 @@
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col">
-                              <label for="member-address">Address</label>
-                              <textarea type="text" name="member-address" id="member-address" class="form-control"
-                                rows="3">
+                              <label for="member-address"><strong>Address</strong></label>
+                              <textarea type="text" name="member_address" id="member-address"
+                                class="form-control form-control-solid" rows="3">
                               </textarea>
                             </div>
                           </div>
                           <div class="form-horizontal row">
                             <div class="form-group col-lg-6">
                               <label for="role">
-                                Role
+                                <strong>Role</strong>
                                 <span class="text-danger">*</span>
                               </label>
-                              <select name="select-role" id="select-role" class="custom-select">
+                              <select name="select_role" id="select-role" class="custom-select">
                                 <option value="">Select Role</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Credit Rep">Credit Rep</option>
-                                <option value="Credit Specialist">Credit Specialist</option>
-                                <option value="Credit Specialist Pro">Credit Specialist Pro</option>
-                                <option value="Sales Representative">Sales Representative</option>
                               </select>
                             </div>
                           </div>
                           <div class="form-horizontal row align-items-center">
                             <div class="form-group col-lg-6">
-                              <label for="photo">Photo</label>
-                              <input type="file" name="photo-file" id="photo-file" class="form-control">
+                              <label for="photo-file" class="custom-file-label"><strong>Choose Photo</strong></label>
+                              <input type="file" name="photo_file" id="photo-file" class="custom-file-input"
+                                accept=".jpg, .png, .jpeg">
                             </div>
                             <div class="form-group col-lg-6">
                               <cite>(Only JPEG, JPG and PNG)</cite>
                             </div>
                           </div>
+                          <button type="submit" class="btn btn-sm btn-outline-primary"
+                            id="member-submit">Submit</button>
                         </form>
                       </div>
                     </div>
@@ -538,7 +557,8 @@
           <i class="symbol-badge bg-success"></i>
         </div>
         <div class="d-flex flex-column">
-          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
+          <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James
+            Jones</a>
           <div class="text-muted mt-1">Application Developer</div>
           <div class="navi mt-2">
             <a href="#" class="navi-item">
@@ -752,7 +772,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
+            <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
+              be to
               people</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -780,7 +801,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+              be
               to
               persuade</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
@@ -819,7 +841,8 @@
             </span>
           </span>
           <div class="d-flex flex-column flex-grow-1 mr-2">
-            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+            <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+              best
               product</a>
             <span class="text-muted font-size-sm">Due in 2 Days</span>
           </div>
@@ -1058,7 +1081,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
+                  Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1179,7 +1203,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+                  would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1687,7 +1712,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -1709,7 +1735,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on
                     GitHub.
                   </div>
                 </div>
@@ -1721,7 +1748,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1753,7 +1781,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1777,7 +1806,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
+                    viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -1787,7 +1817,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1809,7 +1840,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -1821,7 +1853,8 @@
           <!--begin::Footer-->
           <div class="card-footer align-items-center">
             <!--begin::Compose-->
-            <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+            <textarea class="form-control form-control-solid border-0 p-0" rows="2"
+              placeholder="Type a message"></textarea>
             <div class="d-flex align-items-center justify-content-between mt-5">
               <div class="mr-3">
                 <a href="#" class="btn btn-clean btn-icon btn-md mr-1">
