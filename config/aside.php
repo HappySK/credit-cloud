@@ -167,7 +167,7 @@
                  </a>
                </li>
                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                 <a href="my-company/roles-and-permissions" class="menu-link menu-toggle">
+                 <a href="my-company/roles-permissions" class="menu-link menu-toggle">
                    <span class="svg-icon menu-icon">
                      <!--begin::Svg Iconr.svg-->
                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"

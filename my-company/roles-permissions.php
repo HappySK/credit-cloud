@@ -5,17 +5,17 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php 
-    session_start(); 
-    require '../config/config.php';
+  <?php session_start(); ?>
+  <?php require '../config/config.php'?>
+  <?php
     require CLASS_PATH.'/user.php';
     if(isset($_SESSION['id']))
     {
       $user_details = $user->get_data($_SESSION['id']);     
     }
   ?>
-  <title><?= TITLE ?> | My Company Profile</title>
-  <meta name="description" content="My Company Profile" />
+  <title><?= TITLE ?> | Roles and Permissions</title>
+  <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
@@ -26,6 +26,7 @@
     type="text/css" />
   <!--end::Page Vendors Styles-->
   <!--begin::Global Theme Styles(used by all pages)-->
+  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -104,7 +105,7 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">My Company Profile</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Roles and Permissions</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -112,7 +113,7 @@
                       <a href="my-company/my-company-profile" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-company/my-company-profile" class="text-muted">Company Profile</a>
+                      <a href="my-company/roles-and-permissions" class="text-muted">Roles and Permissions</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -208,138 +209,32 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-title d-flex justify-content-between">
-                    <h5>My Company Profile</h5>
+              <div class="card card-custom card-sticky">
+                <div class="card-header align-items-center">
+                  <h6 class="card-title">Roles</h6>
+                  <div>
                     <a href="#" class="btn btn-sm btn-outline-primary mr-2">
                       <i class="fa fa-play" aria-hidden="true"></i>
                       Watch Quick Video
                     </a>
                   </div>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
-                    <div class="alert-icon">
-                      <span class="svg-icon svg-icon-primary svg-icon-xl">
-                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
-                              fill="#000000" opacity="0.3" />
-                            <path
-                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                      </span>
-                    </div>
-                    <div class="alert-text">
-                      Please fill in all the details on this page, so the appropriate details will appear for your
-                      clients and affiliates. Show <a href="#">guided tour</a> For account information or to make
-                      changes to your account, visit <a href="#">My Account</a>
-                    </div>
-                  </div>
-                  <!--end::Notice-->
-                  <form action="server-side/class/my-company/company-profile" class="form-horizontal"
-                    id="company-profile-form" method="POST">
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="company-name"><strong>Company Name</strong></label>
-                        <input type="text" name="company_name" id="company-name" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for=""><strong>Website URL</strong></label>
-                        <input type="url" name="website_url" id="website-url" class="form-control">
-                      </div>
-                      <div class="col-lg-4">
-                        <button type="button" class="btn btn-sm btn-outline-primary" id="check-url-btn">Check
-                          <strong>URL</strong>
-                        </button>
-                      </div>
-                    </div>
+                </div>
+                <div class="card-body">
+                  <form class="form-inline">
                     <div class="form-group row">
-                      <div class="form-group col-lg-12">
-                        <label for="address"><strong>Address</strong></label>
-                        <input type="text" name="address" id="address" class="form-control h-100">
-                      </div>
+                      <label for="add-role" class="col-lg-5 col-form-label h5">Add Role</label>
+                      <input type="text" name="add-role" id="add-role" class="col-lg-6 form-control w-100">
                     </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="state"><strong>State</strong></label>
-                        <select name="state" id="state" class="form-control w-100">
-                          <option value="">Select State</option>
-                          <option value="Mumbai">Mumbai</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="city"><strong>City</strong></label>
-                        <select name="city" id="city" class="form-control w-100">
-                          <option value="">Select City</option>
-                          <option value="Mumbai">Mumbai</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="zip"><strong>Zip</strong></label>
-                        <input type="text" name="zip" id="zip" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="country"><strong>Country</strong></label>
-                        <select name="country" id="country" class="form-control w-100">
-                          <option value="">Select Country</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-6">
-                        <label for="time-zone"><strong>TimeZone</strong></label>
-                        <select name="time_zone" id="time-zone" class="custom-select">
-                          <option value="">Select Time Zone</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="phone"><strong>Phone</strong></label>
-                        <input type="text" name="phone" id="phone" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="fax"><strong>Fax</strong></label>
-                        <input type="text" name="fax" id="fax" class="form-control">
-                      </div>
-                    </div>
-                    <p>
-                      By default, automated notifications are sent from the account holder's name and email address. Or
-                      you may designate a different name (or a company name) and email for all automated notifications
-                      sent.
-                    </p>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="sender-name"><strong>Sender Name</strong></label>
-                        <input type="text" name="sender_name" id="sender-name" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="sender-email"><strong>Sender Email</strong></label>
-                        <input type="url" name="sender_email" id="sender-email" class="form-control">
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-6">
-                        <p>Name/company that your client invoices should be payable to </p>
-                      </div>
-                      <div class="form-group col-lg-4 align-middle">
-                        <input type="text" name="web_url" id="web-url" class="form-control-plaintext">
-                      </div>
-                      <div class="form-group col-lg-4 align-middle">
-                        <button type="submit" class="btn btn-sm btn-outline-primary" name="submit_btn">Submit</button>
-                      </div>
-                    </div>
+                    <button class="btn btn-sm btn-outline-primary" id="add-role-btn">Add Role</button>
                   </form>
+                  <table class="table table-striped" id="roles-table">
+                    <thead>
+                      <tr>
+                        <td>Roles</td>
+                        <td>Actions</td>
+                      </tr>
+                    </thead>
+                  </table>
                 </div>
               </div>
             </div>
@@ -356,7 +251,7 @@
   </div>
   <!--end::Main-->
   <!-- begin::User Panel-->
-  <?php include '../config/user-panel.php'?>
+  <?php require '../config/user-panel.php'?>
   <!-- end::User Panel-->
   <!--begin::Quick Cart-->
   <div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
@@ -1468,8 +1363,9 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="assets/js/my-company/roles-and-permissions.js"></script>
   <!--end::Page Scripts-->
-  <script src="assets/js/my-company/my-company-profile.js"></script>
 </body>
 <!--end::Body-->
 <?php include '../config/modals.php'?>

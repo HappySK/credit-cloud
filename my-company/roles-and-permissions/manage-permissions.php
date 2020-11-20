@@ -3,19 +3,19 @@
 <!--begin::Head-->
 
 <head>
-  <base href="../">
+  <base href="../../">
   <meta charset="utf-8" />
-  <?php 
-    session_start(); 
-    require '../config/config.php';
+  <?php session_start(); ?>
+  <?php require '../../config/config.php'?>
+  <?php
     require CLASS_PATH.'/user.php';
     if(isset($_SESSION['id']))
     {
       $user_details = $user->get_data($_SESSION['id']);     
     }
   ?>
-  <title><?= TITLE ?> | My Company Profile</title>
-  <meta name="description" content="My Company Profile" />
+  <title><?= TITLE ?> | Manage Permissions</title>
+  <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
@@ -90,10 +90,10 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include '../config/aside.php'?>
+      <?php include '../../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-        <?php include '../config/header.php'?>
+        <?php include '../../config/header.php'?>
         <!--begin::Content-->
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
           <!--begin::Subheader-->
@@ -104,7 +104,9 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">My Company Profile</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">
+                    Manage Permissions
+                  </h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -112,7 +114,7 @@
                       <a href="my-company/my-company-profile" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-company/my-company-profile" class="text-muted">Company Profile</a>
+                      <a href="my-company/roles-permissions" class="text-muted">Manage Roles and Permissions</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -209,16 +211,26 @@
             <!--begin::Container-->
             <div class="container">
               <div class="card">
-                <div class="card-body">
-                  <div class="card-title d-flex justify-content-between">
-                    <h5>My Company Profile</h5>
-                    <a href="#" class="btn btn-sm btn-outline-primary mr-2">
-                      <i class="fa fa-play" aria-hidden="true"></i>
-                      Watch Quick Video
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <p class="card-title h6">
+                    Manage Permissions
+                    <?php
+                    if(isset($_GET['role']))
+                    {
+                      echo "(".$_GET['role'].")";
+                    }
+                    ?>
+                  </p>
+                  <div>
+                    <a href="my-company/roles-permissions" class="btn btn-sm btn-outline-primary mr-2">
+                      <i class="fa fa-backward" aria-hidden="true"></i>
+                      Back
                     </a>
                   </div>
+                </div>
+                <div class="card-body">
                   <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b bg-light" role="alert">
                     <div class="alert-icon">
                       <span class="svg-icon svg-icon-primary svg-icon-xl">
                         <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
@@ -238,107 +250,448 @@
                       </span>
                     </div>
                     <div class="alert-text">
-                      Please fill in all the details on this page, so the appropriate details will appear for your
-                      clients and affiliates. Show <a href="#">guided tour</a> For account information or to make
-                      changes to your account, visit <a href="#">My Account</a>
+                      Changes will be made immediately up on checking and unchecking a box below
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <form action="server-side/class/my-company/company-profile" class="form-horizontal"
-                    id="company-profile-form" method="POST">
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="company-name"><strong>Company Name</strong></label>
-                        <input type="text" name="company_name" id="company-name" class="form-control">
+                  <form action="server-side/class/my-company/permissions-manager.php" method="POST"
+                    id="permissions-form">
+                    <div class="row">
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>Client and Leads</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="all-clients-and-leads" id="all-clients-and-leads"
+                                class="custom-control-input">
+                              <label for="all-clients-and-leads" class="custom-control-label">
+                                All Clients And Leads
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="assigned-clients-and-leads" id="assigned-clients-and-leads"
+                                class="custom-control-input">
+                              <label for="assigned-clients-and-leads" class="custom-control-label">
+                                Assigned Clients and Leads Only
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="delete-clients-and-leads" id="delete-clients-and-leads"
+                                class="custom-control-input">
+                              <label for="delete-clients-and-leads" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="add-new-clients-and-leads" id="add-new-clients-and-leads"
+                                class="custom-control-input" value="Yes">
+                              <label for="add-new-clients-and-leads" class="custom-control-label">
+                                Add new Clients And Leads
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="form-group col-lg-4">
-                        <label for=""><strong>Website URL</strong></label>
-                        <input type="url" name="website_url" id="website-url" class="form-control">
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>Creditor / Furnisher</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="creditor-furnisher-add-edit-view"
+                                id="creditor-furnisher-add-edit-view" class="custom-control-input">
+                              <label for="creditor-furnisher-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="creditor-furnisher-delete" id="creditor-furnisher-delete"
+                                class="custom-control-input">
+                              <label for="creditor-furnisher-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="creditor-furnisher-view-only"
+                                id="creditor-furnisher-view-only" class="custom-control-input">
+                              <label for="creditor-furnisher-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>Library</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="library-add-edit-view" id="library-add-edit-view"
+                                class="custom-control-input">
+                              <label for="library-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="library-delete" id="library-delete"
+                                class="custom-control-input">
+                              <label for="library-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="library-view-only" id="library-view-only"
+                                class="custom-control-input">
+                              <label for="library-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>My Schedule</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="my-schedule-add-edit-view" id="my-schedule-add-edit-view"
+                                class="custom-control-input">
+                              <label for="my-schedule-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="my-schedule-delete" id="my-schedule-delete"
+                                class="custom-control-input">
+                              <label for="my-schedule-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="my-schedule-view-only" id="my-schedule-view-only"
+                                class="custom-control-input">
+                              <label for="my-schedule-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>Client Agreement</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="client-agreement-add-edit-view"
+                                id="client-agreement-add-edit-view" class="custom-control-input">
+                              <label for="client-agreement-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="client-agreement-delete" id="client-agreement-delete"
+                                class="custom-control-input">
+                              <label for="client-agreement-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="client-agreement-view-only" id="client-agreement-view-only"
+                                class="custom-control-input">
+                              <label for="client-agreement-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-sm-6">
+                        <strong>Team Members</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="team-members-add-edit-view" id="team-members-add-edit-view"
+                                class="custom-control-input">
+                              <label for="team-members-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="team-members-delete" id="team-members-delete"
+                                class="custom-control-input">
+                              <label for="team-members-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="team-members-view-only" id="team-members-view-only"
+                                class="custom-control-input">
+                              <label for="team-members-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <strong>Roles and Permissions</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="roles-and-permissions-add-edit-view"
+                                id="roles-and-permissions-add-edit-view" class="custom-control-input">
+                              <label for="roles-and-permissions-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="roles-and-permissions-delete"
+                                id="roles-and-permissions-delete" class="custom-control-input">
+                              <label for="roles-and-permissions-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="roles-and-permissions-view-only"
+                                id="roles-and-permissions-view-only" class="custom-control-input">
+                              <label for="roles-and-permissions-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div class="col-lg-4">
-                        <button type="button" class="btn btn-sm btn-outline-primary" id="check-url-btn">Check
-                          <strong>URL</strong>
-                        </button>
+                        <strong>Business Dashboard</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="business-dashboard-view-only"
+                                id="business-dashboard-view-only" class="custom-control-input">
+                              <label for="business-dashboard-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <strong>Affiliate Commission & Payment</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="affiliate-commission-payment-add-edit-view"
+                                id="affiliate-commission-payment-add-edit-view" class="custom-control-input">
+                              <label for="affiliate-commission-payment-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <div class="form-group col-lg-12">
-                        <label for="address"><strong>Address</strong></label>
-                        <input type="text" name="address" id="address" class="form-control h-100">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <strong>Everything</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="everything-progress-activity"
+                                id="everything-progress-activity" class="custom-control-input">
+                              <label for="everything-progress-activity" class="custom-control-label">
+                                View Progress Activity
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="everything-pending-list" id="everything-pending-list"
+                                class="custom-control-input">
+                              <label for="everything-pending-list" class="custom-control-label">
+                                View First Work Pending lists
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="everything-todos" id="everything-todos"
+                                class="custom-control-input">
+                              <label for="everything-todos" class="custom-control-label">
+                                View All To Dos
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="everything-files-activity" id="everything-files-activity"
+                                class="custom-control-input">
+                              <label for="everything-files-activity" class="custom-control-label">
+                                View All Files Activity
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="everything-communication" id="everything-communication"
+                                class="custom-control-input">
+                              <label for="everything-communication" class="custom-control-label">
+                                View All Communication
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <strong>Chargebee</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="chargebee-edit" id="chargebee-edit"
+                                class="custom-control-input">
+                              <label for="chargebee-edit" class="custom-control-label">
+                                Edit Chargebee Information
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <strong>Invoice</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="invoice-add-edit-view" id="invoice-add-edit-view"
+                                class="custom-control-input">
+                              <label for="invoice-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="invoice-delete" id="invoice-delete"
+                                class="custom-control-input">
+                              <label for="invoice-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="invoice-view" id="invoice-view" class="custom-control-input">
+                              <label for="invoice-view" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="state"><strong>State</strong></label>
-                        <select name="state" id="state" class="form-control w-100">
-                          <option value="">Select State</option>
-                          <option value="Mumbai">Mumbai</option>
-                        </select>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <strong>Company Profile</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="company-profile-edit" id="company-profile-edit"
+                                class="custom-control-input">
+                              <label for="company-profile-edit" class="custom-control-label">
+                                Edit Company Profile
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="form-group col-lg-4">
-                        <label for="city"><strong>City</strong></label>
-                        <select name="city" id="city" class="form-control w-100">
-                          <option value="">Select City</option>
-                          <option value="Mumbai">Mumbai</option>
-                        </select>
+                      <div class="col-lg-4">
+                        <strong>Tasks</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="tasks-edit" id="tasks-edit" class="custom-control-input">
+                              <label for="tasks-edit" class="custom-control-label">
+                                Edit Tasks for all team members
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="tasks-bulk-edit" id="tasks-bulk-edit"
+                                class="custom-control-input">
+                              <label for="tasks-bulk-edit" class="custom-control-label">
+                                Bulk Edit
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="zip"><strong>Zip</strong></label>
-                        <input type="text" name="zip" id="zip" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="country"><strong>Country</strong></label>
-                        <select name="country" id="country" class="form-control w-100">
-                          <option value="">Select Country</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-6">
-                        <label for="time-zone"><strong>TimeZone</strong></label>
-                        <select name="time_zone" id="time-zone" class="custom-select">
-                          <option value="">Select Time Zone</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="phone"><strong>Phone</strong></label>
-                        <input type="text" name="phone" id="phone" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="fax"><strong>Fax</strong></label>
-                        <input type="text" name="fax" id="fax" class="form-control">
-                      </div>
-                    </div>
-                    <p>
-                      By default, automated notifications are sent from the account holder's name and email address. Or
-                      you may designate a different name (or a company name) and email for all automated notifications
-                      sent.
-                    </p>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-4">
-                        <label for="sender-name"><strong>Sender Name</strong></label>
-                        <input type="text" name="sender_name" id="sender-name" class="form-control">
-                      </div>
-                      <div class="form-group col-lg-4">
-                        <label for="sender-email"><strong>Sender Email</strong></label>
-                        <input type="url" name="sender_email" id="sender-email" class="form-control">
-                      </div>
-                    </div>
-                    <div class="form-group row align-items-center">
-                      <div class="form-group col-lg-6">
-                        <p>Name/company that your client invoices should be payable to </p>
-                      </div>
-                      <div class="form-group col-lg-4 align-middle">
-                        <input type="text" name="web_url" id="web-url" class="form-control-plaintext">
-                      </div>
-                      <div class="form-group col-lg-4 align-middle">
-                        <button type="submit" class="btn btn-sm btn-outline-primary" name="submit_btn">Submit</button>
+                      <div class="col-lg-4">
+                        <strong>Simple Audit</strong>
+                        <div class="list-group">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="simple-audit-add-edit-view" id="simple-audit-add-edit-view"
+                                class="custom-control-input">
+                              <label for="simple-audit-add-edit-view" class="custom-control-label">
+                                Add / Edit / View
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="simple-audit-delete" id="simple-audit-delete"
+                                class="custom-control-input">
+                              <label for="simple-audit-delete" class="custom-control-label">
+                                Delete
+                              </label>
+                            </div>
+                          </div>
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name="simple-audit-view-only" id="simple-audit-view-only"
+                                class="custom-control-input">
+                              <label for="simple-audit-view-only" class="custom-control-label">
+                                View Only
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <input type="hidden" name="role_id" value="<?= $_GET['role_id']?>">
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Save</button>
                   </form>
                 </div>
               </div>
@@ -348,7 +701,7 @@
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <?php include '../config/footer.php'?>
+        <?php include '../../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>
@@ -356,7 +709,7 @@
   </div>
   <!--end::Main-->
   <!-- begin::User Panel-->
-  <?php include '../config/user-panel.php'?>
+  <?php require '../../config/user-panel.php'?>
   <!-- end::User Panel-->
   <!--begin::Quick Cart-->
   <div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
@@ -1468,10 +1821,11 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/js/my-company/roles-and-permissions/manage-permissions.js"></script>
   <!--end::Page Scripts-->
-  <script src="assets/js/my-company/my-company-profile.js"></script>
 </body>
 <!--end::Body-->
-<?php include '../config/modals.php'?>
+
+<?php require '../../config/modals.php'?>
 
 </html>
