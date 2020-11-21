@@ -254,41 +254,43 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <form action="#" method="POST">
+                  <form action="server-side/class/my-company/permissions-manager.php" method="POST"
+                    id="permissions-form">
                     <div class="row">
                       <div class="col-lg-4 col-sm-6">
                         <strong>Client and Leads</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="clients-and-leads[]" id="all-clients-and-leads"
+                              <input type="checkbox" name="all-clients-and-leads" id="all-clients-and-leads"
                                 class="custom-control-input">
-                              <label for="all-clients-and-leads" class="custom-control-label">All Clients And
-                                Leads</label>
+                              <label for="all-clients-and-leads" class="custom-control-label">
+                                All Clients And Leads
+                              </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="client-and-leads[]" id="assigned-clients-and-leads"
+                              <input type="checkbox" name="assigned-clients-and-leads" id="assigned-clients-and-leads"
                                 class="custom-control-input">
                               <label for="assigned-clients-and-leads" class="custom-control-label">
                                 Assigned Clients and Leads Only
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="clients-and-leads[]" id="delete-clients-and-leads"
+                              <input type="checkbox" name="delete-clients-and-leads" id="delete-clients-and-leads"
                                 class="custom-control-input">
                               <label for="delete-clients-and-leads" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="clients-and-leads[]" id="add-new-clients-and-leads"
-                                class="custom-control-input">
+                              <input type="checkbox" name="add-new-clients-and-leads" id="add-new-clients-and-leads"
+                                class="custom-control-input" value="Yes">
                               <label for="add-new-clients-and-leads" class="custom-control-label">
                                 Add new Clients And Leads
                               </label>
@@ -299,28 +301,28 @@
                       <div class="col-lg-4 col-sm-6">
                         <strong>Creditor / Furnisher</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="creditor-furnisher[]" id="creditor-furnisher-add-edit-view"
-                                class="custom-control-input">
+                              <input type="checkbox" name="creditor-furnisher-add-edit-view"
+                                id="creditor-furnisher-add-edit-view" class="custom-control-input">
                               <label for="creditor-furnisher-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="creditor-furnisher[]" id="creditor-furnisher-delete"
+                              <input type="checkbox" name="creditor-furnisher-delete" id="creditor-furnisher-delete"
                                 class="custom-control-input">
                               <label for="creditor-furnisher-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="creditor-furnisher[]" id="creditor-furnisher-view-only"
-                                class="custom-control-input">
+                              <input type="checkbox" name="creditor-furnisher-view-only"
+                                id="creditor-furnisher-view-only" class="custom-control-input">
                               <label for="creditor-furnisher-view-only" class="custom-control-label">
                                 View Only
                               </label>
@@ -331,26 +333,27 @@
                       <div class="col-lg-4 col-sm-6">
                         <strong>Library</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="library[]" id="library-add-edit-view"
+                              <input type="checkbox" name="library-add-edit-view" id="library-add-edit-view"
                                 class="custom-control-input">
                               <label for="library-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="library[]" id="library-delete" class="custom-control-input">
+                              <input type="checkbox" name="library-delete" id="library-delete"
+                                class="custom-control-input">
                               <label for="library-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="library[]" id="library-view-only"
+                              <input type="checkbox" name="library-view-only" id="library-view-only"
                                 class="custom-control-input">
                               <label for="library-view-only" class="custom-control-label">
                                 View Only
@@ -364,27 +367,27 @@
                       <div class="col-lg-4 col-sm-6">
                         <strong>My Schedule</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="my-schedule[]" id="my-schedule-add-edit-view"
+                              <input type="checkbox" name="my-schedule-add-edit-view" id="my-schedule-add-edit-view"
                                 class="custom-control-input">
                               <label for="my-schedule-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="my-schedule[]" id="my-schedule-delete"
+                              <input type="checkbox" name="my-schedule-delete" id="my-schedule-delete"
                                 class="custom-control-input">
                               <label for="my-schedule-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="my-schedule[]" id="my-schedule-view-only"
+                              <input type="checkbox" name="my-schedule-view-only" id="my-schedule-view-only"
                                 class="custom-control-input">
                               <label for="my-schedule-view-only" class="custom-control-label">
                                 View Only
@@ -396,27 +399,27 @@
                       <div class="col-lg-4 col-sm-6">
                         <strong>Client Agreement</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="client-agreement[]" id="client-agreement-add-edit-view"
-                                class="custom-control-input">
+                              <input type="checkbox" name="client-agreement-add-edit-view"
+                                id="client-agreement-add-edit-view" class="custom-control-input">
                               <label for="client-agreement-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="client-agreement[]" id="client-agreement-delete"
+                              <input type="checkbox" name="client-agreement-delete" id="client-agreement-delete"
                                 class="custom-control-input">
                               <label for="client-agreement-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="client-agreement[]" id="client-agreement-view-only"
+                              <input type="checkbox" name="client-agreement-view-only" id="client-agreement-view-only"
                                 class="custom-control-input">
                               <label for="client-agreement-view-only" class="custom-control-label">
                                 View Only
@@ -428,27 +431,27 @@
                       <div class="col-lg-4 col-sm-6">
                         <strong>Team Members</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="team-members[]" id="team-members-add-edit-view"
+                              <input type="checkbox" name="team-members-add-edit-view" id="team-members-add-edit-view"
                                 class="custom-control-input">
                               <label for="team-members-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="team-members[]" id="team-members-delete"
+                              <input type="checkbox" name="team-members-delete" id="team-members-delete"
                                 class="custom-control-input">
                               <label for="team-members-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="team-members[]" id="team-members-view-only"
+                              <input type="checkbox" name="team-members-view-only" id="team-members-view-only"
                                 class="custom-control-input">
                               <label for="team-members-view-only" class="custom-control-label">
                                 View Only
@@ -462,28 +465,28 @@
                       <div class="col-lg-4">
                         <strong>Roles and Permissions</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="roles-and-permissions[]"
+                              <input type="checkbox" name="roles-and-permissions-add-edit-view"
                                 id="roles-and-permissions-add-edit-view" class="custom-control-input">
                               <label for="roles-and-permissions-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="roles-and-permissions[]" id="roles-and-permissions-delete"
-                                class="custom-control-input">
+                              <input type="checkbox" name="roles-and-permissions-delete"
+                                id="roles-and-permissions-delete" class="custom-control-input">
                               <label for="roles-and-permissions-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="roles-and-permissions[]" id="roles-and-permissions-view-only"
-                                class="custom-control-input">
+                              <input type="checkbox" name="roles-and-permissions-view-only"
+                                id="roles-and-permissions-view-only" class="custom-control-input">
                               <label for="roles-and-permissions-view-only" class="custom-control-label">
                                 View Only
                               </label>
@@ -494,10 +497,10 @@
                       <div class="col-lg-4">
                         <strong>Business Dashboard</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="business-dashboard[]" id="business-dashboard-view-only"
-                                class="custom-control-input">
+                              <input type="checkbox" name="business-dashboard-view-only"
+                                id="business-dashboard-view-only" class="custom-control-input">
                               <label for="business-dashboard-view-only" class="custom-control-label">
                                 View Only
                               </label>
@@ -508,11 +511,11 @@
                       <div class="col-lg-4">
                         <strong>Affiliate Commission & Payment</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="affiliate-commission-payment[]"
+                              <input type="checkbox" name="affiliate-commission-payment-add-edit-view"
                                 id="affiliate-commission-payment-add-edit-view" class="custom-control-input">
-                              <label for="affiliate-commission-add-edit-view" class="custom-control-label">
+                              <label for="affiliate-commission-payment-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
@@ -524,45 +527,45 @@
                       <div class="col-lg-4">
                         <strong>Everything</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="everything-progress-activity"
-                                class="custom-control-input">
+                              <input type="checkbox" name="everything-progress-activity"
+                                id="everything-progress-activity" class="custom-control-input">
                               <label for="everything-progress-activity" class="custom-control-label">
                                 View Progress Activity
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="everything-pending-list"
+                              <input type="checkbox" name="everything-pending-list" id="everything-pending-list"
                                 class="custom-control-input">
                               <label for="everything-pending-list" class="custom-control-label">
                                 View First Work Pending lists
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="everything-todos"
+                              <input type="checkbox" name="everything-todos" id="everything-todos"
                                 class="custom-control-input">
                               <label for="everything-todos" class="custom-control-label">
                                 View All To Dos
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="everything-files-activity"
+                              <input type="checkbox" name="everything-files-activity" id="everything-files-activity"
                                 class="custom-control-input">
                               <label for="everything-files-activity" class="custom-control-label">
                                 View All Files Activity
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="everything-communication"
+                              <input type="checkbox" name="everything-communication" id="everything-communication"
                                 class="custom-control-input">
                               <label for="everything-communication" class="custom-control-label">
                                 View All Communication
@@ -574,9 +577,9 @@
                       <div class="col-lg-4">
                         <strong>Chargebee</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="everything[]" id="chargebee-edit"
+                              <input type="checkbox" name="chargebee-edit" id="chargebee-edit"
                                 class="custom-control-input">
                               <label for="chargebee-edit" class="custom-control-label">
                                 Edit Chargebee Information
@@ -588,26 +591,27 @@
                       <div class="col-lg-4">
                         <strong>Invoice</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="invoice[]" id="invoice-add-edit-view"
+                              <input type="checkbox" name="invoice-add-edit-view" id="invoice-add-edit-view"
                                 class="custom-control-input">
                               <label for="invoice-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="invoice[]" id="invoice-delete" class="custom-control-input">
+                              <input type="checkbox" name="invoice-delete" id="invoice-delete"
+                                class="custom-control-input">
                               <label for="invoice-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="invoice[]" id="invoice-view" class="custom-control-input">
+                              <input type="checkbox" name="invoice-view" id="invoice-view" class="custom-control-input">
                               <label for="invoice-view" class="custom-control-label">
                                 View Only
                               </label>
@@ -620,9 +624,9 @@
                       <div class="col-lg-4">
                         <strong>Company Profile</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="company-profile[]" id="company-profile-edit"
+                              <input type="checkbox" name="company-profile-edit" id="company-profile-edit"
                                 class="custom-control-input">
                               <label for="company-profile-edit" class="custom-control-label">
                                 Edit Company Profile
@@ -634,17 +638,18 @@
                       <div class="col-lg-4">
                         <strong>Tasks</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="tasks[]" id="tasks-edit" class="custom-control-input">
+                              <input type="checkbox" name="tasks-edit" id="tasks-edit" class="custom-control-input">
                               <label for="tasks-edit" class="custom-control-label">
                                 Edit Tasks for all team members
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="tasks[]" id="tasks-bulk-edit" class="custom-control-input">
+                              <input type="checkbox" name="tasks-bulk-edit" id="tasks-bulk-edit"
+                                class="custom-control-input">
                               <label for="tasks-bulk-edit" class="custom-control-label">
                                 Bulk Edit
                               </label>
@@ -655,27 +660,27 @@
                       <div class="col-lg-4">
                         <strong>Simple Audit</strong>
                         <div class="list-group">
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="simple-audit[]" id="simple-audit-add-edit-view"
+                              <input type="checkbox" name="simple-audit-add-edit-view" id="simple-audit-add-edit-view"
                                 class="custom-control-input">
                               <label for="simple-audit-add-edit-view" class="custom-control-label">
                                 Add / Edit / View
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="simple-audit[]" id="simple-audit-delete"
+                              <input type="checkbox" name="simple-audit-delete" id="simple-audit-delete"
                                 class="custom-control-input">
                               <label for="simple-audit-delete" class="custom-control-label">
                                 Delete
                               </label>
                             </div>
                           </div>
-                          <div class="list-group-item">
+                          <div class="list-group-item <?= ($_GET['action'] == 'view') ? 'disabled' : ''?>">
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="simple-audit[]" id="simple-audit-view-only"
+                              <input type="checkbox" name="simple-audit-view-only" id="simple-audit-view-only"
                                 class="custom-control-input">
                               <label for="simple-audit-view-only" class="custom-control-label">
                                 View Only
@@ -685,6 +690,7 @@
                         </div>
                       </div>
                     </div>
+                    <input type="hidden" name="role_id" value="<?= $_GET['role_id']?>">
                     <button type="submit" class="btn btn-sm btn-outline-primary">Save</button>
                   </form>
                 </div>
@@ -1815,6 +1821,7 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/js/my-company/roles-and-permissions/manage-permissions.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

@@ -225,7 +225,7 @@
                       <label for="add-role" class="col-lg-5 col-form-label h5">Add Role</label>
                       <input type="text" name="add-role" id="add-role" class="col-lg-6 form-control w-100">
                     </div>
-                    <button class="btn btn-sm btn-outline-primary" id="add-role-btn">Add Role</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" id="add-role-btn">Add Role</button>
                   </form>
                   <table class="table table-striped" id="roles-table">
                     <thead>
