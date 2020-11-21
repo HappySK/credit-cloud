@@ -23,13 +23,27 @@
       }
     }
 
+    function add_role($role)
+    {
+      try
+      {
+        $sql = "INSERT INTO `mycompany__roles`(`user_id`, `roles`) VALUES (?,?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$_SESSION['user_id'],$role]);
+      }
+      catch(SQLException $e)
+      {
+        echo $e->getMessage();
+      }
+    }
+
     function get_roles()
     {
       try
       {
-        $sql = "SELECT * FROM `mycompany__roles`";
+        $sql = "SELECT * FROM `mycompany__roles` WHERE `user_id` = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([$_SESSION['user_id']]);
         $data = array();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($records as $record)
@@ -49,5 +63,10 @@
 
   $role = new roles_datatable($config->DB_CREDENTIALS);
   $role->get_roles();
+
+  if(isset($_POST['role']))
+  {
+    $role->add_role($_POST['role']);
+  }
 
 ?>

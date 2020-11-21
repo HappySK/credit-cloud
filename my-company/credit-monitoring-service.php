@@ -14,7 +14,7 @@
       $user_details = $user->get_data($_SESSION['id']);     
     }
   ?>
-  <title><?= TITLE ?> | Roles and Permissions</title>
+  <title><?= TITLE ?> | Credit Monitoring Service</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
@@ -26,7 +26,6 @@
     type="text/css" />
   <!--end::Page Vendors Styles-->
   <!--begin::Global Theme Styles(used by all pages)-->
-  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -105,7 +104,7 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Roles and Permissions</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Credit Monitoring Service</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -113,7 +112,7 @@
                       <a href="my-company/my-company-profile" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-company/roles-and-permissions" class="text-muted">Roles and Permissions</a>
+                      <a href="my-company/credit-monitoring-service" class="text-muted">Credit Monitoring Service</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -209,36 +208,269 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <div class="card card-custom card-sticky">
-                <div class="card-header align-items-center">
-                  <h6 class="card-title">Roles</h6>
-                  <div>
-                    <a href="#" class="btn btn-sm btn-outline-primary mr-2">
-                      <i class="fa fa-play" aria-hidden="true"></i>
-                      Watch Quick Video
-                    </a>
+              <div class="card">
+                <div class="card-header pb-0">
+                  <h6>Manage Credit Monitoring Services</h6>
+                  <!--begin::Notice-->
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                    <div class="alert-icon">
+                      <span class="svg-icon svg-icon-primary svg-icon-xl">
+                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                          height="24px" viewBox="0 0 24 24" version="1.1">
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <path
+                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
+                              fill="#000000" opacity="0.3" />
+                            <path
+                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
+                              fill="#000000" fill-rule="nonzero" />
+                          </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                      </span>
+                    </div>
+                    <div class="alert-text">
+                      These settings allow you to customize the process your client go through when they order a credit
+                      report through a client task in their portal. Settings changed in here will change the credit
+                      monitoring service clients are requested to sign up for if assigned a client task for it in their
+                      portal. IdentityIQ, SmartCredit and MyFreeScoreNow pay affiliates (apply below). The others listed
+                      do not.
+                      <a href="#">
+                        Click here for a complete guide to setting these up in your CRC and your Client Onboarding
+                        Tasks.
+                      </a>
+                    </div>
                   </div>
+                  <!--end::Notice-->
                 </div>
                 <div class="card-body">
-                  <form class="form-inline">
-                    <div class="form-group row">
-                      <label for="add-role" class="col-lg-5 col-form-label h5">Add Role</label>
-                      <input type="text" name="add-role" id="add-role" class="col-lg-6 form-control w-100">
+                  <div class="card-title font-weight-bold">Those Providers work with 1 Click Import Audit</div>
+                  <div class="d-flex flex-column border border-dark rounded">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">IdentityIQ</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-identity-iq">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-identity-iq">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-primary" id="add-role-btn">Add Role</button>
-                  </form>
-                  <table class="table table-striped" id="roles-table">
-                    <thead>
-                      <tr>
-                        <td>Roles</td>
-                        <td>Actions</td>
-                      </tr>
-                    </thead>
-                  </table>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">SmartCredit</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-smart-credit">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-smart-credit">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">MyFreeScoreNow</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-my-free-score-now">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-my-free-score-now">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">IdentityClub</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-identity-club">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-identity-club">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column align-content-center border border-dark rounded">
+                    <div class="d-flex justify-content-around align-items-center p-3">
+                      <h5 class="p-sm-3">PrivacyGaurd</h5>
+                      <button class="btn btn-sm btn-outline-light" id="edit-btn-privacy-gaurd">
+                        Edit Sign Up Link
+                      </button>
+                    </div>
+                  </div>
+                  <h6 class="card-title mt-3 mb-3">
+                    This provider is not recommended and will not work with 1-Click Import and Audit
+                  </h6>
+                  <div class="d-flex flex-column border border-dark rounded">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">Other Provider: Not Setup(not recommended)</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-others">Learn How to become an
+                          affiliate</button>
+                        <button type="button" class="btn btn-sm btn-outline-light" id="edit-btn-others">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <!--end::Container-->
+            <!-- Affiliates Modal Begin -->
+            <div class="modal fade" id="affiliate-modal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header d-flex justify-content-between">
+                    <h5 class="modal-title" id="affiliate-modal-label"> </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                  </div>
+                  <h5 class="p-5" id="affiliate-modal-subheading-1">
+                    Want to earn revenue from consumer enrolled in credit monitoring?
+                  </h5>
+                  <h6 class="p-5 font-weight-bold" id="affiliate-modal-subheadeing-2">
+                    Become an IdentityIQ Affiliate!
+                  </h6>
+                  <div class="modal-body pt-0 mt-0" style="height: 300px;">
+                    <p id="affiliate-paragraph"></p>
+                    <form action="#">
+                      <div class="form-group">
+                        <label for="first-name" class="class-label-input">
+                          <strong>First Name</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="first-name" id="first-name" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="last-name" class="class-label-input">
+                          <strong>Last Name</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="last-name" id="last-name" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="business-name" class="class-label-input">
+                          <strong>Name of Business</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="business-name" id="business-name"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="street-address" class="class-label-input">
+                          <strong>Street Address</strong>
+                        </label>
+                        <input type="text" name="street-address" id="street-address"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="city" class="class-label-input">
+                          <strong>City</strong>
+                        </label>
+                        <input type="text" name="city" id="city" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="state-region" class="class-label-input">
+                          <strong>State / Region</strong>
+                        </label>
+                        <input type="text" name="state-region" id="state-region"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="zip-code" class="class-label-input">
+                          <strong>Zip Code</strong>
+                        </label>
+                        <input type="text" name="zip-code" id="zip-code" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone" class="class-label-input">
+                          <strong>Phone Number</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="phone" id="phone" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="class-label-input">
+                          <strong>Email</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="email" id="email" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="questions" class="class-label-input">
+                          <strong>Have any Questions for us ?</strong>
+                        </label>
+                        <textarea name="questions" id="questions" cols="30" rows="5" class="form-control"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">Request Affiliate Program
+                      Information</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Affiliates Modal -->
+            <!--Edit Link Modal-->
+            <div class="modal fade" id="edit-link-modal" data-backdrop="static" tabindex="-1" role="dialog"
+              aria-labelledby="staticBackdrop" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Credit Monitoring Affiliate Link</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <a href="#" class="btn-link">Dont Have an affiliate link ? Learn More</a>
+                    <input type="text" name="affiliate-link" id="affiliate-link" class="form-control mt-3 mb-3">
+                    <p>Link settings changed in here will change the link clients are requested to signup for if
+                      assigned a client task for it in their portal. </p>
+                  </div>
+                  <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                      <a href="#" class="btn-link">Reset to Default Link</a>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-light-primary font-weight-bold"
+                        data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary font-weight-bold">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Edit Link -->
           </div>
           <!--end::Entry-->
         </div>
@@ -254,7 +486,7 @@
   <?php require '../config/user-panel.php'?>
   <!-- end::User Panel-->
   <!--begin::Quick Cart-->
-  <div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
+  <div id=" kt_quick_cart" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
       <h4 class="font-weight-bold m-0">Shopping Cart</h4>
@@ -449,7 +681,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top
+                  Authors</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">+82$</span>
@@ -478,7 +711,8 @@
                 </span>
               </div>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                <a href="#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New
+                  Users</a>
                 <span class="text-muted font-weight-bold">Most Successful Fellas</span>
               </div>
               <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -541,7 +775,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another
+                  purpose
                   persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -570,7 +805,9 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to
+                <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
+                  be
+                  to
                   people</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -598,7 +835,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+                  would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -636,7 +874,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The
+                  best
                   product</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1106,7 +1345,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">2 Hours</span>
                     </div>
                   </div>
@@ -1128,7 +1368,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on GitHub.
                   </div>
                 </div>
                 <!--end::Message Out-->
@@ -1139,7 +1380,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_21.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1171,7 +1413,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1195,7 +1438,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training
+                    also viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -1205,7 +1449,8 @@
                       <img alt="Pic" src="assets/dist/assets/media/users/300_12.jpg" />
                     </div>
                     <div>
-                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                      <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
+                        Pears</a>
                       <span class="text-muted font-size-sm">40 seconds</span>
                     </div>
                   </div>
@@ -1227,7 +1472,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -1363,11 +1609,10 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
-  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-  <script src="assets/js/my-company/roles-and-permissions.js"></script>
+  <script src="assets/js/my-company/credit-monitoring-service.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
-<?php include '../config/modals.php'?>
+<?php require '../config/modals.php'?>
 
 </html>
