@@ -8,4 +8,4 @@ deploy_all:
     - git ftp init
     - git ftp push
   only:
-    - main
+    - simple-audit
