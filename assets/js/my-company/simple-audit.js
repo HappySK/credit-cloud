@@ -74,8 +74,6 @@ $(document).ready(function () {
 
   // Preview Modal for Audit template
   $(document).on('click','.template-preview',function(){
-    KTCkeditor2.instances['template-modal-text-area'].setData($(this).attr('content'))
-    $('#template-modal-text-area').html($(this).attr('content'));
     $('#template-modal').modal('show');
   })
 
