@@ -14,7 +14,7 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <title><?= TITLE ?> | Simple Audit Template</title>
+  <title><?= TITLE ?> | Simple Audit </title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
