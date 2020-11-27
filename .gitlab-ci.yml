@@ -2,7 +2,7 @@ image: mwienk/docker-git-ftp
 deploy_all:
   stage: deploy
   script:
-    - git config git-ftp.url "http://ftp.sowlab.xyz/"
+    - git config git-ftp.url "ftp://ftp.sowlab.xyz/"
     - git config git-ftp.password "FfU~Ha2~R;V]"
     - git config git-ftp.user "sravan.kumar@sowlab.xyz"
     - git ftp init
