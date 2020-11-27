@@ -1,6 +1,5 @@
-stages : 
-  - deploy
-deploy :
-  stage : deploy
-  script : 
-    -echo Hello World
+demo_job_1:
+  tags:
+    - ci
+  script:
+    - echo Hello World
