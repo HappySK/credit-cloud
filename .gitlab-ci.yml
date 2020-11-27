@@ -8,4 +8,4 @@ deploy_all:
     - git ftp init
     - git ftp push  -m "Add new content"
   only:
-    - master
+    - simple-audit
