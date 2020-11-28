@@ -1,3 +1,11 @@
+<?php
+  require CLASS_PATH.'/user.php';
+  session_start();
+  if(isset($_SESSION['id']))
+  {
+    $user_details = $user->get_data($_SESSION['id']);     
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -6,14 +14,6 @@
   <meta charset="utf-8" />
   <base href="../../../">
   <?php require '../../../config/config.php'?>
-  <?php
-    require CLASS_PATH.'/user.php';
-    session_start();
-    if(isset($_SESSION['id']))
-    {
-      $user_details = $user->get_data($_SESSION['id']);     
-    }
-  ?>
   <title><?= TITLE ?> | REVIEW CREDIT REPORTS</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

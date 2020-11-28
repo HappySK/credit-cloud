@@ -1,6 +1,6 @@
-<?php session_start(); ?>
-<?php require '../config/config.php'?>
-<?php
+<?php 
+  session_start();  
+  require '../config/config.php';
   require CLASS_PATH.'/user.php';
   if(isset($_SESSION['id']))
   {
