@@ -1,6 +1,9 @@
-stages : 
-  - deploy
-deploy :
-  stage : deploy
-  script : 
-    -echo Hello World
+image: ubuntu:18.04
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y lftp
+
+build:
+  script:
+    - lftp -e "open $HOST; user $USERNAME $PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete ./ ./; bye"

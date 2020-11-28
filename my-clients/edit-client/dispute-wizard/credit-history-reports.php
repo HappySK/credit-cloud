@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<!--begin::Head-->
-
-<head>
-  <base href="../../../">
-  <meta charset="utf-8" />
-  <?php require '../../../config/config.php'?>
-  <?php
+<?php 
+    require '../../../config/config.php';
     require CLASS_PATH.'/user.php';
     session_start();
     if(isset($_SESSION['id']))
@@ -14,6 +7,13 @@
       $user_details = $user->get_data($_SESSION['id']);     
     }
   ?>
+<!DOCTYPE html>
+<html lang="en">
+<!--begin::Head-->
+
+<head>
+  <base href="../../../">
+  <meta charset="utf-8" />
   <title><?= TITLE ?> | Credit History Report</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

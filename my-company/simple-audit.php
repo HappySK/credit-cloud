@@ -1,3 +1,12 @@
+<?php 
+  session_start();  
+  require '../config/config.php';
+  require CLASS_PATH.'/user.php';
+  if(isset($_SESSION['id']))
+  {
+    $user_details = $user->get_data($_SESSION['id']);     
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -5,16 +14,7 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php session_start(); ?>
-  <?php require '../config/config.php'?>
-  <?php
-    require CLASS_PATH.'/user.php';
-    if(isset($_SESSION['id']))
-    {
-      $user_details = $user->get_data($_SESSION['id']);     
-    }
-  ?>
-  <title><?= TITLE ?> | Simple Audit</title>
+  <title><?= TITLE ?> | Template Simple Audit</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />

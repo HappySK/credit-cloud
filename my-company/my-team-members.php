@@ -1,3 +1,17 @@
+<?php 
+  session_start();  
+  require '../config/config.php';
+  require CLASS_PATH.'/user.php';
+  require FUNCTIONS_PATH.'/functions.php';
+  if(isset($_SESSION['id']))
+  {
+    $user_details = $user->get_data($_SESSION['id']);     
+  }
+  if(isset($_SESSION['user_id']))
+  {
+    $team_members = get_team_members($connection);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -5,20 +19,6 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php session_start(); ?>
-  <?php require '../config/config.php'?>
-  <?php
-    require CLASS_PATH.'/user.php';
-    require FUNCTIONS_PATH.'/functions.php';
-    if(isset($_SESSION['id']))
-    {
-      $user_details = $user->get_data($_SESSION['id']);     
-    }
-    if(isset($_SESSION['user_id']))
-    {
-      $team_members = get_team_members($connection);
-    }
-  ?>
   <title><?= TITLE ?> | My Team Members</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

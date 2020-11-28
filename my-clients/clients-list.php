@@ -1,18 +1,18 @@
+<?php 
+  session_start(); 
+  require '../config/config.php';
+  require CLASS_PATH.'/user.php';
+  if(isset($_SESSION['id']))
+  {
+    $user_details = $user->get_data($_SESSION['id']);     
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
 
 <head>
   <base href="../">
-  <?php session_start(); ?>
-  <?php require '../config/config.php'?>
-  <?php
-    require CLASS_PATH.'/user.php';
-    if(isset($_SESSION['id']))
-    {
-      $user_details = $user->get_data($_SESSION['id']);     
-    }
-  ?>
   <meta charset="utf-8" />
   <title>
     <?= TITLE ?> | My Clients
