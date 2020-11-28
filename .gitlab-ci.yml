@@ -6,4 +6,4 @@ before_script:
 
 build:
   script:
-    - lftp -e "open $HOST; user $USERNAME $PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete ./credit-cloud ./credit-cloud; bye"
+    - lftp -e "open $HOST; user $USERNAME $PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete ./ ./credit-cloud; bye"
