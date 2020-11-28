@@ -1,0 +1,6 @@
+stages : 
+  - deploy
+deploy :
+  stage : deploy
+  script : 
+    -echo Hello World
