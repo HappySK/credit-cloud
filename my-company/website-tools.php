@@ -289,14 +289,14 @@
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="language" id="english" checked />
+                            <input type="radio" name="web-signup-language" id="english" value="en" checked />
                             <span></span>
                             English
                           </label>
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="language" id="spanish" />
+                            <input type="radio" name="web-signup-language" id="spanish" value="es" />
                             <span> </span>
                             Spanish
                           </label>
@@ -308,29 +308,29 @@
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="sign-up-toggle" id="learn-more" checked />
+                            <input type="radio" name="sign-up-form-type" id="learn-more" value="learn-more" checked />
                             <span></span>
                             Learn More / Sign up toggle (Recommended)
                           </label>
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="sign-up-toggle" id="sign-up-only" />
+                            <input type="radio" name="sign-up-form-type" id="sign-up-only" value="sign-up-only" />
                             <span> </span>
                             Sign Up Only
                           </label>
                         </div>
                       </div>
                       <div class="form-group form-inline row">
-                        <label for="frame-height" class="form-group col-lg-4">
-                          <strong>Frame Height</strong>
-                          <input type="text" name="frame-height" id="frame-height" class="form-control" />
+                        <strong class="col-lg-2">Frame Height</strong>
+                        <label for="frame-height" class="form-group col-lg-3">
+                          <input type="text" name="frame-height" id="frame-height" class="form-control" value="700" />
                           <span>px</span>
                         </label>
-                        <label for="frame-width" class="form-group col-lg-4">
-                          <strong>Frame Width</strong>
-                          <input type="text" name="frame-width" id="frame-width" class="form-control" />
-                          <span>px</span>
+                        <strong class="col-lg-1">Frame Width</strong>
+                        <label for="frame-width" class="form-group col-lg-3">
+                          <input type="text" name="frame-width" id="frame-width" class="form-control" value="100" />
+                          <span>%</span>
                         </label>
                       </div>
                       <div class="form-group row">
@@ -339,14 +339,14 @@
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="background" id="white" checked />
+                            <input type="radio" name="background" id="white" checked value="White" />
                             <span></span>
                             White
                           </label>
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="background" id="transparent" />
+                            <input type="radio" name="background" id="transparent" value="Transparent" />
                             <span> </span>
                             Transparent
                           </label>
@@ -358,14 +358,14 @@
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="chargebee-payment" id="yes" checked />
+                            <input type="radio" name="chargebee-payment" id="yes" checked value="Yes" />
                             <span></span>
                             Yes
                           </label>
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="chargebee-payment" id="no" />
+                            <input type="radio" name="chargebee-payment" id="no" value="No" />
                             <span> </span>
                             No
                           </label>
@@ -383,7 +383,7 @@
                           </strong>
                         </label>
                         <div class=" col-lg-6">
-                          <input type="text" name="file-title" id="file-title" class="form-control">
+                          <input type="text" name="web-form-title" id="web-form-title" class="form-control">
                         </div>
                       </div>
                       <p>
@@ -411,7 +411,7 @@
                       <!--Textarea Content Modal-->
                       <div class="modal fade" id="text-area-modal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-xl" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="text-area-modal-title">Preview</h5>
@@ -471,79 +471,86 @@
                         </div>
                       </div>
                       <!--end::Notice-->
-                      <div class="form-group row">
-                        <label class="col-lg-3"><strong>Select Language</strong></label>
-                        <div class="radio-inline col-lg-3">
-                          <label class="radio">
-                            <input type="radio" name="affiliate-language" id="english" />
-                            <span> </span>
-                            English
-                          </label>
-                          <label class="radio">
-                            <input type="radio" name="affiliate-language" id="spanish" />
-                            <span> </span>
-                            Spanish
-                          </label>
+                      <div id="affiliate-sign-up-form-area">
+                        <div class="form-group row">
+                          <label class="col-lg-3"><strong>Select Language</strong></label>
+                          <div class="radio-inline col-lg-3">
+                            <label class="radio">
+                              <input type="radio" name="affiliate-language" id="english" value="en" checked />
+                              <span> </span>
+                              English
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="affiliate-language" id="spanish" value="es" />
+                              <span> </span>
+                              Spanish
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group row align-items-center">
-                        <div class="col-lg-3">
-                          <label><strong>Web Form Custom Title</strong></label>
+                        <div class="form-group row align-items-center">
+                          <div class="col-lg-3">
+                            <label><strong>Web Form Custom Title</strong></label>
+                          </div>
+                          <div class="col-lg-4">
+                            <input type="text" name="affiliate-custom-title" id="affiliate-custom-title"
+                              class="form-control form-control-solid border border-light">
+                          </div>
                         </div>
-                        <div class="col-lg-4">
-                          <input type="text" name="affiliate-custom-title" id="affiliate-custom-title"
-                            class="form-control form-control-solid border border-light">
+                        <div class="form-group row align-items-center">
+                          <div class="col-lg-3">
+                            <label><strong>Frame Height</strong></label>
+                          </div>
+                          <div class="form-inline col-lg-3">
+                            <input type="text" name="affiliate-frame-height" id="affiliate-frame-height"
+                              class="form-control form-control-solid" value="700" />
+                            <span>px</span>
+                          </div>
+                          <div class="col-lg-2">
+                            <label><strong>Frame Width</strong></label>
+                          </div>
+                          <div class="form-inline col-lg-3">
+                            <input type="text" name="affiliate-frame-width" id="affiliate-frame-width"
+                              class="form-control form-control-solid" value="100" />
+                            <span>%</span>
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group row align-items-center">
-                        <div class="col-lg-3">
-                          <label><strong>Frame Height</strong></label>
+                        <div class="form-group row">
+                          <div class="col-lg-3">
+                            <label><strong>Select Background</strong></label>
+                          </div>
+                          <div class="radio-inline col-lg-3">
+                            <label class="radio">
+                              <input type="radio" name="affiliate-background" id="white" value="white" checked />
+                              <span> </span>
+                              White
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="affiliate-background" id="transparent" value="transparent" />
+                              <span> </span>
+                              Transparent
+                            </label>
+                          </div>
                         </div>
-                        <div class="form-inline col-lg-3">
-                          <input type="text" name="affiliate-frame-height" id="affiliate-frame-height"
-                            class="form-control form-control-solid" />
-                          <span>px</span>
+                        <div class="form-group row">
+                          <div class="col-lg-3">
+                            <label><strong>Web Form Code</strong></label>
+                          </div>
+                          <div class="col-lg-8">
+                            <textarea name="affiliate-web-form-code" id="affiliate-web-form-code" cols="30" rows="5"
+                              class="form-control form-control-solid" spellcheck="false"></textarea>
+                          </div>
                         </div>
-                        <div class="col-lg-2">
-                          <label><strong>Frame Width</strong></label>
+                        <div class="form-group row">
+                          <div class="col-lg-3"></div>
+                          <div class="col-lg-4">
+                            <button class="btn btn-sm btn-outline-primary" id="affiliate-copy-btn">Copy</button>
+                            <button class="btn btn-sm btn-outline-primary" id="affiliate-preview-btn">Preview</button>
+                          </div>
                         </div>
-                        <div class="form-inline col-lg-3">
-                          <input type="text" name="affiliate-frame-width" id="affiliate-frame-width"
-                            class="form-control form-control-solid" />
-                          <span>px</span>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-lg-3">
-                          <label><strong>Select Background</strong></label>
-                        </div>
-                        <div class="radio-inline col-lg-3">
-                          <label class="radio">
-                            <input type="radio" name="affiliate-background" id="white" />
-                            <span> </span>
-                            White
-                          </label>
-                          <label class="radio">
-                            <input type="radio" name="affiliate-background" id="transparent" />
-                            <span> </span>
-                            Transparent
-                          </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-lg-3">
-                          <label><strong>Web Form Code</strong></label>
-                        </div>
-                        <div class="col-lg-8">
-                          <textarea name="affiliate-web-form-code" id="affiliate-web-form-code" cols="30" rows="5"
-                            class="form-control form-control-solid" spellcheck="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-4">
-                          <button class="btn btn-sm btn-outline-primary" id="affiliate-copy-btn">Copy</button>
-                          <button class="btn btn-sm btn-outline-primary" id="affiliate-preview-btn">Preview</button>
+                        <div class="form-group row">
+                          <div class="col-lg-4">
+                            <button class="btn btn-sm btn-outline-primary" id="affiliate-save-btn">Save Changes</button>
+                          </div>
                         </div>
                       </div>
                       <!--begin::Notice-->
