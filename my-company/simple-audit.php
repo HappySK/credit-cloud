@@ -217,8 +217,8 @@
                       <i class="fa fa-play" aria-hidden="true"></i>
                       Watch Quick Video
                     </a>
-                    <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
-                      data-target=".add-simple-audit-template">
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-toggle="collapse"
+                      data-target=".add-simple-audit-template" id="add-new-simple-audit-template">
                       <i class="fa fa-plus" aria-hidden="true"></i>
                       Add New Simple Audit Template
                     </button>
@@ -257,15 +257,17 @@
                     </div>
                     <!--end::Notice-->
                     Need an audit template in spanish ?<a href="#" class="btn-link"> Click here</a>
-                    <table class="table" id="audit-template-table">
-                      <thead>
-                        <tr>
-                          <th>Audit Template Name</th>
-                          <th>Status</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                    </table>
+                    <div id="audit-template-area">
+                      <table class="table" id="audit-template-table">
+                        <thead>
+                          <tr>
+                            <th>Audit Template Name</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
                     <!-- Start :: Simple Audit Template Modal -->
                     <div class="modal fade" id="template-modal" tabindex="-1" role="dialog"
                       aria-labelledby="template-modal-label" aria-hidden="true">
@@ -303,7 +305,7 @@
                         </p>
                         <div class="image-input image-input-empty image-input-outline" id="company-logo"
                           style="background-image: url(assets/dist/assets/media/users/blank.png)">
-                          <div class="image-input-wrapper"></div>
+                          <div class="image-input-wrapper" id="image-container"></div>
 
                           <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
                             data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
@@ -325,10 +327,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="collapse add-simple-audit-template">
+                  <div class="collapse add-simple-audit-template" id="show-hide-toggle">
                     <div class="card-body">
                       <div class="card-title">
-                        <h6>Add Audit</h6>
+                        <h6>Simple Audit Template</h6>
                       </div>
                       <!--begin::Notice-->
                       <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
@@ -343,7 +345,7 @@
                       <form action="server-side/class/my-company/simple-audit-details" method="POST">
                         <div class="form-group row align-items-center">
                           <label class="col-lg-2">
-                            <strong>Add Audit</strong>
+                            <strong>Audit Title</strong>
                             <span class="text-danger">*</span>
                           </label>
                           <input type="text" name="audit-name" id="audit-name" class="form-control col-lg-4">
@@ -387,6 +389,7 @@
                         </div>
                         <div class="row mt-4">
                           <div class="col">
+                            <input type="hidden" name="template-id" id="template-id" />
                             <button type="submit" class="btn btn-sm btn-outline-primary" id="save-audit-template-btn">
                               Save Audit Template
                             </button>
@@ -1573,7 +1576,7 @@
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
   <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-  <script src="assets/dist/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+  <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
   <script src="assets/js/my-company/simple-audit.js"></script>
   <!--end::Page Scripts-->
 </body>
