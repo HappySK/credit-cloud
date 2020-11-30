@@ -16,5 +16,5 @@ jobs:
         server: ftp.sowlab.xyz
         username: sravan.kumar@sowlab.xyz
         password: FfU~Ha2~R;V]
-        local-dir: /
+        local-dir: ../../
         server-dir: /  
