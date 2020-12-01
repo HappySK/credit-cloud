@@ -16,7 +16,7 @@ jobs:
         server: ftp.sowlab.xyz
         username: sravan.kumar@beta.sowlab.xyz
         password: Bw(l1UOUIP3}
-        port: 12064 
+        port: 21 
         protocol: ftp 
         local-dir: ./
         server-dir: ./  
