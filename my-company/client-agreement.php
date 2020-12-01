@@ -14,7 +14,7 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <title><?= TITLE ?> | Home</title>
+  <title><?= TITLE ?> | Client Agreement Options</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="canonical" href="sravan.sowlab.com/credit" />
@@ -104,15 +104,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Home</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Client Agreement Options</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="" class="text-muted">General</a>
+                      <a href="my-company/company-profile.php" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="" class="text-muted">Home Page</a>
+                      <a href="" class="text-muted">Client Agreement</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -208,7 +208,156 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <p>Page content goes here...</p>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex justify-content-between">
+                    <h6>Client Agreement options</h6>
+                    <div class="d-flex justify-content-start">
+                      <a href="#" class="btn btn-sm btn-outline-primary mr-2">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Watch Quick Video
+                      </a>
+                      <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                        data-target=".show-hide-agreement" id="add-agreement-btn">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add New Agreement
+                      </button>
+                    </div>
+                  </div>
+                  <div class="collapse show show-hide-agreement">
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                      <div class="alert-text">
+                        New client's sign your agreement on their first visit to your portal. Signed agreements with
+                        timestamp and IP are saved to your <a href="#">Digital Signature Records</a> page. Want to see
+                        what it's like for
+                        a client? Click here for a <a href="#">client portal demo</a>.
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                    <p>Using an online agreement (or not) depends upon your own personal preference. Please choose:</p>
+                    <div class="radio-list">
+                      <label class="radio">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-1">
+                        <span></span>
+                        Do not use an online agreement for new clients with portal access
+                      </label>
+                      <label class="radio">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-2">
+                        <span></span>
+                        Use my default client agreement below for all new clients with portal
+                      </label>
+                      <label class="radio">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-1">
+                        <span></span>
+                        Use different agreements for all the clients with portal
+                      </label>
+                    </div>
+                    <div class="mt-3">
+                      <strong>
+                        Before making edits:
+                      </strong>
+                      Be sure to save a copy of the original default agreement (in case you make a
+                      mistake) and <a href="#">watch this video</a> before making any changes. Our default agreement
+                      will
+                      automatically
+                      merge your client and company details with no editing needed. Most users use the same one
+                      agreement
+                      for all clients. They add their pricing to paragraph 3 and leave the rest as-is. If you have
+                      additional pricing plans (i.e. "married couple," etc.), create additional master agreements.
+                    </div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Agreement Name</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                    </table>
+                    <p>Total : <span id="total-rows"></span></p>
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3" role="alert">
+                      <div class="alert-icon">
+                        <i class="fa fa-lightbulb text-warning" aria-hidden="true"></i>
+                      </div>
+                      <div class="alert-text">
+                        You must <a href="#">Complete your Company Profile</a> page and add pricing to your agreement
+                        before saving it to
+                        any client's profile, because once you've saved an agreement to a client's profile, it cannot be
+                        changed for that client. Any new changes to your master agreement will not affect the agreements
+                        you've already saved to client profiles. To change an agreement already saved to a client
+                        profile,
+                        you must delete that client's profile and start over.
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                  </div>
+                  <div class="collapse show-hide-agreement">
+                    <!--begin::Notice-->
+                    <div class="alert alert-custom alert-white alert-shadow gutter-b m-3" role="alert">
+                      <div class="alert-icon">
+                        <span class="svg-icon svg-icon-primary svg-icon-xl">
+                          <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <rect x="0" y="0" width="24" height="24" />
+                              <path
+                                d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
+                                fill="#000000" opacity="0.3" />
+                              <path
+                                d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
+                                fill="#000000" fill-rule="nonzero" />
+                            </g>
+                          </svg>
+                          <!--end::Svg Icon-->
+                        </span>
+                      </div>
+                      <div class="alert-text">
+                        Create an online agreement to display for clients first visit to your portal. Your client signs
+                        at the bottom to enter your portal. Our default agreement will automatically fill in each
+                        client's name and your company information with no editing needed. Just add your master pricing
+                        to paragraph 3 and leave the rest as-is. By using our special placeholders {in brackets}, the
+                        client and company information will automatically populate in the correct places.
+                        <a href="#">See all available placeholders.</a>
+                      </div>
+                    </div>
+                    <!--end::Notice-->
+                    <div class="form-group row align-items-center">
+                      <label class="col-lg-3">Agreement Name <span class="text-danger">*</span></label>
+                      <div class="col-lg-4">
+                        <input type="text" name="agreement-name" id="agreement-name"
+                          class="form-control form-control-solid">
+                      </div>
+                    </div>
+                    <div class="form-group row justify-content-center">
+                      <textarea name="agreement-content" id="agreement-content" cols="30" rows="10"
+                        class="form-control w-100"></textarea>
+                    </div>
+                    <div class="form-group row form-inline">
+                      <label>Set As Default</label>
+                      <div class="radio-inline">
+                        <label class="radio">
+                          <input type="radio" name="default-agreement" id="Yes" value="Yes" class="form-check-input">
+                          <span></span>
+                          Yes
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="default-agreement" id="No" value="No" class="form-check-input">
+                          <span></span>
+                          No
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-lg-2">
+                        <button class="btn btn-sm btn-outline-primary">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <!--end::Container-->
           </div>
@@ -1335,6 +1484,8 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+  <script src="assets/js/my-company/client-agreement.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
