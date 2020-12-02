@@ -31,6 +31,7 @@
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Theme Styles-->
   <!--begin::Layout Themes(used by all pages)-->
+  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
@@ -238,17 +239,20 @@
                     <p>Using an online agreement (or not) depends upon your own personal preference. Please choose:</p>
                     <div class="radio-list">
                       <label class="radio">
-                        <input type="radio" class="form-check-input" name="online-agreement" id="option-1">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-1"
+                          value="option-1" />
                         <span></span>
                         Do not use an online agreement for new clients with portal access
                       </label>
                       <label class="radio">
-                        <input type="radio" class="form-check-input" name="online-agreement" id="option-2">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-2" checked
+                          value="option-2" />
                         <span></span>
                         Use my default client agreement below for all new clients with portal
                       </label>
                       <label class="radio">
-                        <input type="radio" class="form-check-input" name="online-agreement" id="option-1">
+                        <input type="radio" class="form-check-input" name="online-agreement" id="option-3"
+                          value="option-3" />
                         <span></span>
                         Use different agreements for all the clients with portal
                       </label>
@@ -266,7 +270,7 @@
                       for all clients. They add their pricing to paragraph 3 and leave the rest as-is. If you have
                       additional pricing plans (i.e. "married couple," etc.), create additional master agreements.
                     </div>
-                    <table class="table">
+                    <table class="table" id="client-agreement-table">
                       <thead>
                         <tr>
                           <th>Agreement Name</th>
@@ -276,6 +280,24 @@
                       </thead>
                     </table>
                     <p>Total : <span id="total-rows"></span></p>
+                    <!-- Start :: Simple Audit Template Modal -->
+                    <div class="modal fade" id="agreement-modal" tabindex="-1" role="dialog"
+                      aria-labelledby="agreement-modal-label" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Client Agreement</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                          </div>
+                          <div class="modal-body" id="agreement-modal-content">
+                            <textarea name="modal-agreement" id="modal-agreement" cols="30" rows="10"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End :: Simple Audit Template Modal-->
                     <!--begin::Notice-->
                     <div class="alert alert-custom alert-white alert-shadow gutter-b m-3" role="alert">
                       <div class="alert-icon">
@@ -331,9 +353,14 @@
                           class="form-control form-control-solid">
                       </div>
                     </div>
+                    <div class="form-group row">
+                      <button class="btn btn-sm btn-link" id="agreement-template">
+                        Add Original Default Agreement Text
+                      </button>
+                    </div>
                     <div class="form-group row justify-content-center">
                       <textarea name="agreement-content" id="agreement-content" cols="30" rows="10"
-                        class="form-control w-100"></textarea>
+                        class="form-control"></textarea>
                     </div>
                     <div class="form-group row form-inline">
                       <label>Set As Default</label>
@@ -344,7 +371,8 @@
                           Yes
                         </label>
                         <label class="radio">
-                          <input type="radio" name="default-agreement" id="No" value="No" class="form-check-input">
+                          <input type="radio" name="default-agreement" id="No" value="No" class="form-check-input"
+                            checked>
                           <span></span>
                           No
                         </label>
@@ -352,7 +380,8 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-lg-2">
-                        <button class="btn btn-sm btn-outline-primary">Submit</button>
+                        <input type="hidden" id="agreement-id">
+                        <button class="btn btn-sm btn-outline-primary" id="save-agreement-btn">Submit</button>
                       </div>
                     </div>
                   </div>
@@ -1484,6 +1513,7 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
   <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
   <script src="assets/js/my-company/client-agreement.js"></script>
   <!--end::Page Scripts-->
