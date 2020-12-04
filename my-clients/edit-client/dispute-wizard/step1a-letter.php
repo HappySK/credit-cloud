@@ -1,3 +1,12 @@
+<?php 
+  require '../../../config/config.php';
+  require FUNCTIONS_PATH.'/functions.php';
+  session_start();
+  if(isset($_SESSION['c_id']))
+  {
+    $client = get_client($_SESSION['c_id'],$connection);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -5,15 +14,6 @@
 <head>
   <base href="../../../">
   <meta charset="utf-8" />
-  <?php require '../../../config/config.php'?>
-  <?php
-    require FUNCTIONS_PATH.'/functions.php';
-    session_start();
-    if(isset($_SESSION['c_id']))
-    {
-      $client = get_client($_SESSION['c_id'],$connection);
-    }
-  ?>
   <title><?= TITLE ?> | Step 1 A Letter</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
