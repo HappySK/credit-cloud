@@ -124,6 +124,24 @@ class simple_audit extends dbconnect
       $sql = "UPDATE `mycompany__simple_audit_template` SET `user_id` = ?, `audit_name` = ?, `audit_text_area` = ?, `default_template` = ?, `page_numbering` = ? WHERE `s_no` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['user_id'],$template['audit-name'], base64_encode($template['audit-text-area']), $template['default-template'], $page_numbering, $id]);
+      $this->update_status($id);
+    }
+    catch(SQLException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  function update_status($id)
+  {
+    try
+    {
+      $sql1 = "UPDATE `mycompany__simple_audit_template` SET `default_template` = ? WHERE `s_no` = ?";
+      $sql2 = "UPDATE `mycompany__simple_audit_template` SET `default_template` = ? WHERE `s_no` != ?";
+      $stmt1 = $this->conn->prepare($sql1);
+      $stmt2 = $this->conn->prepare($sql2);
+      $stmt1->execute(['Yes',$id]);
+      $stmt2->execute(['No',$id]);
     }
     catch(SQLException $e)
     {
@@ -169,23 +187,6 @@ class simple_audit extends dbconnect
       $record = $stmt->fetch(PDO::FETCH_ASSOC);
       $row['company_logo'] = base64_decode($record['company_logo']);
       return $row;
-    }
-    catch(SQLException $e)
-    {
-      echo $e->getMessage();
-    }
-  }
-
-  function update_status($id)
-  {
-    try
-    {
-      $sql1 = "UPDATE `mycompany__simple_audit_template` SET `default_template` = 'Yes' WHERE `s_no` = ?";
-      $sql2 = "UPDATE `mycompany__simple_audit_template` SET `default_template` = 'No' WHERE `s_no` != ?";
-      $stmt1 = $this->conn->prepare($sql1);
-      $stmt2 = $this->conn->prepare($sql2);
-      $stmt1->execute([$id]);
-      $stmt2->execute([$id]);
     }
     catch(SQLException $e)
     {
