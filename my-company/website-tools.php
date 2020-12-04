@@ -1,3 +1,12 @@
+<?php
+  session_start();  
+  require '../config/config.php';
+  require CLASS_PATH.'/user.php';
+  if(isset($_SESSION['id']))
+  {
+    $user_details = $user->get_data($_SESSION['id']);     
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
@@ -5,15 +14,6 @@
 <head>
   <base href="../">
   <meta charset="utf-8" />
-  <?php session_start(); ?>
-  <?php require '../config/config.php'?>
-  <?php
-    require CLASS_PATH.'/user.php';
-    if(isset($_SESSION['id']))
-    {
-      $user_details = $user->get_data($_SESSION['id']);     
-    }
-  ?>
   <title><?= TITLE ?> | Website Tools</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -48,7 +48,7 @@
   <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
     <a href="index.html">
-      <img alt="Logo" src="assets/dist/assets/media/logos/logo-light.png" />
+      <img alt="Logo" src="https://app.creditrepaircloud.com/application/images/creditrepaircloud_logo-small.png" />
     </a>
     <!--end::Logo-->
     <!--begin::Toolbar-->
@@ -288,8 +288,8 @@
                           <strong>Select Language</strong>
                         </div>
                         <div class="radio-inline col-lg-3">
-                          <label class="radio">
-                            <input type="radio" name="web-signup-language" id="english" value="en" checked />
+                          <label class="radio checked">
+                            <input type="radio" name="web-signup-language" id="english" value="en" />
                             <span></span>
                             English
                           </label>
@@ -339,14 +339,14 @@
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="background" id="white" checked value="White" />
+                            <input type="radio" name="background" id="white" checked value="white" />
                             <span></span>
                             White
                           </label>
                         </div>
                         <div class="radio-inline col-lg-3">
                           <label class="radio">
-                            <input type="radio" name="background" id="transparent" value="Transparent" />
+                            <input type="radio" name="background" id="transparent" value="transparent" />
                             <span> </span>
                             Transparent
                           </label>
@@ -476,12 +476,12 @@
                           <label class="col-lg-3"><strong>Select Language</strong></label>
                           <div class="radio-inline col-lg-3">
                             <label class="radio">
-                              <input type="radio" name="affiliate-language" id="english" value="en" checked />
+                              <input type="radio" name="affiliate-language" id="affiliate-english" value="en" checked />
                               <span> </span>
                               English
                             </label>
                             <label class="radio">
-                              <input type="radio" name="affiliate-language" id="spanish" value="es" />
+                              <input type="radio" name="affiliate-language" id="affiliate-spanish" value="es" />
                               <span> </span>
                               Spanish
                             </label>
