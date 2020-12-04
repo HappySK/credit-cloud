@@ -142,15 +142,32 @@
                   else
                   {
                   ?>
-                   Not Signed In ? Please <a href="user/sign-in">Sign In</a>
+                   Guest
                    <?php
                   }
                   ?>
                  </span>
                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                   <span class="symbol-label font-size-h5 font-weight-bold">S</span>
+                   <span class="symbol-label font-size-h5 font-weight-bold">
+                     <?php 
+                      if(isset($user_details->first_name)) 
+                      { 
+                        echo substr($user_details->first_name,0,1);
+                      }
+                      else
+                      {
+                        echo 'X';
+                      }
+                    ?>
+                   </span>
                  </span>
                </div>
+               <?php 
+                  if(!isset($user_details->first_name)) 
+                  { 
+                    echo '<a href="user/sign-in" class="btn btn-sm btn-link">Sign In</a>';
+                  }
+                ?>
              </div>
              <!--end::User-->
            </div>
