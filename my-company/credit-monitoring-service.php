@@ -1,6 +1,7 @@
-<?php
+<?php 
+  session_start();  
+  require '../config/config.php';
   require CLASS_PATH.'/user.php';
-  session_start();
   if(isset($_SESSION['id']))
   {
     $user_details = $user->get_data($_SESSION['id']);     
@@ -11,13 +12,12 @@
 <!--begin::Head-->
 
 <head>
+  <base href="../">
   <meta charset="utf-8" />
-  <base href="../../../">
-  <?php require '../../../config/config.php'?>
-  <title><?= TITLE ?> | REVIEW CREDIT REPORTS</title>
+  <title><?= TITLE ?> | Credit Monitoring Service</title>
   <meta name="description" content="Page with empty content" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="canonical" href="<?= LINK ?>" />
+  <link rel="canonical" href="sravan.sowlab.com/credit" />
   <!--begin::Fonts-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
   <!--end::Fonts-->
@@ -90,116 +90,10 @@
   <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="d-flex flex-row flex-column-fluid page">
-      <?php include '../../../config/aside.php'?>
+      <?php include '../config/aside.php'?>
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-        <!--begin::Header-->
-        <div id="kt_header" class="header header-fixed">
-          <!--begin::Container-->
-          <div class="container-fluid d-flex align-items-stretch justify-content-between">
-            <!--begin::Header Menu Wrapper-->
-            <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-              <!--begin::Header Menu-->
-              <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
-                <!--begin::Header Nav-->
-                <ul class="menu-nav">
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <!-- Button trigger modal-->
-                    <a href="#" data-toggle="modal" class="menu-link menu-toggle" data-target="#newLeads">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <polygon points="0 0 24 0 24 24 0 24" />
-                            <path
-                              d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
-                              fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                            <path
-                              d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
-                              fill="#000000" fill-rule="nonzero" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">New Leads</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0)" data-toggle="modal" class="menu-link menu-toggle"
-                      data-target="#messagesModal">
-                      <!-- Button trigger modal-->
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5" />
-                            <path
-                              d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z"
-                              fill="#000000" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Messages</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript: void(0);" class="menu-link menu-toggle" data-toggle="modal"
-                      data-target="#tasksModal">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M5.5,4 L9.5,4 C10.3284271,4 11,4.67157288 11,5.5 L11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,5.5 C4,4.67157288 4.67157288,4 5.5,4 Z M14.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,17.5 C13,16.6715729 13.6715729,16 14.5,16 Z"
-                              fill="#000000" />
-                            <path
-                              d="M5.5,10 L9.5,10 C10.3284271,10 11,10.6715729 11,11.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L14.5,14 C13.6715729,14 13,13.3284271 13,12.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z"
-                              fill="#000000" opacity="0.3" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Task and Events</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                      <span class="svg-icon svg-icon-primary svg-icon-2x p-4">
-                        <!--begin::Svg Icon-->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                          height="24px" viewBox="0 0 24 24" version="1.1">
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                              d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z"
-                              fill="#000000" />
-                            <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1" />
-                          </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                        <span class="d-lg-none">Batchprint</span>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <!--end::Header Nav-->
-              </div>
-              <!--end::Header Menu-->
-            </div>
-            <!--end::Header Menu Wrapper-->
-            <!--begin::Topbar-->
-            <?php require '../../../config/top-bar.php'?>
-            <!--end::Topbar-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::Header-->
+        <?php include '../config/header.php'?>
         <!--begin::Content-->
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
           <!--begin::Subheader-->
@@ -210,17 +104,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                   <!--begin::Page Title-->
-                  <h5 class="text-dark font-weight-bold my-1 mr-5">Review Your Credit History Reports</h5>
+                  <h5 class="text-dark font-weight-bold my-1 mr-5">Credit Monitoring Service</h5>
                   <!--end::Page Title-->
                   <!--begin::Breadcrumb-->
                   <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client-details?tab=dispute-wizard" class="text-muted">Dispute Wizard</a>
+                      <a href="my-company/my-company-profile" class="text-muted">My Company</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="my-clients/edit-client/dispute-wizard/review-credit-reports" class="text-muted">Review
-                        Credit
-                        Reports</a>
+                      <a href="my-company/credit-monitoring-service" class="text-muted">Credit Monitoring Service</a>
                     </li>
                   </ul>
                   <!--end::Breadcrumb-->
@@ -316,229 +208,274 @@
           <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-              <!-- begin :: credit wizard -->
               <div class="card">
+                <div class="card-header pb-0">
+                  <h6>Manage Credit Monitoring Services</h6>
+                  <!--begin::Notice-->
+                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                    <div class="alert-icon">
+                      <span class="svg-icon svg-icon-primary svg-icon-xl">
+                        <!--begin::Svg Icon | path:assets/dist/assets/media/svg/icons/Tools/Compass.svg-->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                          height="24px" viewBox="0 0 24 24" version="1.1">
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <path
+                              d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z"
+                              fill="#000000" opacity="0.3" />
+                            <path
+                              d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z"
+                              fill="#000000" fill-rule="nonzero" />
+                          </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                      </span>
+                    </div>
+                    <div class="alert-text">
+                      These settings allow you to customize the process your client go through when they order a credit
+                      report through a client task in their portal. Settings changed in here will change the credit
+                      monitoring service clients are requested to sign up for if assigned a client task for it in their
+                      portal. IdentityIQ, SmartCredit and MyFreeScoreNow pay affiliates (apply below). The others listed
+                      do not.
+                      <a href="#">
+                        Click here for a complete guide to setting these up in your CRC and your Client Onboarding
+                        Tasks.
+                      </a>
+                    </div>
+                  </div>
+                  <!--end::Notice-->
+                </div>
                 <div class="card-body">
-                  <h4>Credit Wizard (Kenneth Johnson)</h4>
-                  <div class="card-title d-flex align-items-center pt-0">
-                    <h5>Step</h5>
-                    <img src="assets/img/numbers/two.png" alt="Number One Icon" class="m-3" height="50" width="50">
-                    <h5>REVIEW YOUR CREDIT REPORTS</h5>
+                  <div class="card-title font-weight-bold">Those Providers work with 1 Click Import Audit</div>
+                  <div class="d-flex flex-column border border-dark rounded">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">IdentityIQ</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-identity-iq">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-identity-iq">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
                   </div>
-                  <div class="media">
-                    <img src="https://app.creditrepaircloud.com/application/images/step2-img.png" alt="Search Man"
-                      height="90" width="70" class="align-middle">
-                    <div class="media-body">
-                      <ol type="A">
-                        <h5>IN THIS STEP</h5>
-                        <li>Take time to carefully review the credit reports with your client.</li>
-                        <li>Circle the items you wish to dispute.</li>
-                        <li>Move on to <a href="#">Step 3.</a></li>
-                      </ol>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">SmartCredit</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-smart-credit">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-smart-credit">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">MyFreeScoreNow</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-my-free-score-now">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-my-free-score-now">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column border border-dark rounded mt-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">IdentityClub</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-identity-club">
+                          Learn How to become an affiliate
+                        </button>
+                        <button class="btn btn-sm btn-outline-light" id="edit-btn-identity-club">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
+                    </div>
+                    <h6 class="p-3">
+                      <i class="fa fa-cloud text-dark" aria-hidden="true"></i>
+                      Credit Repair Cloud Recommended Provider
+                    </h6>
+                  </div>
+                  <div class="d-flex flex-column align-content-center border border-dark rounded">
+                    <div class="d-flex justify-content-around align-items-center p-3">
+                      <h5 class="p-sm-3">PrivacyGaurd</h5>
+                      <button class="btn btn-sm btn-outline-light" id="edit-btn-privacy-gaurd">
+                        Edit Sign Up Link
+                      </button>
                     </div>
                   </div>
-                  <h5 class="m-7">MOST CREDIT REPORTS HAVE ERRORS. IT'S YOUR JOB TO FIND THEM.</h5>
-                  <p class="m-7">
-                    A recent study found that 79% of credit reports contain errors that lower the score. As a
-                    credit repair professional this is good news to you, because most reports can be improved
-                    immediately by simply disputing the errors.
-                  </p>
-                  <p class="m-7">
-                    Common errors include false delinquencies, public records, judgments and credit accounts that
-                    did not belong to the consumer. Sometimes these errors are the work of sloppy data entry and
-                    sometimes it's due to identity theft. It is important to examine the credit reports carefully
-                    and make every effort to correct, update or delete ALL unfavorable and incorrect information.
-                  </p>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
-                    <div class="alert-icon">
-                      <i class="fa fa-2x fa-lightbulb text-warning"></i>
-                    </div>
-                    <div class="alert-text">
-                      Tip: You are eligible for 1 free credit report per year from the Annual Service or if you've
-                      been denied credit within the past 30 days, believe you are a victim of fraud or are undergoing
-                      a hardship. If you're not eligible for free reports, cost is $0-10 depending on your state.
+                  <h6 class="card-title mt-3 mb-3">
+                    This provider is not recommended and will not work with 1-Click Import and Audit
+                  </h6>
+                  <div class="d-flex flex-column border border-dark rounded">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                      <h5 class="p-sm-3">Other Provider: Not Setup(not recommended)</h5>
+                      <div class="d-flex flex-sm-row m-3">
+                        <button class="btn btn-sm btn-primary" id="affiliate-btn-others">Learn How to become an
+                          affiliate</button>
+                        <button type="button" class="btn btn-sm btn-outline-light" id="edit-btn-others">
+                          Edit Sign Up Link
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <!--end::Notice-->
-                  <h5>HOW TO READ CREDIT REPORTS </h5>
-                  <P>The Bulk of the report will be filled with following sections</P>
-                  <ol type="1">
-                    <!-- updated by bhavik on 02-10-2015 Start (AUS & NZ changes) -->
-                    <li>
-                      <strong>Identification Information:</strong>
-                      Name, date of birth and Last 4 of SSN. These are used for identification. Employment information
-                      may also be listed. As well as your current and past addresses, spouse's name (if you're married)
-                      and date of birth are also listed for further identification.<br><br>
-                    </li>
-                    <!-- updated by bhavik on 02-10-2015 End -->
-                    <li>
-                      <strong>Public Record Information:</strong> Data from federal, state or county court records,
-                      bankruptcies, liens or judgments and other types of claims. Info listed will be: date filed, court
-                      case number, amount, status and date settled.<br><br>
-                    </li>
-                    <li>
-                      <strong>Collection Agency Information:</strong> A collection is an account that has been turned
-                      over to a collection agency by one of your creditors because you have not paid the account as
-                      agreed. Listed here are: collector's name, originating creditor/client, original amount, balance
-                      due and account number. <br><br>
-
-
-                    </li>
-                    <li>
-                      <strong>Credit Information:</strong> This section makes up the bulk of the report. It will include
-                      Mortgage, Installment, Revolving, Other, Open and Closed Accounts. It will also list Accounts in
-                      Good Standing, Accounts Currently Past due and Negative Account History.<br><br>
-                      The credit Information section is laid out as follows: Merchant/Creditor name, Subscriber Number,
-                      account number, Date opened, Date closed, Current Balance, Highest credit limit, Highest amount of
-                      credit used, and your Repayment History. Your Repayment History is shown as a string of numbers
-                      showing your payment history. Listed with each credit account, are the account's status and
-                      history. They are generally marked as follows; Current Account; Account Open or Closed in Good
-                      Standing, Closed Account; Credit Account Closed, Paid Account; Closed Account or Zero Balance,
-                      Credit Account Reinstated; Previously Closed Account Now Available for use, Foreclosure;
-                      Collateral sold to collect Defaulted Mortgage, Collection Account; Credit Account Assigned to
-                      Collection Agency <br><br>
-
-
-                    </li>
-                    <li>
-                      <strong>Inquiries that display to others:</strong> All authorized and legitimate requests from
-                      companies, creditors, employers, etc., to see your credit history are listed. <br><br>
-
-
-                    </li>
-                    <li>
-                      <strong>Inquiries that DO NOT display to others:</strong> These inquiries are displayed only to
-                      you and are not considered when tabulating your credit score. Examples these kinds of inquiries
-                      are: pre-approved offers of credit, insurance or periodic account reviews by an existing creditor.
-                      <br><br>
-
-
-                    </li>
-                    <li>
-                      <strong>Consumer Statement:</strong> If for some reason you cannot prove that a negative item is
-                      an error or if you are having a disagreement with a certain creditor, you have the right to tell
-                      your side of the story in 100 words or less. This statement will be added to your report.<br><br>
-
-
-                    </li>
-                  </ol>
-                  <h5>THINGS TO CHECK FOR</h5>
-                  <ul type="disc">
-                    <!-- updated by bhavik on 02-10-2015 Start (AUS & NZ changes) -->
-                    <li>
-                      <strong>Incorrect or incomplete personal information:</strong>
-                      Name, address, phone number, Last 4 of SSN or birth date, missing, incorrect or outdated
-                      employment information and also check for incorrect marital status (for example, a former spouse
-                      listed as current spouse).<br><br>
-                    </li>
-                    <!-- updated by bhavik on 02-10-2015 End -->
-                    <li>
-                      <strong>Outdated items past their statute of limitations:</strong><br>
-                      <ul type="disc">
-                        <li>Bankruptcies older than 10 years.</li>
-                        <li>Lawsuits or judgments, tax liens, criminal records or delinquent accounts more than 7 years
-                          old.</li>
-                        <li>Inquiries over 2 years old</li>
-                      </ul>
-                      <br>
-
-                    </li>
-                    <li>
-                      <strong>Account details and status:</strong>Make sure your accounts, credit limits and balances
-                      are listed correctly; If YOU closed an account, it should say "Account closed by consumer." If a
-                      credit limit is not posted accurately this can lower the score.<br>
-                      <br>
-
-                    </li>
-                    <li>
-                      <strong>Accounts you don't recognize.</strong> If you see a credit account you don't recall
-                      opening or charges you haven't made, this is something to be taken very seriously, as it may be an
-                      indication of Identity Theft. <br>
-                      <br>
-
-                    </li>
-                    <li>
-                      <strong>Delinquencies you didn't cause.</strong><br>
-                      <br>
-
-                    </li>
-                    <li>
-                      <strong>Duplicate Accounts.</strong> Once in a while, an error may be made that may cause a
-                      legitimate credit account to be listed more than one time on your report. These are fairly easy to
-                      catch, as they will appear identical. The problem is that they will contribute to the total debt
-                      owed and number of active accounts.<br>
-                      <br>
-
-                    </li>
-                    <li>
-                      <strong>Inquiries you don't recognize or that are over 2 years old.</strong> Inquiries must be
-                      authorized. They also should disappear from the report after 2 years.<br>
-                      <br>
-
-                    </li>
-                  </ul>
-                  <P>
-                    Most negative information should fall off a credit report after seven years, giving you a fresh
-                    start. If you see late payments, delinquent accounts or collection activity after the time they
-                    should have been removed, you should request their removal. If you suspect ID theft or fraud on one
-                    of your reports, contact that credit bureau IMMEDIATELY. Explain the situation and ask them to place
-                    a fraud alert on your file. Also report the fraud to the police.
-                  </P>
-                  <span>
-                    <h5>For more info about reviewing and disputing items in credit reports:</h5> please read the TIPS
-                    section or
-                    sign up for training at The American Credit Repair Academy.
-                  </span>
-                  <!--begin::Notice-->
-                  <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
-                    <div class="alert-icon">
-                      <i class="fa fa-2x fa-lightbulb text-warning"></i>
-                    </div>
-                    <div class="alert-text">
-                      <strong>TIP :</strong>
-                      <span>The Most Important Step in credit repair process. Take your time</span>
-                      <ol type="A">
-                        <li>Carefully review the reports with your client.</li>
-                        <li>Circle all the items you wish to dispute.</li>
-                        <li>Move on to <span class="normaltext1"> <a href="javascript:void(0);"
-                              onclick="javascript:window.location='https://app.creditrepaircloud.com/wizard/step3/NDIxMw=='"><strong>Step
-                                3</strong></a>.</span></li>
-                      </ol>
-                    </div>
-                  </div>
-                  <!--end::Notice-->
-                  <div class="d-flex justify-content-around">
-                    <a href="my-clients/edit-client/dispute-wizard/credit-history-reports"
-                      class="btn btn-sm btn-outline-primary">
-                      <i class="fa fa-backward"></i>
-                      Back
-                    </a>
-                    <a href="#" class="btn btn-sm btn-outline-primary ml-1 mr-1">
-                      It is important to have your clients order their own credit reports. Click Here
-                    </a>
-                    <a href="my-clients/edit-client/dispute-wizard/dispute-errors"
-                      class="btn btn-sm btn-outline-primary">
-                      <i class="fa fa-forward"></i>
-                      Next
-                    </a>
-                  </div>
-                  <p class="mt-5 mb-5">
-                    *Please don't contact us about credit reports or scores. Scores are purchased directly from the
-                    credit bureaus or third-party services. We are not affiliated with the credit bureaus and we
-                    cannot
-                    give credit or legal advice.
-                  </p>
                 </div>
               </div>
-              <!-- end :: credit-wizard -->
             </div>
             <!--end::Container-->
+            <!-- Affiliates Modal Begin -->
+            <div class="modal fade" id="affiliate-modal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header d-flex justify-content-between">
+                    <h5 class="modal-title" id="affiliate-modal-label"> </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                  </div>
+                  <h5 class="p-5" id="affiliate-modal-subheading-1">
+                    Want to earn revenue from consumer enrolled in credit monitoring?
+                  </h5>
+                  <h6 class="p-5 font-weight-bold" id="affiliate-modal-subheadeing-2">
+                    Become an IdentityIQ Affiliate!
+                  </h6>
+                  <div class="modal-body pt-0 mt-0" style="height: 300px;">
+                    <p id="affiliate-paragraph"></p>
+                    <form action="#">
+                      <div class="form-group">
+                        <label for="first-name" class="class-label-input">
+                          <strong>First Name</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="first-name" id="first-name" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="last-name" class="class-label-input">
+                          <strong>Last Name</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="last-name" id="last-name" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="business-name" class="class-label-input">
+                          <strong>Name of Business</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="business-name" id="business-name"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="street-address" class="class-label-input">
+                          <strong>Street Address</strong>
+                        </label>
+                        <input type="text" name="street-address" id="street-address"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="city" class="class-label-input">
+                          <strong>City</strong>
+                        </label>
+                        <input type="text" name="city" id="city" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="state-region" class="class-label-input">
+                          <strong>State / Region</strong>
+                        </label>
+                        <input type="text" name="state-region" id="state-region"
+                          class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="zip-code" class="class-label-input">
+                          <strong>Zip Code</strong>
+                        </label>
+                        <input type="text" name="zip-code" id="zip-code" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone" class="class-label-input">
+                          <strong>Phone Number</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="phone" id="phone" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="class-label-input">
+                          <strong>Email</strong>
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="email" id="email" class="form-control form-control-solid">
+                      </div>
+                      <div class="form-group">
+                        <label for="questions" class="class-label-input">
+                          <strong>Have any Questions for us ?</strong>
+                        </label>
+                        <textarea name="questions" id="questions" cols="30" rows="5" class="form-control"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#" class="btn btn-transparent-success font-weight-bold mr-2">Request Affiliate Program
+                      Information</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Affiliates Modal -->
+            <!--Edit Link Modal-->
+            <div class="modal fade" id="edit-link-modal" data-backdrop="static" tabindex="-1" role="dialog"
+              aria-labelledby="staticBackdrop" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Credit Monitoring Affiliate Link</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <a href="#" class="btn-link">Dont Have an affiliate link ? Learn More</a>
+                    <input type="text" name="affiliate-link" id="affiliate-link" class="form-control mt-3 mb-3">
+                    <p>Link settings changed in here will change the link clients are requested to signup for if
+                      assigned a client task for it in their portal. </p>
+                  </div>
+                  <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                      <a href="#" class="btn-link">Reset to Default Link</a>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-light-primary font-weight-bold"
+                        data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary font-weight-bold">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Edit Link -->
           </div>
           <!--end::Entry-->
         </div>
         <!--end::Content-->
-        <?php include '../../../config/footer.php'?>
+        <?php include '../config/footer.php'?>
       </div>
       <!--end::Wrapper-->
     </div>
@@ -546,10 +483,10 @@
   </div>
   <!--end::Main-->
   <!-- begin::User Panel-->
-  <?php require '../../../config/user-panel.php'?>
+  <?php require '../config/user-panel.php'?>
   <!-- end::User Panel-->
   <!--begin::Quick Cart-->
-  <div id="kt_quick_cart" class="offcanvas offcanvas-right p-10">
+  <div id=" kt_quick_cart" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
       <h4 class="font-weight-bold m-0">Shopping Cart</h4>
@@ -869,7 +806,8 @@
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
                 <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would
-                  be to
+                  be
+                  to
                   people</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -897,7 +835,8 @@
                 </span>
               </span>
               <div class="d-flex flex-column flex-grow-1 mr-2">
-                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would
+                <a href="#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose
+                  would
                   be to persuade</a>
                 <span class="text-muted font-size-sm">Due in 2 Days</span>
               </div>
@@ -1429,8 +1368,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Hey there, we’re just writing to let you know that you’ve been subscribed to a repository
-                    on GitHub.
+                    Hey there, we’re just writing to let you know that you’ve been subscribed to a
+                    repository on GitHub.
                   </div>
                 </div>
                 <!--end::Message Out-->
@@ -1499,8 +1438,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also
-                    viewed</div>
+                    Discover what students who viewed Learn Figma - UI/UX Design. Essential Training
+                    also viewed</div>
                 </div>
                 <!--end::Message Out-->
                 <!--begin::Message In-->
@@ -1533,8 +1472,8 @@
                   </div>
                   <div
                     class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided
-                  </div>
+                    Company BBQ to celebrate the last quater achievements and goals. Food and drinks
+                    provided</div>
                 </div>
                 <!--end::Message Out-->
               </div>
@@ -1657,8 +1596,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript">
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
   <!--begin::Global Theme Bundle(used by all pages)-->
   <script src="assets/dist/assets/plugins/global/plugins.bundle.js"></script>
   <script src="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -1671,9 +1609,10 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/js/my-company/credit-monitoring-service.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
-<?php include '../../../config/modals.php'?>
+<?php require '../config/modals.php'?>
 
 </html>

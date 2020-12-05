@@ -4,7 +4,7 @@
 
 <head>
   <base href="../">
-  <?php require 'constants.php'?>
+  <?php require 'config.php'?>
   <meta charset="utf-8" />
   <title>
     <?= TITLE ?> | 404

@@ -18,7 +18,16 @@ var KTCalendarBackgroundEvents = (function () {
 				header: {
 					left: "prev,next today",
 					center: "title",
-					right: "dayGridMonth,timeGridWeek,timeGridDay",
+					right: "dayGridMonth,timeGridWeek,timeGridDay,agenda_tasks",
+				},
+		
+				customButtons: {
+					agenda_tasks: {
+						text: 'Agenda/Tasks',
+						click: function(data) {
+							$('#agenda-tasks-modal').modal('show')
+							}
+					}
 				},
 
 				height: 800,
