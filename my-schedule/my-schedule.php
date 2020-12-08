@@ -26,6 +26,7 @@
     type="text/css" />
   <!--end::Page Vendors Styles-->
   <!--begin::Global Theme Styles(used by all pages)-->
+  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -522,6 +523,223 @@
                   </div>
                   <!--end::Notice-->
                   <div id="my-schedule"></div>
+                  <!-- Modal-->
+                  <div class="modal fade" id="agenda-tasks-modal" data-backdrop="static" tabindex="-1" role="dialog"
+                    aria-labelledby="staticBackdrop" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Agenda / Tasks</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!--begin::Notice-->
+                          <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
+                            <div class="alert-text">
+                              Click the checkbox to mark a task as complete (or the X to delete it).
+                            </div>
+                          </div>
+                          <!--end::Notice-->
+                          <div class="card-body">
+                            <div class="card-title row align-items-center">
+                              <strong class="col-lg-2 col-sm-12">Tasks and events for</strong>
+                              <select name="team-members" id="team-members" class="col-lg-3 col-sm-12 custom-select">
+                                <option value="">Select Team Member</option>
+                              </select>
+                              <div class="col-lg-4 col-sm-12 mt-2 mb-2 checkbox-inline">
+                                <label for="show-completed-tasks" class="checkbox">
+                                  <input type="checkbox" id="show-completed-tasks" name="show-completed-tasks"
+                                    value="yes">
+                                  <span></span>
+                                  Show all completed tasks and events
+                                </label>
+                              </div>
+                              <div class="btn-group col-lg-3 col-sm-12 mt-3">
+                                <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                                  data-target=".agenda-create-tasks-collapse" id="create-new-task-btn">
+                                  Create New Task
+                                </button>
+                                <button class="btn btn-sm btn-outline-primary" data-toggle="collapse"
+                                  data-target=".bulk-edit-collapse, .tasks-table-collapse">
+                                  Bulk Edit Task
+                                </button>
+                              </div>
+                            </div>
+                            <div class="collapse agenda-create-tasks-collapse hide">
+                              <div class="form-group row">
+                                <button class="btn btn-sm btn-outline-primary w-100 col" data-toggle="collapse" -
+                                  data-target=".agenda-create-tasks-collapse">
+                                  <i class="fa fa-backward" aria-hidden="true"></i>
+                                  Back
+                                </button>
+                              </div>
+                              <form id="create-task-form">
+                                <div class="form-group row align-items-center">
+                                  <label for="task-type" class="col-lg-2">
+                                    <strong>Task Type</strong>
+                                  </label>
+                                  <select name="task-type" id="task-type" class="custom-select col-lg-4 col-sm-12">
+                                    <option value="">Select Task Type</option>
+                                    <option value="General">General</option>
+                                    <option value="Billing">Billing</option>
+                                    <option value="Send Invoice">Send Invoice</option>
+                                    <option value="Follow Up">Follow Up</option>
+                                    <option value="Appoinment">Appointment</option>
+                                    <option value="Event">Event</option>
+                                    <option value="other">Other</option>
+                                  </select>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                  <label for="subject" class="col-lg-2">
+                                    <strong>Subject <span class="text-danger">*</span></strong>
+                                  </label>
+                                  <input type="text" name="subject" id="subject"
+                                    class="form-control form-control-solid col-lg-4">
+                                </div>
+                                <div class="form-group row align-items-center">
+                                  <label for="due-date-time" class="col-lg-2">
+                                    <strong>Due Date and Time</strong>
+                                  </label>
+                                  <div class="col-lg-4 col-md-9 col-sm-12">
+                                    <div class="input-group date" id="due-date-time" data-target-input="nearest">
+                                      <input type="text" class="form-control form-control-solid datetimepicker-input"
+                                        data-target="#due-date-time" id="due-date-time-value" value="" />
+                                      <div class="input-group-append" data-target="#due-date-time"
+                                        data-toggle="datetimepicker">
+                                        <span class="input-group-text" id="date-time-value">
+                                          <i class="ki ki-calendar"></i>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                  <label for="agenda-client-name" class="col-lg-2">
+                                    <strong>Client Name</strong>
+                                  </label>
+                                  <select name="agenda-client-name" id="agenda-client-name"
+                                    class="custom-select col-lg-4">
+                                    <option value="">Select Client Name</option>
+                                  </select>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                  <label for="agenda-team-member" class="col-lg-2">
+                                    <strong>Team Member <span class="text-danger">*</span></strong>
+                                  </label>
+                                  <select name="agenda-team-member" id="agenda-team-member"
+                                    class="custom-select col-lg-4">
+                                    <option value="">Select Team Member</option>
+                                  </select>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                  <label for="notes" class="col-lg-2">
+                                    <strong>Notes</strong>
+                                  </label>
+                                  <textarea name="notes" id="notes" cols="30" rows="5"
+                                    class="form-control form-control-solid col-lg-4"></textarea>
+                                </div>
+                                <div class="form-group row justify-content-around w-25">
+                                  <button type=" submit" class="btn btn-sm btn-outline-primary"
+                                    id="agenda-task-save-btn">Save</button>
+                                  <button class="btn btn-sm btn-outline-primary" data-dismiss="modal">Close</button>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="collapse bulk-edit-collapse hide">
+                              <div class="form-group row">
+                                <button class="btn btn-sm btn-outline-primary w-100" data-toggle="collapse"
+                                  data-target=".bulk-edit-collapse, .tasks-table-collapse">
+                                  <i class="fa fa-backward" aria-hidden="true"></i>
+                                  Back
+                                </button>
+                              </div>
+                              <div class="form-group row">
+                                <div class="card col">
+                                  <div class="card-header bg-light">
+                                    <div class="form-group row d-flex align-items-center justify-content-around">
+                                      <h6 class="col-lg-2 col-sm-12">FILTER</h6>
+                                      <select name="filter" id="filter" class="col-lg-4 col-sm-12 custom-select">
+                                        <option value="">Select Filter Options</option>
+                                        <option value="completed/incompleted">Completed / Incompleted</option>
+                                        <option value="task-type">Task Type</option>
+                                        <option value="task-due-date">Task Due Date</option>
+                                        <option value="client">Client</option>
+                                        <option value="assigned-team-member">Assigned Team Member</option>
+                                      </select>
+                                    </div>
+                                    <div id="filter-options"></div>
+                                  </div>
+                                  <div class="card-body">
+                                    <table class="table table-hover table-responsive-sm" id="bulk-edit-task-table">
+                                      <thead>
+                                        <tr>
+                                          <th>
+                                            <div class="checkbox-inline">
+                                              <label for="select-all-checkbox" class="checkbox">
+                                                <input type="checkbox" id="select-all-checkbox"
+                                                  name="select-all-checkbox">
+                                                <span></span>
+                                                Status
+                                              </label>
+                                            </div>
+                                          </th>
+                                          <th>Task Type</th>
+                                          <th>Subject</th>
+                                          <th>Due Date</th>
+                                          <th>Client</th>
+                                          <th>Team Member</th>
+                                        </tr>
+                                      </thead>
+                                    </table>
+                                    <div class="form-group row">
+                                      <label class="col-lg-2 col-lg-12">
+                                        <strong>Choose an action for selected tasks</strong>
+                                        <select name="action-required" id="action-required"
+                                          class="custom-select col-lg-2 col-sm-12">
+                                          <option value="">Choose Action</option>
+                                          <option value="delete">Delete</option>
+                                          <option value="mark-as-completed">Mark as Completed</option>
+                                          <option value="mark-as-incompleted">Mark as Incompleted</option>
+                                        </select>
+                                        <button type="button" class="btn btn-sm btn-outline-primary"
+                                          id="apply-action-btn">
+                                          Apply Action
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary"
+                                          data-dismiss="modal">
+                                          Close
+                                        </button>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-hover agenda-create-tasks-collapse tasks-table-collapse show"
+                              id="agenda-tasks-table">
+                              <thead>
+                                <tr>
+                                  <th>
+                                    <i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i>
+                                    Overdue
+                                  </th>
+                                  <th class="d-flex align-items-center justify-content-end w-100">
+                                    <span class="text-danger">*New Feature : </span>
+                                    <a href="#" class="btn btn-sm btn-outline-primary mr-2">
+                                      <i class="fa fa-play" aria-hidden="true"></i>
+                                      Watch Quick Video
+                                    </a>
+                                  </th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1670,6 +1888,8 @@
   <script src="assets/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
   <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM"></script>
   <script src="assets/dist/assets/plugins/custom/gmaps/gmaps.js"></script>
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="assets/dist/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
   <script src="assets/js/my-schedule/my-schedule.js"></script>
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->

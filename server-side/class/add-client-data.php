@@ -1,4 +1,5 @@
 <?php
+require '../../config/config.php';
 require CLASS_PATH.'/dbconnect.php';
 session_start();
 class clients_list extends dbconnect
@@ -65,6 +66,21 @@ class clients_list extends dbconnect
      $e->getMessage();
    }
   }
+  
+  function get_client_data()
+  {
+    try
+    {
+     $sql = "SELECT DISTINCT client_id, CONCAT(first_name,' ',last_name) as client_name FROM `clients_list` WHERE `user_id` = ?";
+     $stmt = $this->conn->prepare($sql);
+     $stmt->execute([$_SESSION['user_id']]);
+     return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    }
+    catch(SQLException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
 }
 $clients_list = new clients_list($config->DB_CREDENTIALS);
 if(isset($_POST) && !empty($_POST))
@@ -82,6 +98,13 @@ if(isset($_POST) && !empty($_POST))
     $clients_list->insert_client($client, 0);
   }
   $clients_list->update_login_date();
+  header('Location:../../my-clients/clients-list');
 }
-header('Location:../../my-clients/clients-list')
+else if(isset($_GET['action']))
+{
+  if($_GET['action'] == 'get_client_data')
+  {
+    echo json_encode($clients_list->get_client_data());
+  }
+}
 ?>
