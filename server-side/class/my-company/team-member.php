@@ -58,7 +58,7 @@
       }
     }
 
-    function get_team_members($team_member_id)
+    function get_team_member($team_member_id)
     {
       try
       {
@@ -80,6 +80,21 @@
         $sql = "DELETE FROM `mycompany__team_members` WHERE `team_member_id` = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$team_member_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
+      catch(SQLException $e)
+      {
+        echo $e->getMessage();
+      }
+    }
+
+    function get_team_members()
+    {
+      try
+      {
+        $sql = "SELECT `team_member_id`, CONCAT(`first_name`,' ',`last_name`) as team_member_name FROM `mycompany__team_members` WHERE `user_id` = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$_SESSION['user_id']]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
       catch(SQLException $e)
@@ -114,7 +129,16 @@
   {
     if($_GET['action'] == 'get_team_member')
     {
-      echo json_encode($team_member->get_team_members($_GET['team_member_id']));
+      echo json_encode($team_member->get_team_member($_GET['team_member_id']));
+    }
+  }
+
+  // For getting team-members of the particular user for my-schedule page
+  if(isset($_GET['action']))
+  {
+    if($_GET['action'] == 'get_team_members')
+    {
+      echo json_encode($team_member->get_team_members());
     }
   }
 
