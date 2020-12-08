@@ -13,7 +13,7 @@ class event_management extends dbconnect
   {
     try
     {
-      $sql = "SELECT * FROM `event_management` WHERE `s_no` = ?";
+      $sql = "SELECT * FROM `myschedule__event_management` WHERE `s_no` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$id]);
       return ($stmt->rowCount() == 1) ? true : false;
@@ -28,7 +28,7 @@ class event_management extends dbconnect
   {
     try 
     {
-      $sql = "SELECT * FROM `event_management` WHERE `user_id` = ?";
+      $sql = "SELECT * FROM `myschedule__event_management` WHERE `user_id` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['user_id']]);
       $events = $stmt->fetchAll();
@@ -55,7 +55,7 @@ class event_management extends dbconnect
   {
     try
     {
-      $sql = "SELECT * FROM `event_management` WHERE `s_no` = ?";
+      $sql = "SELECT * FROM `myschedule__event_management` WHERE `s_no` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$id]);
       return $stmt->fetchAll(PDO::FETCH_ASSOC);      
@@ -71,7 +71,7 @@ class event_management extends dbconnect
   {
     try
     {
-      $sql = "INSERT INTO `event_management`(`user_id`, `event_type`, `event_subject`, `start_date_and_time`, `end_date_and_time`, `client_name`, `team_member_name`, `location`, `remarks`) VALUES (?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO `myschedule__event_management`(`user_id`, `event_type`, `event_subject`, `start_date_and_time`, `end_date_and_time`, `client_name`, `team_member_name`, `location`, `remarks`) VALUES (?,?,?,?,?,?,?,?,?)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$_SESSION['user_id'], $event['event_type'],$event['event_subject'],$event['start_date_and_time'],$event['end_date_and_time'],$event['client_name'],$event['team_member_name'],$event['location'],$event['remarks']]);
     }
@@ -85,7 +85,7 @@ class event_management extends dbconnect
   {
     try
     {
-      $sql = "UPDATE `event_management` SET `start_date_and_time`= ? ,`end_date_and_time`= ?  WHERE `s_no` = ?";
+      $sql = "UPDATE `myschedule__event_management` SET `start_date_and_time`= ? ,`end_date_and_time`= ?  WHERE `s_no` = ?";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([$event['start_date_and_time'],$event['end_date_and_time'],$event['client_name'],$event['team_member_name'],$event['location'],$event['remarks'],$event['event_id']]);
     } 
