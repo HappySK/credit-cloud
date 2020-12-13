@@ -31,6 +31,7 @@
   <link href="assets/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Theme Styles-->
   <!--begin::Layout Themes(used by all pages)-->
+  <link href="assets/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
   <link href="assets/dist/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
@@ -222,8 +223,88 @@
                   </div>
                   <!--end::Notice-->
                   <div class="d-flex justify-content-around w-50">
-                    <button class="btn btn-sm btn-outline-primary">Manage Reasons</button>
-                    <button class="btn btn-sm btn-outline-primary">Manage Instructions</button>
+                    <button class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                      data-target="#manage-reasons-modal">
+                      Manage Reasons
+                    </button>
+                    <button class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                      data-target="#manage-instructions-modal">
+                      Manage Instructions
+                    </button>
+                  </div>
+                  <div class="modal fade" tabindex="-1" role="dialog" id="manage-reasons-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal Title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="bordered-dark">
+                            <div class="form-group row align-items-center">
+                              <label for="add-reasons" class="col-lg-2 col-sm-12">
+                                <strong>Add</strong>
+                              </label>
+                              <input type="text" name="add-reasons" id="add-reason-text"
+                                class="form-control form-control-solid col-lg-6 col-sm-12">
+                              <button class="btn btn-sm btn-outline-primary offset-lg-1 col-lg-2 col-sm-12"
+                                id="add-reasons-btn">Add</button>
+                            </div>
+                            <h5 class="pt-2 pb-2">Reasons</h5>
+                            <table class="table table-hoverable" id="manage-reasons-table">
+                              <thead>
+                                <tr>
+                                  <th>Reasons (Total: <span class="text-bold" id="total-reasons"></span>)</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" tabindex="-1" role="dialog" id="manage-instructions-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Manage Instructions</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="bordered-dark">
+                            <div class="form-group row align-items-center">
+                              <label for="add-instruction" class="col-lg-2 col-sm-12">
+                                <strong>Add</strong>
+                              </label>
+                              <input type="text" name="add-instruction" id="add-instruction-text"
+                                class="form-control form-control-solid col-lg-6 col-sm-12">
+                              <button class="btn btn-sm btn-outline-primary offset-lg-1 col-lg-2 col-sm-12"
+                                id="add-instructions-btn">Add</button>
+                            </div>
+                            <h5 class="pt-2 pb-2">Instructions</h5>
+                            <table class="table table-hoverable" id="manage-instructions-table">
+                              <thead>
+                                <tr>
+                                  <th>Reasons (Total: <span class="text-bold" id="total-instructions"></span>)</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <h5 class="pt-3 pb-3">Batch Print</h5>
@@ -236,7 +317,9 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <button class="btn btn-sm btn-outline-primary">Deactivate Batch Print Now</button>
+                  <button class="btn btn-sm btn-outline-primary" id="batch-print-toggle">
+                    Deactivate Batch Print Now
+                  </button>
                   <h5 class="pt-3 pb-3">Manage Credit Bureaus</h5>
                   <!--begin::Notice-->
                   <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
@@ -246,7 +329,7 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <table class="table table-striped">
+                  <table class="table table-striped table-responsive-sm">
                     <thead>
                       <tr>
                         <th>Name</th>
@@ -259,46 +342,104 @@
                         <td>Equifax</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/equifax.png"
                             alt="Equifax Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>Equifax Information Services LLC</p>
-                          <p>P.O. Box 740256</p>
-                          <p>Atlanta, GA 30348</p>
-                        </td>
+                        <td id="equifax-address-content"> </td>
                         <td class="d-flex">
-                          <button class="btn btn-sm btn-link">Modify</button>
-                          <button class="btn btn-sm btn-link">Reset</button>
+                          <button class="btn btn-sm btn-link" id="equifax-modify">Modify</button>
+                          <button class="btn btn-sm btn-link" id="equifax-reset">Reset</button>
                         </td>
                       </tr>
                       <tr>
                         <td>Experian</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/experian.png"
                             alt="Experian Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>Experian</p>
-                          <p>P.O. Box 4500</p>
-                          <p>Allen, TX 75013</p>
+                        <td id="experian-address-content">
                         </td>
                         <td class="d-flex">
-                          <button class="btn btn-sm btn-link">Modify</button>
-                          <button class="btn btn-sm btn-link">Reset</button>
+                          <button class="btn btn-sm btn-link" id="experian-modify">Modify</button>
+                          <button class="btn btn-sm btn-link" id="experian-reset">Reset</button>
                         </td>
                       </tr>
                       <tr>
                         <td>TransUnion</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/trans_union.png"
                             alt="Transunion Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>TransUnion LLC Consumer Dispute Center</p>
-                          <p>PO Box 2000</p>
-                          <p>Chester, PA 19016</p>
-                        </td>
+                        <td id="transunion-address-content"> </td>
                         <td class="d-flex">
-                          <button class="btn btn-link">Modify</button>
-                          <button class="btn btn-link">Reset</button>
+                          <button class="btn btn-link" id="transunion-modify">Modify</button>
+                          <button class="btn btn-link" id="transunion-reset">Reset</button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
+                  <!-- Equifax Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="equifax-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="equifax-address" id="equifax-address" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" id="equifax-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Equifax Modify Modal End -->
+                  <!-- Experian Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="experian-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="experian-address" id="experian-address" cols="30" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="experian-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Experian Modify Modal End -->
+                  <!-- Transunion Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="transunion-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="transunion-address" id="transunion-address" cols="30" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="transunion-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Transunion Modify Modal End -->
                 </div>
               </div>
             </div>
@@ -1427,6 +1568,8 @@
   <!--end::Page Vendors-->
   <!--begin::Page Scripts(used by this page)-->
   <script src="assets/dist/assets/js/pages/widgets.js"></script>
+  <script src="assets/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+  <script src="assets/js/my-company/dispute-options.js"></script>
   <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
