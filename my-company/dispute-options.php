@@ -317,7 +317,9 @@
                     </div>
                   </div>
                   <!--end::Notice-->
-                  <button class="btn btn-sm btn-outline-primary">Deactivate Batch Print Now</button>
+                  <button class="btn btn-sm btn-outline-primary" id="batch-print-toggle">
+                    Deactivate Batch Print Now
+                  </button>
                   <h5 class="pt-3 pb-3">Manage Credit Bureaus</h5>
                   <!--begin::Notice-->
                   <div class="alert alert-custom alert-white alert-shadow gutter-b m-3 bg-light" role="alert">
@@ -340,46 +342,104 @@
                         <td>Equifax</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/equifax.png"
                             alt="Equifax Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>Equifax Information Services LLC</p>
-                          <p>P.O. Box 740256</p>
-                          <p>Atlanta, GA 30348</p>
-                        </td>
+                        <td id="equifax-address-content"> </td>
                         <td class="d-flex">
-                          <button class="btn btn-sm btn-link">Modify</button>
-                          <button class="btn btn-sm btn-link">Reset</button>
+                          <button class="btn btn-sm btn-link" id="equifax-modify">Modify</button>
+                          <button class="btn btn-sm btn-link" id="equifax-reset">Reset</button>
                         </td>
                       </tr>
                       <tr>
                         <td>Experian</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/experian.png"
                             alt="Experian Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>Experian</p>
-                          <p>P.O. Box 4500</p>
-                          <p>Allen, TX 75013</p>
+                        <td id="experian-address-content">
                         </td>
                         <td class="d-flex">
-                          <button class="btn btn-sm btn-link">Modify</button>
-                          <button class="btn btn-sm btn-link">Reset</button>
+                          <button class="btn btn-sm btn-link" id="experian-modify">Modify</button>
+                          <button class="btn btn-sm btn-link" id="experian-reset">Reset</button>
                         </td>
                       </tr>
                       <tr>
                         <td>TransUnion</td>
                         <td><img src="https://app.creditrepaircloud.com/application/images/trans_union.png"
                             alt="Transunion Logo" height="100%" width="100%"></td>
-                        <td>
-                          <p>TransUnion LLC Consumer Dispute Center</p>
-                          <p>PO Box 2000</p>
-                          <p>Chester, PA 19016</p>
-                        </td>
+                        <td id="transunion-address-content"> </td>
                         <td class="d-flex">
-                          <button class="btn btn-link">Modify</button>
-                          <button class="btn btn-link">Reset</button>
+                          <button class="btn btn-link" id="transunion-modify">Modify</button>
+                          <button class="btn btn-link" id="transunion-reset">Reset</button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
+                  <!-- Equifax Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="equifax-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="equifax-address" id="equifax-address" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" id="equifax-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Equifax Modify Modal End -->
+                  <!-- Experian Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="experian-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="experian-address" id="experian-address" cols="30" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="experian-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Experian Modify Modal End -->
+                  <!-- Transunion Modify Modal -->
+                  <div class="modal fade" tabindex="-1" role="dialog" id="transunion-modal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Equifax Address</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <textarea name="transunion-address" id="transunion-address" cols="30" rows="5"
+                            class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="transunion-save">
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Transunion Modify Modal End -->
                 </div>
               </div>
             </div>
