@@ -1,9 +1,34 @@
 $(document).ready(function () {
 	// A) Web Lead Form Tab
-
-	$("#web-form-code").val(
-		'<iframe class=webform-frame name=frame_webform id=frame_webform src="https://www.secureclientaccess.com/weblead/postcrc/NGU1NDRkMzI0ZTdhNmIzMDRkNTQ1MTNk/RmlsbCBvdXQgdGhpcyBmb3JtIGZvciBhIGZyZWUgY29uc3VsdGF0aW9u/en" height=700  width=100% style="background:white"  frameborder=0></iframe>'
-	);
+	$("#save-btn").click(function () {
+		$.post(
+			"server-side/class/my-company/website-tools/web-lead-form.php",
+			{
+				action: "put_data",
+				language: $('[name="web-signup-language"]:checked').val(),
+				form_type: $('[name="sign-up-form-type"]:checked').val(),
+				frame_height: $("#frame-height").val(),
+				frame_width: $("#frame-width").val(),
+				background: $('[name="background"]:checked').val(),
+				chargebee_payment: $('[name="chargebee-payment"]:checked').val(),
+				title: $("#web-form-title").val(),
+				web_form_code:
+					'<iframe class=webform-frame name=frame_webform id=frame_webform src="https://www.secureclientaccess.com/weblead/postcrc/NGU1NDRkMzI0ZTdhNmIzMDRkNTQ1MTNk/RmlsbCBvdXQgdGhpcyBmb3JtIGZvciBhIGZyZWUgY29uc3VsdGF0aW9u/' +
+					$('[name="web-signup-language"]:checked').val() +
+					'" height=' +
+					$("#frame-height").val() +
+					"  width=" +
+					$("#frame-width").val() +
+					'% style="background:white"  frameborder=0></iframe>',
+			},
+			function (data, status) {
+				// console.log(data)
+			}
+		);
+		Swal.fire("Changes Made!", "The Changes for Web Lead Form has made!", "success").then(function(){
+			fetch_web_lead_form();
+		});
+	});
 
 	$("#save-btn").click(function () {
 		iframe_code =
@@ -65,10 +90,35 @@ $(document).ready(function () {
 	});
 
 	// B) Affiliate Sign Up tab
-
-	$("#affiliate-web-form-code").val(
-		'<iframe name=frame_lead id=frame_lead src="https://app.creditrepaircloud.com/affiliatelead/affliate_leadform/NGU1NDRkMzI0ZTdhNmIzMDRkNTQ1MTNk/UGxlYXNlIGNvbnRhY3QgbWUgYWJvdXQgeW91ciBBZmZpbGlhdGUgUHJvZ3JhbQ==/en" height=700  width=100% style="background: white"  frameborder=0  ></iframe>'
-	);
+	$("#affiliate-save-btn").click(function () {
+		$.post(
+			"server-side/class/my-company/website-tools/affiliate-sign-up-form.php",
+			{
+				actions: "put_data",
+				affiliate_language: $('[name="affiliate-language"]:checked').val(),
+				affiliate_custom_title: $("#affiliate-custom-title").val(),
+				affiliate_frame_height: $("#affiliate-frame-height").val(),
+				affiliate_frame_width: $("#affiliate-frame-width").val(),
+				affiliate_background: $('[name="affiliate-background"]:checked').val(),
+				affiliate_web_form_code:
+					'<iframe name="frame_lead" id="frame_lead" src="https://app.creditrepaircloud.com/affiliatelead/affliate_leadform/NGU1NDRkMzI0ZTdhNmIzMDRkNTQ1MTNk/UGxlYXNlIGNvbnRhY3QgbWUgYWJvdXQgeW91ciBBZmZpbGlhdGUgUHJvZ3JhbQ==/' +
+					$('[name="affiliate-language"]:checked').val() +
+					'" height="' +
+					$("#affiliate-frame-height").val() +
+					'"  width="' +
+					$("#affiliate-frame-width").val() +
+					'%" style="background:' +
+					$('[name="affiliate-background"]:checked').val() +
+					'"  frameborder="0" ></iframe>',
+			},
+			function (data, status) {
+				// console.log(data);
+			}
+		);
+		Swal.fire("Changes Made!", "The Changes for affiliate signup form is made!", "success").then(function(){
+			fetch_affiliate_sign_up_form();
+		});
+	});
 
 	$("#affiliate-save-btn").click(function () {
 		affiliate_iframe_code =
@@ -131,7 +181,9 @@ $(document).ready(function () {
 
 	//Login Options Modal
 	$("#view-my-portal-box-btn").click(function () {
-		$("#login-options-modal-content").html($("#login-options-text-area").val());
+		$("#login-options-modal-content").html(
+			$('#login-options-text-area').val()
+		);
 		$("#login-options-modal").modal("show");
 	});
 
@@ -145,12 +197,20 @@ $(document).ready(function () {
 
 	// Copying the embedded video code in videos tab
 	$("#videos-copy-btn-1").click(function () {
-		$("#videos-embed-1").val($("#videos-embed-1").val()).select();
+		$("#videos-embed-1")
+			.val(
+				$('#videos-embed-1').val()
+			)
+			.select();
 		document.execCommand("copy");
 	});
 
 	$("#videos-copy-btn-2").click(function () {
-		$("#videos-embed-2").val($("#videos-embed-2").val()).select();
+		$("#videos-embed-2")
+			.val(
+				$('#videos-embed-2').val()
+			)
+			.select();
 		document.execCommand("copy");
 	});
 });
@@ -174,7 +234,7 @@ function fetch_affiliate_sign_up_form() {
 					"checked"
 				);
 				$("#affiliate-web-form-code").val(atob(data.web_form_code));
-			}
+      }
 		},
 		"JSON"
 	);
