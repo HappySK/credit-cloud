@@ -95,6 +95,127 @@ $(document).ready(function(){
       })
     })
   })
+
+  //Batch Print Toggle
+  $('#batch-print-toggle').click(function(){
+    if($(this).text().trim() == 'Deactivate Batch Print Now')
+    {
+      Swal.fire("Deactivated", "Batch Print Deactivated Successfully!", "info").then(function(){
+        $('#batch-print-toggle').text('Activate Batch Print Now')
+      })
+    }
+    else if($(this).text().trim() == 'Activate Batch Print Now')
+    {
+      Swal.fire("Activated", "Batch Print Activated Successfully!", "success").then(function(){
+        $('#batch-print-toggle').text('Decativate Batch Print Now')
+      })
+    }
+  })
+
+  $('#equifax-address-content').html('<p>Equifax Information Services LLC, </p>'+
+                                '<p>P.O. Box 740256, </p>'+
+                                '<p>Atlanta, GA 30348.</p>')
+  $('#experian-address-content').html('<p>Experian, </p>'+
+                                '<p>P.O. Box 4500, </p>'+
+                                '<p>Allen, TX 75013.</p>')
+  $('#transunion-address-content').html('<p>TransUnion LLC Consumer Dispute Center, </p>'+
+                                    '<p>PO Box 2000, </p>'+
+                                    '<p>Chester, PA 19016.</p>')
+  
+
+  // Modify address of Equifax
+  $('#equifax-modify').click(function(){
+    $('#equifax-address').html($('#equifax-address-content').text())
+    $('#equifax-modal').modal('show')
+  })
+  $('#equifax-save').click(function(){
+    console.log($('#equifax-address').text().trim())
+    $('#equifax-address-content').html($('#equifax-address').val().trim())
+    Swal.fire("Modified", "Modifed Successfully !!", "success")
+  })
+  $('#equifax-reset').click(function(){
+        Swal.fire({
+          title: "Are you sure you want to reset?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Reset it!"
+      }).then(function(result) {
+          if (result.value) {
+            $('#equifax-address-content').html('<p>Equifax Information Services LLC</p>'+
+                                                '<p>P.O. Box 740256</p>'+
+                                                '<p>Atlanta, GA 30348</p>')
+              Swal.fire(
+                  "Reset!",
+                  "Your Address has been reset",
+                  "success"
+              )
+          }
+      })
+  })
+    
+
+  // Modify address of Equifax
+  $('#experian-modify').click(function(){
+    $('#experian-address').text($('#experian-address-content').text())
+    $('#experian-modal').modal('show')
+  })
+  $('#experian-save').click(function(){
+    console.log($('#experian-address').text().trim())
+    $('#experian-address-content').html($('#experian-address').val().trim())
+    Swal.fire("Modified", "Modifed Successfully !!", "success")
+  })
+  $('#experian-reset').click(function(){
+    Swal.fire({
+      title: "Are you sure you want to reset?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Reset it!"
+  }).then(function(result) {
+      if (result.value) {
+        $('#experian-address-content').html('<p>Experian</p>'+
+                                        '<p>P.O. Box 4500</p>'+
+                                        '<p>Allen, TX 75013</p>')
+          Swal.fire(
+              "Reset!",
+              "Your Address has been reset",
+              "success"
+          )
+      }
+  })
+})
+
+  // Modify address of TransUnion
+  $('#transunion-modify').click(function(){
+    $('#transunion-address').text($('#transunion-address-content').text())
+    $('#transunion-modal').modal('show')
+  })
+  $('#transunion-save').click(function(){
+    console.log($('#transunion-address').text().trim())
+    $('#transunion-address-content').html($('#transunion-address').val().trim())
+    Swal.fire("Modified", "Modifed Successfully !!", "success")
+  })
+  $('#transunion-reset').click(function(){
+    Swal.fire({
+      title: "Are you sure you want to reset?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Reset it!"
+  }).then(function(result) {
+      if (result.value) {
+        $('#transunion-address-content').html('<p>TransUnion LLC Consumer Dispute Center</p>'+
+                                              '<p>PO Box 2000</p>'+
+                                              '<p>Chester, PA 19016</p>')
+          Swal.fire(
+              "Reset!",
+              "Your Address has been reset",
+              "success"
+          )
+      }
+  })
+})
 })
 
 function get_total_reasons()
