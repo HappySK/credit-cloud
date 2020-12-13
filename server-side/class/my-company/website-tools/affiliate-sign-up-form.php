@@ -85,10 +85,12 @@
     {
       if($affiliate_sign_up_form->is_user_exists())
       {
-       $affiliate_sign_up_form->update_data($_POST); 
+      //  echo "Inside Update Statement";
+        $affiliate_sign_up_form->update_data($_POST); 
       }
       else
       {
+        // echo "Inside Add Statement";
         $affiliate_sign_up_form->add_data($_POST);
       }
     }
